@@ -89,4 +89,9 @@ class AsplodeTest extends \Eloquent\Asplode\Test\TestCase
 
     $this->fail('No ErrorException was thrown.');
   }
+
+  public function testInstance()
+  {
+    $this->assertInstanceOf(__NAMESPACE__.'\Asplode', Asplode::instance());
+  }
 }

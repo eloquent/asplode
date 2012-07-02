@@ -1,7 +1,7 @@
 {
   "name": "eloquent/asplode",
   "type": "library",
-  "description": "Drop-in error handling for PHP.",
+  "description": "Drop-in exception-based error handling for PHP.",
   "keywords": ["error","handling","handler","exception","errorexception","fault","failure"],
   "homepage": "https://github.com/eloquent/asplode",
   "license": "MIT",

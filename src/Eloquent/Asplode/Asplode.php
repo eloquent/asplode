@@ -15,6 +15,14 @@ use IcecaveStudios\Isolator\Isolator;
 
 class Asplode
 {
+  /**
+   * @return Asplode
+   */
+  public static function instance()
+  {
+    return new static;
+  }
+
   public function __construct(Isolator $isolator = null)
   {
     if (null === $isolator)
