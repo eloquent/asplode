@@ -46,7 +46,7 @@ As an example, this type of logic:
 ```php
 <?php
 
-$fp = fopen('/path/to/foo', 'r');
+$fp = fopen('/path/to/foo', 'r'); // this throws a PHP warning if the file is not found
 
 if ($fp === false)
 {
