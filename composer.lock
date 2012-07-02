@@ -1,0 +1,30 @@
+{
+    "hash": "d66a915864b9963583bfc195744b6b33",
+    "packages": [
+        {
+            "package": "IcecaveStudios/isolator",
+            "version": "dev-master",
+            "source-reference": "5ddc6a6345039d9032c88c34a8938ea298682635",
+            "commit-date": "1330860306"
+        }
+    ],
+    "packages-dev": [
+        {
+            "package": "eloquent/pops",
+            "version": "1.0.0"
+        },
+        {
+            "package": "phake/phake",
+            "version": "dev-master",
+            "source-reference": "4d822246b401f4dc609500d47e42dac8df645f4f",
+            "commit-date": "1337008011"
+        }
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": [
+
+    ]
+}

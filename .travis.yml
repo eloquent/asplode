@@ -1,0 +1,6 @@
+language: php
+script: test/bin/ci-run
+php:
+  - 5.3.2
+  - 5.3
+  - 5.4

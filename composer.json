@@ -1,0 +1,28 @@
+{
+  "name": "eloquent/asplode",
+  "type": "library",
+  "description": "Drop-in error handling for PHP.",
+  "keywords": ["error","handling","handler","exception","errorexception","fault","failure"],
+  "homepage": "https://github.com/eloquent/asplode",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Erin Millard",
+      "email": "ezzatron@gmail.com",
+      "homepage": "http://ezzatron.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "IcecaveStudios/isolator": "*"
+  },
+  "require-dev": {
+    "eloquent/pops": "1.*",
+    "phake/phake": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "Eloquent": "src"
+    }
+  }
+}
