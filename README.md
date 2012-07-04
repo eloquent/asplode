@@ -69,6 +69,14 @@ catch (ErrorException $e)
 }
 ```
 
+It's important to note that PHP can be very inconsistent in the way it handles
+error conditions. In some cases you may find that a function will simply return
+a boolean false when an error occurs; or it may have even stranger, less
+standard behaviour.
+
+Asplode does not free you from the responsibility of readingthe PHP
+documentation and making sure that you account for all possible return values.
+
 ## Why use Asplode?
 
 Exceptions offer a much more consistent way to handle errors. In modern PHP

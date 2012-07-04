@@ -14,11 +14,11 @@
   ],
   "require": {
     "php": ">=5.3.0",
-    "IcecaveStudios/isolator": "*"
+    "IcecaveStudios/isolator": "*@dev"
   },
   "require-dev": {
     "eloquent/pops": "1.*",
-    "phake/phake": "*"
+    "phake/phake": "*@dev"
   },
   "autoload": {
     "psr-0": {

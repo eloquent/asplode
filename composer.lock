@@ -1,5 +1,5 @@
 {
-    "hash": "d66a915864b9963583bfc195744b6b33",
+    "hash": "8ba06b53c1df8994c81000a13ae95f08",
     "packages": [
         {
             "package": "IcecaveStudios/isolator",
@@ -23,8 +23,9 @@
     "aliases": [
 
     ],
-    "minimum-stability": "dev",
-    "stability-flags": [
-
-    ]
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "icecavestudios/isolator": 20,
+        "phake/phake": 20
+    }
 }
