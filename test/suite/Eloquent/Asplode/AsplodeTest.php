@@ -12,7 +12,6 @@
 namespace Eloquent\Asplode;
 
 use Eloquent\Asplode\Test\TestCase;
-use Eloquent\Pops\Access\Pops;
 use Phake;
 
 /**
@@ -27,16 +26,6 @@ class AsplodeTest extends TestCase
 
         $this->_isolator = Phake::mock('IcecaveStudios\Isolator\Isolator');
         $this->_asplode = new Asplode($this->_isolator);
-    }
-
-    public function testDefaultIsolator()
-    {
-        $this->_asplode = new Asplode;
-
-        $this->assertInstanceOf(
-          'IcecaveStudios\Isolator\Isolator',
-          Pops::proxy($this->_asplode)->isolator
-        );
     }
 
     public function testInstall()

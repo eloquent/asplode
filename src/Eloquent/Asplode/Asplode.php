@@ -25,11 +25,7 @@ class Asplode
 
     public function __construct(Isolator $isolator = null)
     {
-        if (null === $isolator) {
-            $isolator = Isolator::getIsolator();
-        }
-
-        $this->isolator = $isolator;
+        $this->isolator = Isolator::get($isolator);
     }
 
     public function install()
