@@ -11,11 +11,18 @@
  */
 
 // path constants
-require dirname(__DIR__).DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'paths.php';
+require
+    dirname(__DIR__).
+    DIRECTORY_SEPARATOR.'src'.
+    DIRECTORY_SEPARATOR.'paths.php'
+;
 
 // get Composer
 $composerPath = LQNT_TEST_BIN_DIR.DIRECTORY_SEPARATOR.'composer.phar';
-file_put_contents($composerPath, file_get_contents('http://getcomposer.org/composer.phar'));
+file_put_contents(
+    $composerPath,
+    file_get_contents('http://getcomposer.org/composer.phar')
+);
 
 // install vendors
 $oldWorkingPath = getcwd();

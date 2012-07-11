@@ -11,24 +11,29 @@
 
 namespace Eloquent\Asplode\Exception;
 
+use Eloquent\Asplode\Test\TestCase;
 use Phake;
 
-class LogicExceptionTest extends \Eloquent\Asplode\Test\TestCase
+class LogicExceptionTest extends TestCase
 {
-  /**
-   * @covers Eloquent\Asplode\Exception\LogicException
-   * @covers Eloquent\Asplode\Exception\Exception
-   * @group exceptions
-   * @group core
-   */
-  public function testException()
-  {
-    $message = 'foo';
-    $previous = new \Exception;
-    $exception = Phake::partialMock(__NAMESPACE__.'\LogicException', $message, $previous);
+    /**
+     * @covers Eloquent\Asplode\Exception\LogicException
+     * @covers Eloquent\Asplode\Exception\Exception
+     * @group exceptions
+     * @group core
+     */
+    public function testException()
+    {
+        $message = 'foo';
+        $previous = new \Exception;
+        $exception = Phake::partialMock(
+            __NAMESPACE__.'\LogicException',
+            $message,
+            $previous
+        );
 
-    $this->assertSame($message, $exception->getMessage());
-    $this->assertSame(0, $exception->getCode());
-    $this->assertSame($previous, $exception->getPrevious());
-  }
+        $this->assertSame($message, $exception->getMessage());
+        $this->assertSame(0, $exception->getCode());
+        $this->assertSame($previous, $exception->getPrevious());
+    }
 }

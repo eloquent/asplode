@@ -9,8 +9,6 @@
  * file that was distributed with this source code.
  */
 
-error_reporting(E_ALL | E_STRICT | E_DEPRECATED);
-
 // path constants
 require __DIR__.'/paths.php';
 

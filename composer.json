@@ -1,28 +1,28 @@
 {
-  "name": "eloquent/asplode",
-  "type": "library",
-  "description": "Drop-in exception-based error handling for PHP.",
-  "keywords": ["error","handling","handler","exception","errorexception","fault","failure"],
-  "homepage": "https://github.com/eloquent/asplode",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Erin Millard",
-      "email": "ezzatron@gmail.com",
-      "homepage": "http://ezzatron.com/"
+    "name": "eloquent/asplode",
+    "type": "library",
+    "description": "Drop-in exception-based error handling for PHP.",
+    "keywords": ["error","handling","handler","exception","errorexception","fault","failure"],
+    "homepage": "https://github.com/eloquent/asplode",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Erin Millard",
+            "email": "ezzatron@gmail.com",
+            "homepage": "http://ezzatron.com/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "IcecaveStudios/isolator": "*@dev"
+    },
+    "require-dev": {
+        "eloquent/pops": "1.*",
+        "phake/phake": "*@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Eloquent": "src"
+        }
     }
-  ],
-  "require": {
-    "php": ">=5.3.0",
-    "IcecaveStudios/isolator": "*@dev"
-  },
-  "require-dev": {
-    "eloquent/pops": "1.*",
-    "phake/phake": "*@dev"
-  },
-  "autoload": {
-    "psr-0": {
-      "Eloquent": "src"
-    }
-  }
 }

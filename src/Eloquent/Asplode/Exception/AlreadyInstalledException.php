@@ -13,8 +13,11 @@ namespace Eloquent\Asplode\Exception;
 
 final class AlreadyInstalledException extends LogicException
 {
-  public function __construct(\Exception $previous = null)
-  {
-    parent::__construct("This instance of Asplode has already been installed.", $previous);
-  }
+    public function __construct(\Exception $previous = null)
+    {
+        parent::__construct(
+            "This instance of Asplode has already been installed.",
+            $previous
+        );
+    }
 }

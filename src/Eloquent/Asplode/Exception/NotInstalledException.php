@@ -13,8 +13,11 @@ namespace Eloquent\Asplode\Exception;
 
 final class NotInstalledException extends LogicException
 {
-  public function __construct(\Exception $previous = null)
-  {
-    parent::__construct("This instance of Asplode has not been installed.", $previous);
-  }
+    public function __construct(\Exception $previous = null)
+    {
+        parent::__construct(
+            "This instance of Asplode has not been installed.",
+            $previous
+        );
+    }
 }

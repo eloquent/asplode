@@ -11,6 +11,8 @@
 
 namespace Eloquent\Asplode\Exception;
 
+use Eloquent\Asplode\Test\TestCase;
+
 /**
  * @covers Eloquent\Asplode\Exception\AlreadyInstalledException
  * @covers Eloquent\Asplode\Exception\LogicException
@@ -18,13 +20,15 @@ namespace Eloquent\Asplode\Exception;
  * @group exceptions
  * @group core
  */
-class AlreadyInstalledExceptionTest extends \Eloquent\Asplode\Test\TestCase
+class AlreadyInstalledExceptionTest extends TestCase
 {
-  public function testException()
-  {
-    $exception = new AlreadyInstalledException;
-    $expectedMessage = "This instance of Asplode has already been installed.";
+    public function testException()
+    {
+        $exception = new AlreadyInstalledException;
+        $expectedMessage =
+            "This instance of Asplode has already been installed."
+        ;
 
-    $this->assertSame($expectedMessage, $exception->getMessage());
-  }
+        $this->assertSame($expectedMessage, $exception->getMessage());
+    }
 }

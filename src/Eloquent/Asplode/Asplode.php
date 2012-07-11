@@ -15,58 +15,55 @@ use IcecaveStudios\Isolator\Isolator;
 
 class Asplode
 {
-  /**
-   * @return Asplode
-   */
-  public static function instance()
-  {
-    return new static;
-  }
-
-  public function __construct(Isolator $isolator = null)
-  {
-    if (null === $isolator)
+    /**
+     * @return Asplode
+     */
+    public static function instance()
     {
-      $isolator = Isolator::getIsolator();
+        return new static;
     }
 
-    $this->isolator = $isolator;
-  }
-
-  public function install()
-  {
-    if ($this->installed)
+    public function __construct(Isolator $isolator = null)
     {
-      throw new Exception\AlreadyInstalledException;
+        if (null === $isolator) {
+            $isolator = Isolator::getIsolator();
+        }
+
+        $this->isolator = $isolator;
     }
 
-    $this->isolator->set_error_handler(array($this, 'handleError'));
-    $this->installed = true;
-  }
-
-  public function uninstall()
-  {
-    if (!$this->installed)
+    public function install()
     {
-      throw new Exception\NotInstalledException;
+        if ($this->installed) {
+            throw new Exception\AlreadyInstalledException;
+        }
+
+        $this->isolator->set_error_handler(array($this, 'handleError'));
+        $this->installed = true;
     }
 
-    $this->isolator->restore_error_handler();
-    $this->installed = false;
-  }
+    public function uninstall()
+    {
+        if (!$this->installed) {
+            throw new Exception\NotInstalledException;
+        }
 
-  public function handleError($severity, $message, $filename, $lineno)
-  {
-    throw new \ErrorException($message, 0, $severity, $filename, $lineno);
-  }
+        $this->isolator->restore_error_handler();
+        $this->installed = false;
+    }
 
-  /**
-   * @var boolean
-   */
-  protected $installed = false;
+    public function handleError($severity, $message, $filename, $lineno)
+    {
+        throw new \ErrorException($message, 0, $severity, $filename, $lineno);
+    }
 
-  /**
-   * @var Isolator
-   */
-  protected $isolator;
+    /**
+     * @var boolean
+     */
+    protected $installed = false;
+
+    /**
+     * @var Isolator
+     */
+    protected $isolator;
 }

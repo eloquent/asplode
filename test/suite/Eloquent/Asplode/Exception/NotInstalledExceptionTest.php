@@ -11,6 +11,8 @@
 
 namespace Eloquent\Asplode\Exception;
 
+use Eloquent\Asplode\Test\TestCase;
+
 /**
  * @covers Eloquent\Asplode\Exception\NotInstalledException
  * @covers Eloquent\Asplode\Exception\LogicException
@@ -18,13 +20,13 @@ namespace Eloquent\Asplode\Exception;
  * @group exceptions
  * @group core
  */
-class NotInstalledExceptionTest extends \Eloquent\Asplode\Test\TestCase
+class NotInstalledExceptionTest extends TestCase
 {
-  public function testException()
-  {
-    $exception = new NotInstalledException;
-    $expectedMessage = "This instance of Asplode has not been installed.";
+    public function testException()
+    {
+        $exception = new NotInstalledException;
+        $expectedMessage = "This instance of Asplode has not been installed.";
 
-    $this->assertSame($expectedMessage, $exception->getMessage());
-  }
+        $this->assertSame($expectedMessage, $exception->getMessage());
+    }
 }

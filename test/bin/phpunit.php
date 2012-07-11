@@ -10,11 +10,14 @@
  */
 
 // path constants
-require dirname(__DIR__).DIRECTORY_SEPARATOR.'src'.DIRECTORY_SEPARATOR.'paths.php';
+require
+    dirname(__DIR__).
+    DIRECTORY_SEPARATOR.'src'.
+    DIRECTORY_SEPARATOR.'paths.php'
+;
 
-if (!isset($configFile))
-{
-  $configFile = 'phpunit.xml.dist';
+if (!isset($configFile)) {
+    $configFile = 'phpunit.xml.dist';
 }
 $configPath = LQNT_ROOT_DIR.DIRECTORY_SEPARATOR.$configFile;
 
@@ -23,7 +26,7 @@ $command = 'phpunit --verbose --configuration '.escapeshellarg($configPath);
 $arguments = $_SERVER['argv'];
 array_shift($arguments);
 if ($arguments) {
-  $command .= ' '.implode(' ', array_map('escapeshellarg', $arguments));
+    $command .= ' '.implode(' ', array_map('escapeshellarg', $arguments));
 }
 
 passthru($command, $code);
