@@ -9,9 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Eloquent\Asplode\Test\TestCase;
-
-class FunctionalTest extends TestCase
+class FunctionalTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Test one line installation.

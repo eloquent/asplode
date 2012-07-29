@@ -11,7 +11,7 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use Eloquent\Asplode\Test\TestCase;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Eloquent\Asplode\Exception\NotInstalledException
@@ -20,7 +20,7 @@ use Eloquent\Asplode\Test\TestCase;
  * @group exceptions
  * @group core
  */
-class NotInstalledExceptionTest extends TestCase
+class NotInstalledExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testException()
     {

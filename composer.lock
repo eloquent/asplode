@@ -1,5 +1,5 @@
 {
-    "hash": "836b6e1e1560fa7d98a1d5606defa7d2",
+    "hash": "a131c9be5a7785fb1f99231472e7c6be",
     "packages": [
         {
             "package": "IcecaveStudios/isolator",
@@ -9,16 +9,14 @@
     "packages-dev": [
         {
             "package": "phake/phake",
-            "version": "dev-master",
-            "source-reference": "4d822246b401f4dc609500d47e42dac8df645f4f",
-            "commit-date": "1337008011"
+            "version": "1.0.2"
         }
     ],
     "aliases": [
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phake/phake": 20
-    }
+    "stability-flags": [
+
+    ]
 }

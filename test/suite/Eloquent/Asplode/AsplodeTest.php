@@ -11,14 +11,14 @@
 
 namespace Eloquent\Asplode;
 
-use Eloquent\Asplode\Test\TestCase;
+use PHPUnit_Framework_TestCase;
 use Phake;
 
 /**
  * @covers Eloquent\Asplode\Asplode
  * @group core
  */
-class AsplodeTest extends TestCase
+class AsplodeTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {

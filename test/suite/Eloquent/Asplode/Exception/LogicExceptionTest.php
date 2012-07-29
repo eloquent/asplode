@@ -11,10 +11,10 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use Eloquent\Asplode\Test\TestCase;
+use PHPUnit_Framework_TestCase;
 use Phake;
 
-class LogicExceptionTest extends TestCase
+class LogicExceptionTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @covers Eloquent\Asplode\Exception\LogicException
