@@ -1,6 +1,5 @@
 {
     "name": "eloquent/asplode",
-    "type": "library",
     "description": "Drop-in exception-based error handling for PHP.",
     "keywords": ["error","handling","handler","exception","errorexception","fault","failure"],
     "homepage": "https://github.com/eloquent/asplode",
@@ -14,33 +13,14 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "IcecaveStudios/isolator": "1.*"
+        "icecavestudios/isolator": "1.*"
     },
     "require-dev": {
         "phake/phake": "1.*"
     },
     "autoload": {
         "psr-0": {
-            "Eloquent": "src"
+            "Eloquent\\Asplode": "src"
         }
-    },
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "phake/phake",
-                "version": "1.0.2",
-                "dist": {
-                    "url": "https://github.com/mlively/Phake/zipball/v1.0.2",
-                    "type": "zip"
-                },
-                "autoload": {
-                    "classmap": ["src"]
-                },
-                "include-path": [
-                    "src"
-                ]
-            }
-        }
-    ]
+    }
 }

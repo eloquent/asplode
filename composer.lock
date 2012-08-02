@@ -1,15 +1,15 @@
 {
-    "hash": "a131c9be5a7785fb1f99231472e7c6be",
+    "hash": "c8e462a194edba643b583b364cc9311d",
     "packages": [
         {
             "package": "IcecaveStudios/isolator",
-            "version": "1.0.0"
+            "version": "1.0.1"
         }
     ],
     "packages-dev": [
         {
             "package": "phake/phake",
-            "version": "1.0.2"
+            "version": "v1.0.3"
         }
     ],
     "aliases": [
