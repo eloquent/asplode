@@ -24,7 +24,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->_isolator = Phake::mock('IcecaveStudios\Isolator\Isolator');
+        $this->_isolator = Phake::mock('Icecave\Isolator\Isolator');
         $this->_asplode = new Asplode($this->_isolator);
     }
 

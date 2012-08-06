@@ -11,7 +11,7 @@
 
 namespace Eloquent\Asplode;
 
-use IcecaveStudios\Isolator\Isolator;
+use Icecave\Isolator\Isolator;
 
 class Asplode
 {
