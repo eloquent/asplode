@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "icecavestudios/isolator": "1.*"
+        "icecave/isolator": "2.*"
     },
     "require-dev": {
         "phake/phake": "1.*"
