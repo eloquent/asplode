@@ -1,9 +1,9 @@
 {
-    "hash": "c8e462a194edba643b583b364cc9311d",
+    "hash": "5096160214f6b82f1eeb0fab5d5192b7",
     "packages": [
         {
-            "package": "IcecaveStudios/isolator",
-            "version": "1.0.1"
+            "package": "icecave/isolator",
+            "version": "2.0.0"
         }
     ],
     "packages-dev": [
