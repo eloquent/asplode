@@ -1,0 +1,18 @@
+
+
+Code Coverage Report 
+  2013-03-04 08:08:07
+
+ Summary: 
+  Classes: 100.00% (4/4)
+  Methods: 100.00% (8/8)
+  Lines:   100.00% (24/24)
+
+\Eloquent\Asplode::Asplode
+  Methods: 100.00% ( 5/ 5)   Lines: 100.00% ( 14/ 14)
+\Eloquent\Asplode\Exception::AlreadyInstalledException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  4/  4)
+\Eloquent\Asplode\Exception::LogicException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
+\Eloquent\Asplode\Exception::NotInstalledException
+  Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  4/  4)

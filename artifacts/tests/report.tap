@@ -1,0 +1,14 @@
+TAP version 13
+ok 1 - Eloquent\Asplode\AsplodeTest::testInstall
+ok 2 - Eloquent\Asplode\AsplodeTest::testInstallFailure
+ok 3 - Eloquent\Asplode\AsplodeTest::testUninstall
+ok 4 - Eloquent\Asplode\AsplodeTest::testUninstallFailure
+ok 5 - Eloquent\Asplode\AsplodeTest::testHandleError
+ok 6 - Eloquent\Asplode\AsplodeTest::testInstance
+ok 7 - Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest::testException
+ok 8 - Eloquent\Asplode\Exception\LogicExceptionTest::testException
+ok 9 - Eloquent\Asplode\Exception\NotInstalledExceptionTest::testException
+ok 10 - FunctionalTest::testOneLineInstallation
+ok 11 - FunctionalTest::testLegacyPhpError
+ok 12 - FunctionalTest::testAsplodeHandling
+1..12
