@@ -13,10 +13,10 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "icecave/isolator": "2.*"
+        "icecave/isolator": "~2"
     },
     "require-dev": {
-        "phake/phake": "1.*"
+        "icecave/archer": "~0.2"
     },
     "autoload": {
         "psr-0": {

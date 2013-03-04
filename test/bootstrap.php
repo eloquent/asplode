@@ -1,5 +1,4 @@
 <?php
 
-require __DIR__.'/../vendor/autoload.php';
-
-Phake::setClient(Phake::CLIENT_PHPUNIT);
+// Archer uses Asplode for error handling if it's available, but we don't want that
+restore_error_handler();

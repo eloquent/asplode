@@ -2,28 +2,19 @@
 
 *Drop-in exception-based error handling for PHP.*
 
+[![Build Status]](http://travis-ci.org/eloquent/asplode)
+[![Test Coverage]](http://eloquent-software.com/asplode/artifacts/tests/coverage/)
+
 ## Installation
 
-Asplode requires PHP 5.3 or later.
-
-### With [Composer](http://getcomposer.org/)
-
-* Add 'eloquent/asplode' to the project's composer.json dependencies
-* Run `php composer.phar install`
-
-### Bare installation
-
-* Clone from GitHub: `git clone git://github.com/eloquent/asplode.git`
-* Use a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
-  compatible autoloader (namespace 'Eloquent\Asplode' in the 'src' directory)
+Available as [Composer](http://getcomposer.org/) package
+[eloquent/asplode](https://packagist.org/packages/eloquent/asplode).
 
 ## Usage
 
 Asplode can be installed in a single line:
 
 ```php
-<?php
-
 \Eloquent\Asplode\Asplode::instance()->install();
 ```
 
@@ -45,8 +36,6 @@ need to be re-written.
 As an example, this type of logic:
 
 ```php
-<?php
-
 $fp = fopen('/path/to/foo', 'r'); // this throws a PHP warning if the file is not found
 
 if ($fp === false)
@@ -58,8 +47,6 @@ if ($fp === false)
 would need to be replaced with something like:
 
 ```php
-<?php
-
 try
 {
   $fp = fopen('/path/to/foo', 'r');
@@ -88,14 +75,6 @@ Asplode offers a hassle-free way to improve the error handling in a PHP
 project. It also provides a consistent error handling implementation across
 any project or library it's used in, allowing for easier integration.
 
-## Code quality
-
-Asplode strives to attain a high level of quality. A full test suite is
-available, and code coverage is closely monitored. All of the above code
-examples are also tested.
-
-### Latest revision test suite results
-[![Build Status](https://secure.travis-ci.org/eloquent/asplode.png)](http://travis-ci.org/eloquent/asplode)
-
-### Latest revision test suite coverage
-<http://ci.ezzatron.com/report/asplode/coverage/>
+<!-- references -->
+[Build Status]: https://raw.github.com/eloquent/asplode/gh-pages/artifacts/images/icecave/regular/build-status.png
+[Test Coverage]: https://raw.github.com/eloquent/asplode/gh-pages/artifacts/images/icecave/regular/coverage.png
