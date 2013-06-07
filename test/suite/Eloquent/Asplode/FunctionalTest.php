@@ -31,8 +31,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
      */
     public function testOneLineInstallation()
     {
-        var_dump(version_compare(PHP_VERSION, '5.4.0'));ob_flush();
-        if (!version_compare(PHP_VERSION, '5.4.0')) {
+        if (version_compare(PHP_VERSION, '5.4.0') < 0) {
             $this->markTestSkipped('Requires PHP >= 5.4');
 
             return;
