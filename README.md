@@ -43,8 +43,7 @@ As an example, this type of logic:
 ```php
 $fp = fopen('/path/to/foo', 'r'); // this throws a PHP warning if the file is not found
 
-if ($fp === false)
-{
+if ($fp === false) {
   // handle error opening file
 }
 ```
@@ -52,12 +51,9 @@ if ($fp === false)
 would need to be replaced with something like:
 
 ```php
-try
-{
+try {
   $fp = fopen('/path/to/foo', 'r');
-}
-catch (ErrorException $e)
-{
+} catch (ErrorException $e) {
   // handle error opening file
 }
 ```
