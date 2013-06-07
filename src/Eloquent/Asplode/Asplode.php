@@ -156,7 +156,7 @@ class Asplode
      * suppression or other techniques that are incompatible with
      * exception-based error handling.
      *
-     * @param callable $callable      The callable to invoke.
+     * @param callable      $callable The callable to invoke.
      * @param Isolator|null $isolator The isolator to use.
      *
      * @return mixed The result of the callable's invocation.

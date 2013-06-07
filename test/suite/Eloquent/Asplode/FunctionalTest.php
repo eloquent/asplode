@@ -35,7 +35,8 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             $this->markTestSkipped('Requires PHP >= 5.4');
         }
 
-        (new \Eloquent\Asplode\Asplode)->install();
+        // eval because otherwise 5.3 complains about syntax
+        eval('(new \Eloquent\Asplode\Asplode)->install();');
         $actual = set_error_handler(function() {
         });
         restore_error_handler();
