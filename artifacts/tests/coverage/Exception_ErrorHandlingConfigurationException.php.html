@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Code Coverage for /home/travis/build/eloquent/asplode/src/Eloquent/Asplode/Exception/LogicException.php</title>
+  <title>Code Coverage for /home/travis/build/eloquent/asplode/src/Eloquent/Asplode/Exception/ErrorHandlingConfigurationException.php</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -19,7 +19,7 @@
       <ul class="breadcrumb">
         <li><a href="index.html">/home/travis/build/eloquent/asplode/src/Eloquent/Asplode</a> <span class="divider">/</span></li>
         <li><a href="Exception.html">Exception</a> <span class="divider">/</span></li>
-        <li class="active">LogicException.php</li>
+        <li class="active">ErrorHandlingConfigurationException.php</li>
 
       </ul>
      </div>
@@ -61,11 +61,11 @@
        </div>
 </td>
       <td class="success small"><div align="right">100.00%</div></td>
-      <td class="success small"><div align="right">2&nbsp;/&nbsp;2</div></td>
+      <td class="success small"><div align="right">4&nbsp;/&nbsp;4</div></td>
      </tr>
 
      <tr>
-      <td class="success">LogicException</td>
+      <td class="success">ErrorHandlingConfigurationException</td>
       <td class="success big">       <div class="progress progress-success" style="width: 100px;">
         <div class="bar" style="width: 100.00%;"></div>
        </div>
@@ -84,11 +84,11 @@
        </div>
 </td>
       <td class="success small"><div align="right">100.00%</div></td>
-      <td class="success small"><div align="right">2&nbsp;/&nbsp;2</div></td>
+      <td class="success small"><div align="right">4&nbsp;/&nbsp;4</div></td>
      </tr>
 
      <tr>
-      <td class="success" colspan="4">&nbsp;<a href="#28">__construct($message, NativeException $previous = null)</a></td>
+      <td class="success" colspan="4">&nbsp;<a href="#26">__construct(NativeException $previous = null)</a></td>
       <td class="success big">       <div class="progress progress-success" style="width: 100px;">
         <div class="bar" style="width: 100.00%;"></div>
        </div>
@@ -101,7 +101,7 @@
        </div>
 </td>
       <td class="success small"><div align="right">100.00%</div></td>
-      <td class="success small"><div align="right">2&nbsp;/&nbsp;2</div></td>
+      <td class="success small"><div align="right">4&nbsp;/&nbsp;4</div></td>
      </tr>
 
 
@@ -123,24 +123,25 @@
      <tr><td><div align="right"><a name="12"></a><a href="#12">12</a></div></td><td class="codeLine"><span class="keyword">namespace</span><span class="default">&nbsp;</span><span class="default">Eloquent</span><span class="default">\</span><span class="default">Asplode</span><span class="default">\</span><span class="default">Exception</span><span class="keyword">;</span></td></tr>
      <tr><td><div align="right"><a name="13"></a><a href="#13">13</a></div></td><td class="codeLine"></td></tr>
      <tr><td><div align="right"><a name="14"></a><a href="#14">14</a></div></td><td class="codeLine"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">Exception</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">NativeException</span><span class="keyword">;</span></td></tr>
-     <tr><td><div align="right"><a name="15"></a><a href="#15">15</a></div></td><td class="codeLine"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">LogicException</span><span class="default">&nbsp;</span><span class="keyword">as</span><span class="default">&nbsp;</span><span class="default">NativeLogicException</span><span class="keyword">;</span></td></tr>
-     <tr><td><div align="right"><a name="16"></a><a href="#16">16</a></div></td><td class="codeLine"></td></tr>
-     <tr><td><div align="right"><a name="17"></a><a href="#17">17</a></div></td><td class="codeLine"><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="18"></a><a href="#18">18</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;Abstract&nbsp;base&nbsp;class&nbsp;for&nbsp;exceptions&nbsp;that&nbsp;arise&nbsp;from&nbsp;logic&nbsp;errors&nbsp;in&nbsp;code.</span></td></tr>
-     <tr><td><div align="right"><a name="19"></a><a href="#19">19</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
-     <tr><td><div align="right"><a name="20"></a><a href="#20">20</a></div></td><td class="codeLine"><span class="keyword">abstract</span><span class="default">&nbsp;</span><span class="keyword">class</span><span class="default">&nbsp;</span><span class="default">LogicException</span><span class="default">&nbsp;</span><span class="keyword">extends</span><span class="default">&nbsp;</span><span class="default">NativeLogicException</span><span class="default">&nbsp;</span><span class="keyword">implements</span><span class="default">&nbsp;</span><span class="default">Exception</span></td></tr>
-     <tr><td><div align="right"><a name="21"></a><a href="#21">21</a></div></td><td class="codeLine"><span class="keyword">{</span></td></tr>
-     <tr><td><div align="right"><a name="22"></a><a href="#22">22</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
-     <tr><td><div align="right"><a name="23"></a><a href="#23">23</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Construct&nbsp;a&nbsp;new&nbsp;logic&nbsp;exception.</span></td></tr>
-     <tr><td><div align="right"><a name="24"></a><a href="#24">24</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></td></tr>
-     <tr><td><div align="right"><a name="25"></a><a href="#25">25</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;string&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$message&nbsp;&nbsp;The&nbsp;exception&nbsp;message.</span></td></tr>
-     <tr><td><div align="right"><a name="26"></a><a href="#26">26</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;NativeException|null&nbsp;$previous&nbsp;The&nbsp;previous&nbsp;exception,&nbsp;if&nbsp;available.</span></td></tr>
-     <tr><td><div align="right"><a name="27"></a><a href="#27">27</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
-     <tr><td><div align="right"><a name="28"></a><a href="#28">28</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">__construct</span><span class="keyword">(</span><span class="default">$message</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">NativeException</span><span class="default">&nbsp;</span><span class="default">$previous</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">null</span><span class="keyword">)</span></td></tr>
-     <tr><td><div align="right"><a name="29"></a><a href="#29">29</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
-     <tr class="success popin" data-title="4 tests cover line 30" data-content="&lt;ul&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest::testException&lt;/li&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest::testException&lt;/li&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\LogicExceptionTest::testException&lt;/li&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\NotInstalledExceptionTest::testException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="30"></a><a href="#30">30</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">parent</span><span class="default">::</span><span class="default">__construct</span><span class="keyword">(</span><span class="default">(string)</span><span class="default">&nbsp;</span><span class="default">$message</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">0</span><span class="keyword">,</span><span class="default">&nbsp;</span><span class="default">$previous</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
-     <tr class="success popin" data-title="4 tests cover line 31" data-content="&lt;ul&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest::testException&lt;/li&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest::testException&lt;/li&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\LogicExceptionTest::testException&lt;/li&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\NotInstalledExceptionTest::testException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="31"></a><a href="#31">31</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
-     <tr><td><div align="right"><a name="32"></a><a href="#32">32</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="15"></a><a href="#15">15</a></div></td><td class="codeLine"></td></tr>
+     <tr><td><div align="right"><a name="16"></a><a href="#16">16</a></div></td><td class="codeLine"><span class="comment">/**</span></td></tr>
+     <tr><td><div align="right"><a name="17"></a><a href="#17">17</a></div></td><td class="codeLine"><span class="comment">&nbsp;*&nbsp;PHP's&nbsp;error&nbsp;handling&nbsp;is&nbsp;incorrectly&nbsp;configured.</span></td></tr>
+     <tr><td><div align="right"><a name="18"></a><a href="#18">18</a></div></td><td class="codeLine"><span class="comment">&nbsp;*/</span></td></tr>
+     <tr><td><div align="right"><a name="19"></a><a href="#19">19</a></div></td><td class="codeLine"><span class="keyword">final</span><span class="default">&nbsp;</span><span class="keyword">class</span><span class="default">&nbsp;</span><span class="default">ErrorHandlingConfigurationException</span><span class="default">&nbsp;</span><span class="keyword">extends</span><span class="default">&nbsp;</span><span class="default">LogicException</span></td></tr>
+     <tr><td><div align="right"><a name="20"></a><a href="#20">20</a></div></td><td class="codeLine"><span class="keyword">{</span></td></tr>
+     <tr><td><div align="right"><a name="21"></a><a href="#21">21</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="comment">/**</span></td></tr>
+     <tr><td><div align="right"><a name="22"></a><a href="#22">22</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Construct&nbsp;a&nbsp;new&nbsp;error&nbsp;handling&nbsp;configuration&nbsp;exception.</span></td></tr>
+     <tr><td><div align="right"><a name="23"></a><a href="#23">23</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</span></td></tr>
+     <tr><td><div align="right"><a name="24"></a><a href="#24">24</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;NativeException|null&nbsp;$previous&nbsp;The&nbsp;previous&nbsp;exception,&nbsp;if&nbsp;available.</span></td></tr>
+     <tr><td><div align="right"><a name="25"></a><a href="#25">25</a></div></td><td class="codeLine"><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span></td></tr>
+     <tr><td><div align="right"><a name="26"></a><a href="#26">26</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">__construct</span><span class="keyword">(</span><span class="default">NativeException</span><span class="default">&nbsp;</span><span class="default">$previous</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="default">null</span><span class="keyword">)</span></td></tr>
+     <tr><td><div align="right"><a name="27"></a><a href="#27">27</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="success popin" data-title="1 test covers line 28" data-content="&lt;ul&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest::testException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="28"></a><a href="#28">28</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">parent</span><span class="default">::</span><span class="default">__construct</span><span class="keyword">(</span></td></tr>
+     <tr class="success popin" data-title="1 test covers line 29" data-content="&lt;ul&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest::testException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="29"></a><a href="#29">29</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">'Error&nbsp;handling&nbsp;is&nbsp;incorrectly&nbsp;configured.'</span><span class="keyword">,</span></td></tr>
+     <tr><td><div align="right"><a name="30"></a><a href="#30">30</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$previous</span></td></tr>
+     <tr class="success popin" data-title="1 test covers line 31" data-content="&lt;ul&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest::testException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="31"></a><a href="#31">31</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr class="success popin" data-title="1 test covers line 32" data-content="&lt;ul&gt;&lt;li class=&quot;success&quot;&gt;Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest::testException&lt;/li&gt;&lt;/ul&gt;" data-placement="bottom" data-html="true"><td><div align="right"><a name="32"></a><a href="#32">32</a></div></td><td class="codeLine"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td><div align="right"><a name="33"></a><a href="#33">33</a></div></td><td class="codeLine"><span class="keyword">}</span></td></tr>
 
     </tbody>
    </table>
