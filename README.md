@@ -106,6 +106,8 @@ For this purpose, *Asplode* provides a simple way to bypass any error handlers
 and execute code via the `Asplode::unsafe()` method:
 
 ```php
+use Eloquent\Asplode\Asplode;
+
 Asplode::unsafe(
     function () {
         // code here will be executed without error handlers
