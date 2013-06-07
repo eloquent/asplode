@@ -63,12 +63,11 @@ catch (ErrorException $e)
 ```
 
 It's important to note that PHP can be very inconsistent in the way it handles
-error conditions. In some cases you may find that a function will simply return
-a boolean false when an error occurs; or it may have even stranger, less
-standard behaviour.
+error conditions. In some cases functions will simply return a boolean false
+when an error occurs; or it may have even stranger, less standard behaviour.
 
-*Asplode* does not free you from the responsibility of readingthe PHP
-documentation and making sure that you account for all possible return values.
+*Asplode* does not free the developer from the responsibility of reading the PHP
+documentation, or making sure that they account for all possible return values.
 
 ## Why use Asplode?
 
@@ -79,6 +78,44 @@ than a legacy-style error.
 *Asplode* offers a hassle-free way to improve the error handling in a PHP
 project. It also provides a consistent error handling implementation across
 any project or library it's used in, allowing for easier integration.
+
+## Asserting that the current error handler is compatible
+
+Code that assumes the use of *Asplode* will not work as expected unless the
+right type of error handler is installed. For example, code expecting to catch
+an `ErrorException` on failure will have unpredictable results if the installed
+error handler does not throw `ErrorException` instances.
+
+To ensure that a correctly configured error handler is installed, *Asplode*
+provides the `Asplode::assertCompatibleHandler()` method:
+
+```php
+use Eloquent\Asplode\Asplode;
+use Eloquent\Asplode\Exception\ErrorHandlingConfigurationException;
+
+try {
+    Asplode::assertCompatibleHandler();
+} catch (ErrorHandlingConfigurationException $e) {
+    // handle appropriately
+}
+```
+
+## Executing legacy code
+
+Sometimes it is unavoidable to work with code that uses bad practices. For
+example, a old PHP library might be quite functional and useful, but still use
+'@' suppression, or some other feature that is incompatible with *Asplode*.
+
+For this purpose, *Asplode* provides a simple way to bypass any error handlers
+and execute code via the `Asplode::unsafe()` method:
+
+```php
+Asplode::unsafe(
+    function () {
+        // code here will be executed without error handlers
+    }
+);
+```
 
 <!-- References -->
 
