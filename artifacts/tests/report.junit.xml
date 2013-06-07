@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="23" assertions="54" failures="0" errors="0" time="0.298721">
-    <testsuite name="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" namespace="Eloquent\Asplode" fullPackage="Eloquent.Asplode" tests="16" assertions="39" failures="0" errors="0" time="0.271919">
-      <testcase name="testAssertCompatibleHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="48" assertions="1" time="0.049300"/>
-      <testcase name="testAssertCompatibleHandlerFailure" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="66" assertions="1" time="0.006632"/>
-      <testcase name="testCurrentErrorHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="74" assertions="4" time="0.016375"/>
-      <testcase name="testCurrentErrorHandlerStack" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="93" assertions="5" time="0.035765"/>
-      <testcase name="testPushErrorHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="128" assertions="1" time="0.005885"/>
-      <testcase name="testPopErrorHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="135" assertions="3" time="0.010911"/>
-      <testcase name="testRemoveErrorHandlers" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="153" assertions="3" time="0.021462"/>
-      <testcase name="testRestoreErrorHandlers" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="186" assertions="2" time="0.009386"/>
-      <testcase name="testUnsafe" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="196" assertions="6" time="0.039355"/>
-      <testcase name="testInstance" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="238" assertions="1" time="0.004255"/>
-      <testcase name="testInstall" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="243" assertions="3" time="0.014742"/>
-      <testcase name="testInstallFailure" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="261" assertions="1" time="0.007523"/>
-      <testcase name="testUninstall" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="274" assertions="2" time="0.010879"/>
-      <testcase name="testUninstallFailure" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="293" assertions="4" time="0.024549"/>
-      <testcase name="testHandleError" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="319" assertions="1" time="0.007875"/>
-      <testcase name="testInvoke" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="334" assertions="1" time="0.007026"/>
+  <testsuite name="" tests="23" assertions="54" failures="0" errors="0" time="0.309143">
+    <testsuite name="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" namespace="Eloquent\Asplode" fullPackage="Eloquent.Asplode" tests="16" assertions="39" failures="0" errors="0" time="0.281210">
+      <testcase name="testAssertCompatibleHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="48" assertions="1" time="0.051308"/>
+      <testcase name="testAssertCompatibleHandlerFailure" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="66" assertions="1" time="0.006811"/>
+      <testcase name="testCurrentErrorHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="74" assertions="4" time="0.016571"/>
+      <testcase name="testCurrentErrorHandlerStack" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="93" assertions="5" time="0.036799"/>
+      <testcase name="testPushErrorHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="128" assertions="1" time="0.006040"/>
+      <testcase name="testPopErrorHandler" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="135" assertions="3" time="0.011437"/>
+      <testcase name="testRemoveErrorHandlers" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="153" assertions="3" time="0.022523"/>
+      <testcase name="testRestoreErrorHandlers" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="186" assertions="2" time="0.009777"/>
+      <testcase name="testUnsafe" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="196" assertions="6" time="0.040493"/>
+      <testcase name="testInstance" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="238" assertions="1" time="0.004320"/>
+      <testcase name="testInstall" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="243" assertions="3" time="0.014947"/>
+      <testcase name="testInstallFailure" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="261" assertions="1" time="0.007672"/>
+      <testcase name="testUninstall" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="274" assertions="2" time="0.011143"/>
+      <testcase name="testUninstallFailure" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="293" assertions="4" time="0.025626"/>
+      <testcase name="testHandleError" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="319" assertions="1" time="0.008546"/>
+      <testcase name="testInvoke" class="Eloquent\Asplode\AsplodeTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/AsplodeTest.php" line="334" assertions="1" time="0.007197"/>
     </testsuite>
-    <testsuite name="Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/AlreadyInstalledExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.003165">
-      <testcase name="testException" class="Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/AlreadyInstalledExceptionTest.php" line="23" assertions="3" time="0.003165"/>
+    <testsuite name="Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/AlreadyInstalledExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.003233">
+      <testcase name="testException" class="Eloquent\Asplode\Exception\AlreadyInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/AlreadyInstalledExceptionTest.php" line="23" assertions="3" time="0.003233"/>
     </testsuite>
-    <testsuite name="Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/ErrorHandlingConfigurationExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.003190">
-      <testcase name="testException" class="Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/ErrorHandlingConfigurationExceptionTest.php" line="23" assertions="3" time="0.003190"/>
+    <testsuite name="Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/ErrorHandlingConfigurationExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.003220">
+      <testcase name="testException" class="Eloquent\Asplode\Exception\ErrorHandlingConfigurationExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/ErrorHandlingConfigurationExceptionTest.php" line="23" assertions="3" time="0.003220"/>
     </testsuite>
-    <testsuite name="Eloquent\Asplode\Exception\LogicExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/LogicExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.004509">
-      <testcase name="testException" class="Eloquent\Asplode\Exception\LogicExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/LogicExceptionTest.php" line="20" assertions="3" time="0.004509"/>
+    <testsuite name="Eloquent\Asplode\Exception\LogicExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/LogicExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.004845">
+      <testcase name="testException" class="Eloquent\Asplode\Exception\LogicExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/LogicExceptionTest.php" line="20" assertions="3" time="0.004845"/>
     </testsuite>
-    <testsuite name="Eloquent\Asplode\Exception\NotInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/NotInstalledExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.003051">
-      <testcase name="testException" class="Eloquent\Asplode\Exception\NotInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/NotInstalledExceptionTest.php" line="23" assertions="3" time="0.003051"/>
+    <testsuite name="Eloquent\Asplode\Exception\NotInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/NotInstalledExceptionTest.php" namespace="Eloquent\Asplode\Exception" fullPackage="Eloquent.Asplode.Exception" tests="1" assertions="3" failures="0" errors="0" time="0.003225">
+      <testcase name="testException" class="Eloquent\Asplode\Exception\NotInstalledExceptionTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/Exception/NotInstalledExceptionTest.php" line="23" assertions="3" time="0.003225"/>
     </testsuite>
-    <testsuite name="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" tests="3" assertions="3" failures="0" errors="0" time="0.012886">
-      <testcase name="testOneLineInstallation" class="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" line="32" assertions="1" time="0.004208"/>
-      <testcase name="testOneLineInstallationPhp53" class="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" line="57" assertions="1" time="0.004053"/>
-      <testcase name="testAsplodeHandling" class="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" line="74" assertions="1" time="0.004625"/>
+    <testsuite name="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" tests="3" assertions="3" failures="0" errors="0" time="0.013410">
+      <testcase name="testOneLineInstallation" class="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" line="32" assertions="1" time="0.004388"/>
+      <testcase name="testOneLineInstallationPhp53" class="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" line="56" assertions="1" time="0.004398"/>
+      <testcase name="testAsplodeHandling" class="FunctionalTest" file="/home/travis/build/eloquent/asplode/test/suite/Eloquent/Asplode/FunctionalTest.php" line="73" assertions="1" time="0.004624"/>
     </testsuite>
   </testsuite>
 </testsuites>
