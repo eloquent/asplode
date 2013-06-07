@@ -12,7 +12,7 @@
 namespace Eloquent\Asplode\Exception;
 
 /**
- * Interface used to mark all Asplode-related exceptions.
+ * Interface implemented by all Asplode-related exceptions.
  */
 interface Exception
 {

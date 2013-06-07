@@ -15,18 +15,18 @@ use Exception as NativeException;
 use PHPUnit_Framework_TestCase;
 
 /**
- * @covers Eloquent\Asplode\Exception\AlreadyInstalledException
+ * @covers Eloquent\Asplode\Exception\ErrorHandlingConfigurationException
  * @covers Eloquent\Asplode\Exception\LogicException
  */
-class AlreadyInstalledExceptionTest extends PHPUnit_Framework_TestCase
+class ErrorHandlingConfigurationExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testException()
     {
         $previous = new NativeException;
-        $exception = new AlreadyInstalledException($previous);
+        $exception = new ErrorHandlingConfigurationException($previous);
 
         $this->assertSame(
-            'This instance of Asplode has already been installed.',
+            'Error handling is incorrectly configured.',
             $exception->getMessage()
         );
         $this->assertSame(0, $exception->getCode());

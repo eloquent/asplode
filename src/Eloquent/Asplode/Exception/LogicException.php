@@ -11,18 +11,21 @@
 
 namespace Eloquent\Asplode\Exception;
 
+use Exception as NativeException;
+use LogicException as NativeLogicException;
+
 /**
- * Base class for exceptions that arise from logic errors in code.
+ * Abstract base class for exceptions that arise from logic errors in code.
  */
-abstract class LogicException extends \LogicException implements Exception
+abstract class LogicException extends NativeLogicException implements Exception
 {
     /**
-     * Construct a new LogicError instance.
+     * Construct a new logic exception.
      *
-     * @param string $message The exception message.
-     * @param \Exception $previous The previous exception, if any.
+     * @param string               $message  The exception message.
+     * @param NativeException|null $previous The previous exception, if available.
      */
-    public function __construct($message, \Exception $previous = null)
+    public function __construct($message, NativeException $previous = null)
     {
         parent::__construct((string) $message, 0, $previous);
     }

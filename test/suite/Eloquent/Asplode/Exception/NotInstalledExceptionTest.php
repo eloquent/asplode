@@ -11,22 +11,25 @@
 
 namespace Eloquent\Asplode\Exception;
 
+use Exception as NativeException;
 use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Eloquent\Asplode\Exception\NotInstalledException
  * @covers Eloquent\Asplode\Exception\LogicException
- * @covers Eloquent\Asplode\Exception\Exception
- * @group exceptions
- * @group core
  */
 class NotInstalledExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testException()
     {
-        $exception = new NotInstalledException;
-        $expectedMessage = "This instance of Asplode has not been installed.";
+        $previous = new NativeException;
+        $exception = new NotInstalledException($previous);
 
-        $this->assertSame($expectedMessage, $exception->getMessage());
+        $this->assertSame(
+            'This instance of Asplode has not been installed.',
+            $exception->getMessage()
+        );
+        $this->assertSame(0, $exception->getCode());
+        $this->assertSame($previous, $exception->getPrevious());
     }
 }

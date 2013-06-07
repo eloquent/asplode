@@ -14,14 +14,19 @@ namespace Eloquent\Asplode\Exception;
 use Exception as NativeException;
 
 /**
- * This Asplode instance has not been installed.
+ * PHP's error handling is incorrectly configured.
  */
-final class NotInstalledException extends LogicException
+final class ErrorHandlingConfigurationException extends LogicException
 {
+    /**
+     * Construct a new error handling configuration exception.
+     *
+     * @param NativeException|null $previous The previous exception, if available.
+     */
     public function __construct(NativeException $previous = null)
     {
         parent::__construct(
-            "This instance of Asplode has not been installed.",
+            'Error handling is incorrectly configured.',
             $previous
         );
     }

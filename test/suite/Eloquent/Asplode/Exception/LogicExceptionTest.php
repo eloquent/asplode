@@ -11,28 +11,22 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use PHPUnit_Framework_TestCase;
+use Exception as NativeException;
 use Phake;
+use PHPUnit_Framework_TestCase;
 
 class LogicExceptionTest extends PHPUnit_Framework_TestCase
 {
-    /**
-     * @covers Eloquent\Asplode\Exception\LogicException
-     * @covers Eloquent\Asplode\Exception\Exception
-     * @group exceptions
-     * @group core
-     */
     public function testException()
     {
-        $message = 'foo';
-        $previous = new \Exception;
+        $previous = new NativeException;
         $exception = Phake::partialMock(
             __NAMESPACE__.'\LogicException',
-            $message,
+            'foo',
             $previous
         );
 
-        $this->assertSame($message, $exception->getMessage());
+        $this->assertSame('foo', $exception->getMessage());
         $this->assertSame(0, $exception->getCode());
         $this->assertSame($previous, $exception->getPrevious());
     }

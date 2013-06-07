@@ -11,12 +11,22 @@
 
 namespace Eloquent\Asplode\Exception;
 
+use Exception as NativeException;
+
+/**
+ * This Asplode instance has already been installed.
+ */
 final class AlreadyInstalledException extends LogicException
 {
-    public function __construct(\Exception $previous = null)
+    /**
+     * Construct a new already installed exception.
+     *
+     * @param NativeException|null $previous The previous exception, if available.
+     */
+    public function __construct(NativeException $previous = null)
     {
         parent::__construct(
-            "This instance of Asplode has already been installed.",
+            'This instance of Asplode has already been installed.',
             $previous
         );
     }
