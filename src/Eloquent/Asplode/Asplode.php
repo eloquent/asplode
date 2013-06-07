@@ -15,8 +15,9 @@ use ErrorException;
 use Icecave\Isolator\Isolator;
 
 /**
- * The main Asplode error handler. Also provides utility methods for managing
- * PHP's error handler stack.
+ * The main Asplode error handler.
+ *
+ * Also provides utility methods for managing PHP's error handler stack.
  */
 class Asplode
 {
