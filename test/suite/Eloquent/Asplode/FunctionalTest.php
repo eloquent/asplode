@@ -31,12 +31,11 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
      */
     public function testOneLineInstallation()
     {
-        if (!version_compare(PHP_VERSION, '5.4')) {
+        if (!version_compare(PHP_VERSION, '5.4.0')) {
             $this->markTestSkipped('Requires PHP >= 5.4');
         }
 
-        // eval because otherwise 5.3 complains about syntax
-        eval('(new \Eloquent\Asplode\Asplode)->install();');
+        (new \Eloquent\Asplode\Asplode)->install();
         $actual = set_error_handler(function() {
         });
         restore_error_handler();
