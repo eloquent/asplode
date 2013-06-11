@@ -1,6 +1,6 @@
 # Asplode changelog
 
-## 1.1.0 (unreleased)
+## 1.1.0 (2013-06-11)
 
 * **[NEW]** Added utility method for asserting correct error handler
   configuration ([#5](https://github.com/eloquent/asplode/issues/5))
