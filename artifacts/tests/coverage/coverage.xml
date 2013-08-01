@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1375353618">
-  <project timestamp="1375353618">
+<coverage generated="1375354060">
+  <project timestamp="1375354060">
     <package name="Eloquent\Asplode">
       <file name="/home/travis/build/eloquent/asplode/src/Eloquent/Asplode/Asplode.php">
         <class name="Asplode" namespace="Eloquent\Asplode">
