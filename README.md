@@ -127,4 +127,4 @@ Asplode::unsafe(
 [Build Status]: https://api.travis-ci.org/eloquent/asplode.png?branch=master
 [Latest build]: https://travis-ci.org/eloquent/asplode
 [Test coverage report]: https://coveralls.io/r/eloquent/asplode
-[Test Coverage]: https://coveralls.io/repos/eloquent/asplode/badge.png
+[Test Coverage]: https://coveralls.io/repos/eloquent/asplode/badge.png?branch=master
