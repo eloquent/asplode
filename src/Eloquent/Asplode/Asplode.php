@@ -84,8 +84,9 @@ class Asplode
     /**
      * Pushes an error handler on to the stack.
      *
-     * @param callable      $errorHandler The error handler to push on to the stack.
-     * @param Isolator|null $isolator     The isolator to use.
+     * @param callable $errorHandler The error handler to push on to the
+     *     stack.
+     * @param Isolator|null $isolator The isolator to use.
      */
     public static function pushErrorHandler(
         $errorHandler,

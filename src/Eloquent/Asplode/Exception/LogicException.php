@@ -23,7 +23,8 @@ abstract class LogicException extends NativeLogicException implements Exception
      * Construct a new logic exception.
      *
      * @param string               $message  The exception message.
-     * @param NativeException|null $previous The previous exception, if available.
+     * @param NativeException|null $previous The previous exception, if
+     *     available.
      */
     public function __construct($message, NativeException $previous = null)
     {

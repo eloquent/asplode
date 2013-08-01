@@ -1,7 +1,7 @@
 {
     "name": "eloquent/asplode",
     "description": "Drop-in exception-based error handling for PHP.",
-    "keywords": ["error","handling","handler","exception","errorexception","fault","failure"],
+    "keywords": ["error", "handling", "handler", "exception", "errorexception", "fault", "failure"],
     "homepage": "https://github.com/eloquent/asplode",
     "license": "MIT",
     "authors": [
@@ -16,7 +16,7 @@
         "icecave/isolator": "~2"
     },
     "require-dev": {
-        "icecave/archer": "~0.2"
+        "icecave/archer": "1.0.0-alpha.2"
     },
     "autoload": {
         "psr-0": {
