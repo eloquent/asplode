@@ -21,7 +21,8 @@ final class ErrorHandlingConfigurationException extends LogicException
     /**
      * Construct a new error handling configuration exception.
      *
-     * @param NativeException|null $previous The previous exception, if available.
+     * @param NativeException|null $previous The previous exception, if
+     *     available.
      */
     public function __construct(NativeException $previous = null)
     {

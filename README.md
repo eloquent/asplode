@@ -118,12 +118,13 @@ Asplode::unsafe(
 <!-- References -->
 
 [API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
-[Build Status]: https://raw.github.com/eloquent/asplode/gh-pages/artifacts/images/icecave/regular/build-status.png
 [Composer]: http://getcomposer.org/
 [eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 [error handler]: http://php.net/set_error_handler
 [error_reporting]: http://php.net/error_reporting
 [ErrorException]: http://php.net/ErrorException
-[Latest build]: http://travis-ci.org/eloquent/asplode
-[Test coverage report]: http://lqnt.co/asplode/artifacts/tests/coverage/
-[Test Coverage]: https://raw.github.com/eloquent/asplode/gh-pages/artifacts/images/icecave/regular/coverage.png
+
+[Build Status]: https://api.travis-ci.org/eloquent/asplode.png?branch=master
+[Latest build]: https://travis-ci.org/eloquent/asplode
+[Test coverage report]: https://coveralls.io/r/eloquent/asplode
+[Test Coverage]: https://coveralls.io/repos/eloquent/asplode/badge.png
