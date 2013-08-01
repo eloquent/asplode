@@ -1,5 +1,9 @@
 # Asplode changelog
 
+## 1.1.1 (2013-08-01)
+
+- **[MAINTENANCE]** General repository maintenance.
+
 ## 1.1.0 (2013-06-11)
 
 - **[NEW]** Added utility method for asserting correct error handler
