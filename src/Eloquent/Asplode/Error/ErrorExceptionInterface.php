@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Eloquent\Asplode\Exception;
+namespace Eloquent\Asplode\Error;
 
 /**
- * Interface implemented by all Asplode-related exceptions.
+ * Interface used to identify all error exceptions.
  */
-interface Exception
+interface ErrorExceptionInterface
 {
 }

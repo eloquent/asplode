@@ -2,8 +2,9 @@
 
 *Drop-in exception-based error handling for PHP.*
 
-[![Build Status]][Latest build]
-[![Test Coverage]][Test coverage report]
+[![Build status]][Latest build]
+[![Test coverage]][Test coverage report]
+[![Uses semantic versioning]][SemVer]
 
 ## Installation and documentation
 
@@ -15,13 +16,13 @@
 *Asplode* can be installed in a single line (PHP 5.4):
 
 ```php
-(new \Eloquent\Asplode\Asplode)->install();
+(new Eloquent\Asplode\Asplode)->install();
 ```
 
 or for PHP 5.3:
 
 ```php
-\Eloquent\Asplode\Asplode::instance()->install();
+Eloquent\Asplode\Asplode::instance()->install();
 ```
 
 ## What does it do?
@@ -124,7 +125,11 @@ Asplode::unsafe(
 [error_reporting]: http://php.net/error_reporting
 [ErrorException]: http://php.net/ErrorException
 
-[Build Status]: https://api.travis-ci.org/eloquent/asplode.png?branch=master
+[Build status]: https://api.travis-ci.org/eloquent/asplode.png?branch=master
+[Composer]: http://getcomposer.org/
+[eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 [Latest build]: https://travis-ci.org/eloquent/asplode
+[SemVer]: http://semver.org/
 [Test coverage report]: https://coveralls.io/r/eloquent/asplode
-[Test Coverage]: https://coveralls.io/repos/eloquent/asplode/badge.png?branch=master
+[Test coverage]: https://coveralls.io/repos/eloquent/asplode/badge.png?branch=master
+[Uses semantic versioning]: http://b.repl.ca/v1/semver-yes-brightgreen.png

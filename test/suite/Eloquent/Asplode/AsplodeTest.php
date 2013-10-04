@@ -34,6 +34,8 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
 
         $this->isolator = Phake::mock(Isolator::className());
         $this->asplode = new Asplode($this->isolator);
+
+        Phake::when($this->isolator)->error_reporting()->thenReturn(E_ALL | E_NOTICE | E_USER_NOTICE | E_STRICT);
     }
 
     protected function tearDown()
@@ -50,13 +52,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
         Phake::when($this->isolator)
             ->trigger_error(Phake::anyParameters())
             ->thenGetReturnByLambda(function ($name, array $arguments) {
-                throw new ErrorException(
-                    $arguments[0],
-                    111,
-                    $arguments[1],
-                    '/path/to/file',
-                    222
-                );
+                throw new ErrorException($arguments[0], 111, $arguments[1], '/path/to/file', 222);
             });
         Asplode::assertCompatibleHandler($this->isolator);
 
@@ -65,23 +61,16 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
 
     public function testAssertCompatibleHandlerFailure()
     {
-        $this->setExpectedException(
-            __NAMESPACE__ . '\Exception\ErrorHandlingConfigurationException'
-        );
+        $this->setExpectedException(__NAMESPACE__ . '\Exception\ErrorHandlingConfigurationException');
         Asplode::assertCompatibleHandler($this->isolator);
     }
 
     public function testCurrentErrorHandler()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
-            ->thenReturn('foo');
+        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn('foo');
 
         $this->assertSame('foo', Asplode::currentErrorHandler($this->isolator));
-        $restoreErrorHandlerVerification = Phake::verify(
-            $this->isolator,
-            Phake::times(2)
-        )->restore_error_handler();
+        $restoreErrorHandlerVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
         Phake::inOrder(
             Phake::verify($this->isolator)->set_error_handler(function () {}),
             $restoreErrorHandlerVerification,
@@ -98,10 +87,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
             ->thenReturn('bar')
             ->thenReturn(null);
 
-        $this->assertSame(
-            array('foo', 'bar'),
-            Asplode::currentErrorHandlerStack($this->isolator)
-        );
+        $this->assertSame(array('foo', 'bar'), Asplode::currentErrorHandlerStack($this->isolator));
         $setEmptyErrorHandlerVerification = Phake::verify(
             $this->isolator,
             Phake::times(3)
@@ -134,15 +120,10 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
 
     public function testPopErrorHandler()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
-            ->thenReturn('foo');
+        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn('foo');
 
         $this->assertSame('foo', Asplode::popErrorHandler($this->isolator));
-        $restoreErrorHandlerVerification = Phake::verify(
-            $this->isolator,
-            Phake::times(2)
-        )->restore_error_handler();
+        $restoreErrorHandlerVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
         Phake::inOrder(
             Phake::verify($this->isolator)->set_error_handler(function () {}),
             $restoreErrorHandlerVerification,
@@ -158,10 +139,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
             ->thenReturn('bar')
             ->thenReturn(null);
 
-        $this->assertSame(
-            array('foo', 'bar'),
-            Asplode::removeErrorHandlers($this->isolator)
-        );
+        $this->assertSame(array('foo', 'bar'), Asplode::removeErrorHandlers($this->isolator));
         $setEmptyErrorHandlerVerification = Phake::verify(
             $this->isolator,
             Phake::times(3)
@@ -207,10 +185,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
             ->thenReturn('bar')
             ->thenReturn(null);
 
-        $this->assertSame(
-            'foobar',
-            Asplode::unsafe($callable, $this->isolator)
-        );
+        $this->assertSame('foobar', Asplode::unsafe($callable, $this->isolator));
         $setEmptyErrorHandlerVerification = Phake::verify(
             $this->isolator,
             Phake::times(3)
@@ -240,49 +215,59 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf(__NAMESPACE__.'\Asplode', Asplode::instance());
     }
 
+    public function testConstructor()
+    {
+        $expected = function() {
+            return false;
+        };
+
+        $this->assertEquals($expected, $this->asplode->fallbackHandler());
+    }
+
+    public function testSetFallbackHandler()
+    {
+        $arguments = null;
+        $fallbackHandler = function () {};
+        $this->asplode->setFallbackHandler($fallbackHandler);
+
+        $this->assertSame($fallbackHandler, $this->asplode->fallbackHandler());
+    }
+
     public function testInstall()
     {
         $this->asplode->install();
 
-        $restoreErrorHandlerVerification = Phake::verify(
-            $this->isolator,
-            Phake::times(2)
-        )->restore_error_handler();
+        $restoreErrorHandlerVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
         Phake::inOrder(
             Phake::verify($this->isolator)->set_error_handler(function () {}),
             $restoreErrorHandlerVerification,
             $restoreErrorHandlerVerification,
-            Phake::verify($this->isolator)->set_error_handler(
-                $this->identicalTo($this->asplode)
-            )
+            Phake::verify($this->isolator)->set_error_handler($this->identicalTo($this->asplode))
         );
     }
 
-    public function testInstallFailure()
+    public function testInstallFailureConfiguration()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
-            ->thenReturn($this->asplode)
-        ;
+        Phake::when($this->isolator)->error_reporting()->thenReturn(0);
 
-        $this->setExpectedException(
-          __NAMESPACE__.'\Exception\AlreadyInstalledException'
-        );
+        $this->setExpectedException(__NAMESPACE__.'\Exception\ErrorHandlingConfigurationException');
+        $this->asplode->install();
+    }
+
+    public function testInstallFailureAlreadyInstalled()
+    {
+        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn($this->asplode);
+
+        $this->setExpectedException(__NAMESPACE__.'\Exception\AlreadyInstalledException');
         $this->asplode->install();
     }
 
     public function testUninstall()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
-            ->thenReturn($this->asplode)
-        ;
+        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn($this->asplode);
         $this->asplode->uninstall();
 
-        $restoreErrorHandlerVerification = Phake::verify(
-            $this->isolator,
-            Phake::times(2)
-        )->restore_error_handler();
+        $restoreErrorHandlerVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
         Phake::inOrder(
             Phake::verify($this->isolator)->set_error_handler(function () {}),
             $restoreErrorHandlerVerification,
@@ -292,10 +277,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
 
     public function testUninstallFailure()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
-            ->thenReturn('foo')
-        ;
+        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn('foo');
         $caught = false;
         try {
             $this->asplode->uninstall();
@@ -304,10 +286,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertSame(true, $caught);
-        $restoreErrorHandlerVerification = Phake::verify(
-            $this->isolator,
-            Phake::times(2)
-        )->restore_error_handler();
+        $restoreErrorHandlerVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
         Phake::inOrder(
             Phake::verify($this->isolator)->set_error_handler(function () {}),
             $restoreErrorHandlerVerification,
@@ -329,6 +308,50 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
         }
 
         $this->fail('No ErrorException was thrown.');
+    }
+
+    public function testHandleErrorFallbackDefault()
+    {
+        $this->asplode->handleError(E_DEPRECATED, 'foo', 'bar', 111);
+
+        $this->assertTrue(true);
+    }
+
+    public function testHandleErrorDeprecated()
+    {
+        $arguments = null;
+        $fallbackHandler = function () use (&$arguments) {
+            $arguments = func_get_args();
+        };
+        $this->asplode->setFallbackHandler($fallbackHandler);
+        $this->asplode->handleError(E_DEPRECATED, 'foo', 'bar', 111);
+
+        $this->assertSame(array(E_DEPRECATED, 'foo', 'bar', 111), $arguments);
+    }
+
+    public function testHandleErrorUserDeprecated()
+    {
+        $arguments = null;
+        $fallbackHandler = function () use (&$arguments) {
+            $arguments = func_get_args();
+        };
+        $this->asplode->setFallbackHandler($fallbackHandler);
+        $this->asplode->handleError(E_USER_DEPRECATED, 'foo', 'bar', 111);
+
+        $this->assertSame(array(E_USER_DEPRECATED, 'foo', 'bar', 111), $arguments);
+    }
+
+    public function testHandleErrorAtSuppression()
+    {
+        $arguments = null;
+        $fallbackHandler = function () use (&$arguments) {
+            $arguments = func_get_args();
+        };
+        $this->asplode->setFallbackHandler($fallbackHandler);
+        Phake::when($this->isolator)->error_reporting()->thenReturn(0);
+        $this->asplode->handleError(E_USER_ERROR, 'foo', 'bar', 111);
+
+        $this->assertSame(array(E_USER_ERROR, 'foo', 'bar', 111), $arguments);
     }
 
     public function testInvoke()

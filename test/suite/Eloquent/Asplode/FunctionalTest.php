@@ -15,15 +15,15 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->handlerStack = \Eloquent\Asplode\Asplode::removeErrorHandlers();
+        $this->handlerStack = Eloquent\Asplode\Asplode::removeErrorHandlers();
     }
 
     protected function tearDown()
     {
         parent::tearDown();
 
-        \Eloquent\Asplode\Asplode::removeErrorHandlers();
-        \Eloquent\Asplode\Asplode::restoreErrorHandlers($this->handlerStack);
+        Eloquent\Asplode\Asplode::removeErrorHandlers();
+        Eloquent\Asplode\Asplode::restoreErrorHandlers($this->handlerStack);
     }
 
     /**
@@ -38,16 +38,13 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
         }
 
         // eval because otherwise 5.3 complains about syntax
-        eval('(new \Eloquent\Asplode\Asplode)->install();');
+        eval('(new Eloquent\Asplode\Asplode)->install();');
         $actual = set_error_handler(function() {
         });
         restore_error_handler();
         restore_error_handler();
 
-        $this->assertInstanceOf(
-            '\Eloquent\Asplode\Asplode',
-            $actual
-        );
+        $this->assertInstanceOf('Eloquent\Asplode\Asplode', $actual);
     }
 
     /**
@@ -55,16 +52,13 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
      */
     public function testOneLineInstallationPhp53()
     {
-        \Eloquent\Asplode\Asplode::instance()->install();
+        Eloquent\Asplode\Asplode::instance()->install();
         $actual = set_error_handler(function() {
         });
         restore_error_handler();
         restore_error_handler();
 
-        $this->assertInstanceOf(
-            '\Eloquent\Asplode\Asplode',
-            $actual
-        );
+        $this->assertInstanceOf('Eloquent\Asplode\Asplode', $actual);
     }
 
     /**
@@ -72,7 +66,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
      */
     public function testAsplodeHandling()
     {
-        \Eloquent\Asplode\Asplode::instance()->install();
+        Eloquent\Asplode\Asplode::instance()->install();
         $caught = false;
         try {
             $fp = fopen(uniqid(), 'r');

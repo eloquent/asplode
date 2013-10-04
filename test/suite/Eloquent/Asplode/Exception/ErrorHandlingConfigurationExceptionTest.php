@@ -14,10 +14,6 @@ namespace Eloquent\Asplode\Exception;
 use Exception as NativeException;
 use PHPUnit_Framework_TestCase;
 
-/**
- * @covers Eloquent\Asplode\Exception\ErrorHandlingConfigurationException
- * @covers Eloquent\Asplode\Exception\LogicException
- */
 class ErrorHandlingConfigurationExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testException()

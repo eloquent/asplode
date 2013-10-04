@@ -11,23 +11,24 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use Exception as NativeException;
+use Exception;
 
 /**
  * PHP's error handling is incorrectly configured.
  */
-final class ErrorHandlingConfigurationException extends LogicException
+final class ErrorHandlingConfigurationException extends Exception implements
+    AsplodeExceptionInterface
 {
     /**
      * Construct a new error handling configuration exception.
      *
-     * @param NativeException|null $previous The previous exception, if
-     *     available.
+     * @param Exception|null $previous The cause, if available.
      */
-    public function __construct(NativeException $previous = null)
+    public function __construct(Exception $previous = null)
     {
         parent::__construct(
             'Error handling is incorrectly configured.',
+            0,
             $previous
         );
     }

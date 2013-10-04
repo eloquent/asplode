@@ -11,17 +11,24 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use Exception as NativeException;
+use Exception;
 
 /**
  * This Asplode instance has not been installed.
  */
-final class NotInstalledException extends LogicException
+final class NotInstalledException extends Exception implements
+    AsplodeExceptionInterface
 {
-    public function __construct(NativeException $previous = null)
+    /**
+     * Construct a new not installed exception.
+     *
+     * @param Exception|null $previous The cause, if available.
+     */
+    public function __construct(Exception $previous = null)
     {
         parent::__construct(
-            "This instance of Asplode has not been installed.",
+            'This instance of Asplode has not been installed.',
+            0,
             $previous
         );
     }
