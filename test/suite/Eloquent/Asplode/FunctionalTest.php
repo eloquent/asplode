@@ -127,7 +127,7 @@ while (true) {
 }
 EOD;
         $source = sprintf($source, var_export(__DIR__ . '/../../../../vendor/autoload.php', true));
-        exec(sprintf('php -dmemory_limit=3000000 -r %s 2>&1', escapeshellarg($source)), $output, $exitCode);
+        exec(sprintf('php -dmemory_limit=5000000 -r %s 2>&1', escapeshellarg($source)), $output, $exitCode);
         $output = implode(PHP_EOL, $output);
 
         $this->assertNotEquals(0, $exitCode);
