@@ -11,20 +11,17 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use Exception as NativeException;
+use Exception;
 use PHPUnit_Framework_TestCase;
 
 class AlreadyInstalledExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testException()
     {
-        $previous = new NativeException;
+        $previous = new Exception;
         $exception = new AlreadyInstalledException($previous);
 
-        $this->assertSame(
-            'This instance of Asplode has already been installed.',
-            $exception->getMessage()
-        );
+        $this->assertSame('This instance of Asplode has already been installed.', $exception->getMessage());
         $this->assertSame(0, $exception->getCode());
         $this->assertSame($previous, $exception->getPrevious());
     }

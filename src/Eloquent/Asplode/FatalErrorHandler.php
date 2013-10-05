@@ -21,24 +21,22 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Construct a new fatal error handler.
      *
-     * @param HandlerStack\HandlerStackInterface|null $exceptionHandlerStack The exception handler stack to use.
-     * @param Isolator|null                           $isolator              The isolator to use.
+     * @param HandlerStack\HandlerStackInterface|null $stack    The exception handler stack to use.
+     * @param Isolator|null                           $isolator The isolator to use.
      */
     public function __construct(
-        HandlerStack\HandlerStackInterface $exceptionHandlerStack = null,
+        HandlerStack\HandlerStackInterface $stack = null,
         Isolator $isolator = null
     ) {
         $this->isolator = Isolator::get($isolator);
-        if (null === $exceptionHandlerStack) {
-            $exceptionHandlerStack = new HandlerStack\ExceptionHandlerStack(
+        if (null === $stack) {
+            $stack = new HandlerStack\ExceptionHandlerStack(
                 $isolator
             );
         }
 
-        $this->exceptionHandlerStack = $exceptionHandlerStack;
+        $this->stack = $stack;
         $this->isEnabled = $this->isRegistered = false;
-
-        $this->loadClasses();
     }
 
     /**
@@ -46,18 +44,24 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      *
      * @return HandlerStack\HandlerStackInterface The exception handler stack.
      */
-    public function exceptionHandlerStack()
+    public function stack()
     {
-        return $this->exceptionHandlerStack;
+        return $this->stack;
     }
 
     /**
      * Installs this fatal error handler.
+     *
+     * @throws Exception\AlreadyInstalledException If this fatal error handler is already installed.
      */
     public function install()
     {
+        if ($this->isInstalled()) {
+            throw new Exception\AlreadyInstalledException;
+        }
+
         if (!$this->isRegistered()) {
-            $this->reserveMemory();
+            $this->beforeRegister();
             $this->isolator()->register_shutdown_function($this);
             $this->isRegistered = true;
         }
@@ -67,9 +71,15 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
 
     /**
      * Uninstalls this fatal error handler.
+     *
+     * @throws Exception\NotInstalledException If this fatal error handler is not installed.
      */
     public function uninstall()
     {
+        if (!$this->isInstalled()) {
+            throw new Exception\NotInstalledException;
+        }
+
         $this->isEnabled = false;
     }
 
@@ -104,9 +114,8 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
 
         $this->freeMemory();
         $this->handleFatalError(
-            new Error\AsplodeFatalErrorException(
+            new Error\FatalErrorException(
                 $error['message'],
-                0,
                 $error['type'],
                 $error['file'],
                 $error['line']
@@ -158,13 +167,22 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     }
 
     /**
+     * This method is called just before the shutdown function is registered.
+     */
+    protected function beforeRegister()
+    {
+        $this->loadClasses();
+        $this->reserveMemory();
+    }
+
+    /**
      * Pre-loads any classes or interfaces  required in the event of a fatal
      * error.
      */
     protected function loadClasses()
     {
         $this->isolator()->class_exists(
-            __NAMESPACE__ . '\Error\AsplodeFatalErrorException'
+            __NAMESPACE__ . '\Error\FatalErrorException'
         );
     }
 
@@ -180,7 +198,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
             $size = 10240;
         }
 
-        $this->reservedMemory = str_repeat(' ', $size);
+        $this->reservedMemory = $this->isolator()->str_repeat(' ', $size);
     }
 
     /**
@@ -199,7 +217,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     protected function handleFatalError(
         Error\FatalErrorExceptionInterface $error
     ) {
-        $handler = $this->exceptionHandlerStack()->handler();
+        $handler = $this->stack()->handler();
         if (null === $handler) {
             return;
         }
@@ -207,7 +225,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
         $handler($error);
     }
 
-    private $exceptionHandlerStack;
+    private $stack;
     private $isolator;
     private $isRegistered;
     private $isEnabled;

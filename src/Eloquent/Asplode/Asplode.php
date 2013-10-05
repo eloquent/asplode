@@ -22,12 +22,14 @@ abstract class Asplode
     /**
      * Installs a new Asplode error handler.
      *
+     * @param Isolator|null $isolator The isolator to use.
+     *
      * @return ErrorHandlerInterface                         The installed error handler.
      * @throws Exception\ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
      */
-    public static function install()
+    public static function install(Isolator $isolator = null)
     {
-        $handler = new ErrorHandler;
+        $handler = new ErrorHandler(null, $isolator);
         $handler->install();
 
         return $handler;
@@ -39,11 +41,13 @@ abstract class Asplode
      * This handler will, on shutdown, detect any installed exception handler,
      * and pass an exception representing any fatal errors to said handler.
      *
+     * @param Isolator|null $isolator The isolator to use.
+     *
      * @return FatalErrorHandlerInterface The installed fatal error handler.
      */
-    public static function installFatalHandler()
+    public static function installFatalHandler(Isolator $isolator = null)
     {
-        $handler = new FatalErrorHandler;
+        $handler = new FatalErrorHandler(null, $isolator);
         $handler->install();
 
         return $handler;

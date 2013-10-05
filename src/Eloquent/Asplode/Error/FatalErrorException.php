@@ -11,13 +11,11 @@
 
 namespace Eloquent\Asplode\Error;
 
-use ErrorException;
-
 /**
  * Represents a fatal error by extending the native error exception to mark it
  * with appropriate interfaces.
  */
-final class AsplodeFatalErrorException extends ErrorException implements
+final class FatalErrorException extends AbstractErrorException implements
     FatalErrorExceptionInterface
 {
 }

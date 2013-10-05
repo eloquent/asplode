@@ -18,11 +18,15 @@ interface FatalErrorHandlerInterface
 {
     /**
      * Installs this fatal error handler.
+     *
+     * @throws Exception\AlreadyInstalledException If this fatal error handler is already installed.
      */
     public function install();
 
     /**
      * Uninstalls this fatal error handler.
+     *
+     * @throws Exception\NotInstalledException If this fatal error handler is not installed.
      */
     public function uninstall();
 

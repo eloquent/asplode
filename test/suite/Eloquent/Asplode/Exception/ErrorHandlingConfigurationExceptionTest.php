@@ -11,20 +11,17 @@
 
 namespace Eloquent\Asplode\Exception;
 
-use Exception as NativeException;
+use Exception;
 use PHPUnit_Framework_TestCase;
 
 class ErrorHandlingConfigurationExceptionTest extends PHPUnit_Framework_TestCase
 {
     public function testException()
     {
-        $previous = new NativeException;
+        $previous = new Exception;
         $exception = new ErrorHandlingConfigurationException($previous);
 
-        $this->assertSame(
-            'Error handling is incorrectly configured.',
-            $exception->getMessage()
-        );
+        $this->assertSame('Error handling is incorrectly configured.', $exception->getMessage());
         $this->assertSame(0, $exception->getCode());
         $this->assertSame($previous, $exception->getPrevious());
     }

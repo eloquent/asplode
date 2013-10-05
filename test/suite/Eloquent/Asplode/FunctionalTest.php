@@ -1,5 +1,8 @@
 <?php
 
+use Eloquent\Asplode\HandlerStack\ErrorHandlerStack;
+use Eloquent\Asplode\HandlerStack\ExceptionHandlerStack;
+
 /*
  * This file is part of the Asplode package.
  *
@@ -15,15 +18,19 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->handlerStack = Eloquent\Asplode\Asplode::removeErrorHandlers();
+        $this->errorHandlerStack = new ErrorHandlerStack;
+        $this->exceptionHandlerStack = new ExceptionHandlerStack;
+
+        $this->errorHandlers = $this->errorHandlerStack->clear();
+        $this->exceptionHandlers = $this->exceptionHandlerStack->clear();
     }
 
     protected function tearDown()
     {
         parent::tearDown();
 
-        Eloquent\Asplode\Asplode::removeErrorHandlers();
-        Eloquent\Asplode\Asplode::restoreErrorHandlers($this->handlerStack);
+        $this->errorHandlerStack->restore($this->errorHandlers);
+        $this->exceptionHandlerStack->restore($this->exceptionHandlers);
     }
 
     /**
@@ -31,42 +38,21 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
      */
     public function testOneLineInstallation()
     {
-        if (version_compare(PHP_VERSION, '5.4.0') < 0) {
-            $this->markTestSkipped('Requires PHP >= 5.4');
-
-            return;
-        }
-
-        // eval because otherwise 5.3 complains about syntax
-        eval('(new Eloquent\Asplode\Asplode)->install();');
+        Eloquent\Asplode\Asplode::install();
         $actual = set_error_handler(function() {
         });
         restore_error_handler();
         restore_error_handler();
 
-        $this->assertInstanceOf('Eloquent\Asplode\Asplode', $actual);
+        $this->assertInstanceOf('Eloquent\Asplode\ErrorHandler', $actual);
     }
 
     /**
-     * Test one line installation for PHP 5.3.
+     * Test error handling.
      */
-    public function testOneLineInstallationPhp53()
+    public function testHandling()
     {
-        Eloquent\Asplode\Asplode::instance()->install();
-        $actual = set_error_handler(function() {
-        });
-        restore_error_handler();
-        restore_error_handler();
-
-        $this->assertInstanceOf('Eloquent\Asplode\Asplode', $actual);
-    }
-
-    /**
-     * Test Asplode error handling.
-     */
-    public function testAsplodeHandling()
-    {
-        Eloquent\Asplode\Asplode::instance()->install();
+        Eloquent\Asplode\Asplode::install();
         $caught = false;
         try {
             $fp = fopen(uniqid(), 'r');
@@ -75,5 +61,79 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertTrue($caught);
+    }
+
+    /**
+     * Test error handling for recoverable fatals.
+     */
+    public function testHandlingRecoverableFatal()
+    {
+        $callback = function (Iterator $o) {};
+        Eloquent\Asplode\Asplode::install();
+        $caught = false;
+        try {
+            $callback(new stdClass);
+        } catch (ErrorException $e) {
+            $caught = true;
+        }
+
+        $this->assertTrue($caught);
+    }
+
+    /**
+     * Test fatal error handling.
+     */
+    public function testFatalHandlingUndefinedFunction()
+    {
+        $source = <<<'EOD'
+require %s;
+
+set_exception_handler(
+    function (Exception $e) {
+        printf('Caught %%s', var_export($e->getMessage(), true));
+    }
+);
+
+Eloquent\Asplode\Asplode::installFatalHandler();
+foo();
+EOD;
+        $source = sprintf($source, var_export(__DIR__ . '/../../../../vendor/autoload.php', true));
+        exec(sprintf('php -r %s 2>&1', escapeshellarg($source)), $output, $exitCode);
+        $output = implode(PHP_EOL, $output);
+
+        $this->assertNotEquals(0, $exitCode);
+        $this->assertContains("Caught 'Call to undefined function foo()'", $output);
+    }
+
+    /**
+     * Test out of memory fatal error handling.
+     */
+    public function testFatalHandlingOutOfMemory()
+    {
+        $source = <<<'EOD'
+require %s;
+
+set_exception_handler(
+    function (Exception $e) {
+        $memory = str_repeat(' ', 102400);
+        printf('Caught %%s' . PHP_EOL, var_export($e->getMessage(), true));
+    }
+);
+Eloquent\Asplode\Asplode::installFatalHandler();
+
+$_SERVER['memory'] = '';
+while (true) {
+    $_SERVER['memory'] .= ' ';
+}
+EOD;
+        $source = sprintf($source, var_export(__DIR__ . '/../../../../vendor/autoload.php', true));
+        exec(sprintf('php -dmemory_limit=3000000 -r %s 2>&1', escapeshellarg($source)), $output, $exitCode);
+        $output = implode(PHP_EOL, $output);
+
+        $this->assertNotEquals(0, $exitCode);
+        $this->assertRegExp(
+            "/Caught 'Allowed memory size of \d+ bytes exhausted \(tried to allocate \d+ bytes\)'/",
+            $output
+        );
     }
 }

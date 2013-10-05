@@ -36,7 +36,10 @@ class ErrorHandlerStack extends AbstractHandlerStack
     public function pop()
     {
         $handler = $this->isolator()->set_error_handler(function() {});
-        $this->isolator()->restore_error_handler();
+        if (null !== $handler) {
+            $this->isolator()->restore_error_handler();
+        }
+
         $this->isolator()->restore_error_handler();
 
         return $handler;

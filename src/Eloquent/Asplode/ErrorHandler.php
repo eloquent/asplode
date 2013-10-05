@@ -21,20 +21,20 @@ class ErrorHandler implements ErrorHandlerInterface
     /**
      * Construct a new error handler.
      *
-     * @param HandlerStack\HandlerStackInterface|null $errorHandlerStack The error handler stack to use.
-     * @param Isolator|null                           $isolator          The isolator to use.
+     * @param HandlerStack\HandlerStackInterface|null $stack    The error handler stack to use.
+     * @param Isolator|null                           $isolator The isolator to use.
      */
     public function __construct(
-        HandlerStack\HandlerStackInterface $errorHandlerStack = null,
+        HandlerStack\HandlerStackInterface $stack = null,
         Isolator $isolator = null
     ) {
         $this->isolator = Isolator::get($isolator);
-        if (null === $errorHandlerStack) {
-            $errorHandlerStack = new HandlerStack\ErrorHandlerStack($isolator);
+        if (null === $stack) {
+            $stack = new HandlerStack\ErrorHandlerStack($isolator);
         }
 
         $this->setFallbackHandler();
-        $this->errorHandlerStack = $errorHandlerStack;
+        $this->stack = $stack;
     }
 
     /**
@@ -42,9 +42,9 @@ class ErrorHandler implements ErrorHandlerInterface
      *
      * @return HandlerStack\HandlerStackInterface The error handler stack.
      */
-    public function errorHandlerStack()
+    public function stack()
     {
-        return $this->errorHandlerStack;
+        return $this->stack;
     }
 
     /**
@@ -93,7 +93,7 @@ class ErrorHandler implements ErrorHandlerInterface
             throw new Exception\AlreadyInstalledException;
         }
 
-        $this->errorHandlerStack()->push($this);
+        $this->stack()->push($this);
     }
 
     /**
@@ -103,9 +103,11 @@ class ErrorHandler implements ErrorHandlerInterface
      */
     public function uninstall()
     {
-        $handler = $this->errorHandlerStack()->pop();
+        $handler = $this->stack()->pop();
         if ($handler !== $this) {
-            $this->errorHandlerStack()->push($handler);
+            if (null !== $handler) {
+                $this->stack()->push($handler);
+            }
 
             throw new Exception\NotInstalledException;
         }
@@ -118,7 +120,7 @@ class ErrorHandler implements ErrorHandlerInterface
      */
     public function isInstalled()
     {
-        return $this->errorHandlerStack()->handler() === $this;
+        return $this->stack()->handler() === $this;
     }
 
     /**
@@ -144,13 +146,7 @@ class ErrorHandler implements ErrorHandlerInterface
             return $fallbackHandler($severity, $message, $filename, $lineno);
         }
 
-        throw new Exception\AsplodeErrorException(
-            $message,
-            0,
-            $severity,
-            $filename,
-            $lineno
-        );
+        throw new Error\ErrorException($message, $severity, $filename, $lineno);
     }
 
     /**
@@ -179,7 +175,7 @@ class ErrorHandler implements ErrorHandlerInterface
         return $this->isolator;
     }
 
-    private $errorHandlerStack;
+    private $stack;
     private $fallbackHandler;
     private $isolator;
 }
