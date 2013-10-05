@@ -1,0 +1,50 @@
+<phpunit
+    bootstrap="bootstrap.php"
+    strict="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    mapTestClassNameToCoveredClassName="true"
+    verbose="true"
+    colors="true"
+    timeoutForSmallTests="60"
+>
+    <testsuites>
+        <testsuite>
+            <directory>suite</directory>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <log
+            type="tap"
+            target="../artifacts/tests/report.tap"
+        />
+        <log
+            type="junit"
+            target="../artifacts/tests/report.junit.xml"
+        />
+        <log
+            type="coverage-html"
+            target="../artifacts/tests/coverage"
+            charset="UTF-8"
+            yui="true"
+            highlight="true"
+        />
+        <log
+            type="coverage-clover"
+            target="../artifacts/tests/coverage/coverage.xml"
+        />
+        <log
+            type="coverage-text"
+            target="../artifacts/tests/coverage/coverage.txt"
+        />
+    </logging>
+
+    <filter>
+        <whitelist>
+            <directory>../src</directory>
+            <directory>../src-internal</directory>
+        </whitelist>
+    </filter>
+</phpunit>
