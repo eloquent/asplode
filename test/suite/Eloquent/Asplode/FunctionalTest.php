@@ -81,6 +81,22 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test '@' suppression.
+     */
+    public function testAtSuppressionHandling()
+    {
+        Eloquent\Asplode\Asplode::install();
+        $caught = false;
+        try {
+            $fp = @fopen(uniqid(), 'r');
+        } catch (ErrorException $e) {
+            $caught = true;
+        }
+
+        $this->assertFalse($caught);
+    }
+
+    /**
      * Test fatal error handling.
      */
     public function testFatalHandlingUndefinedFunction()
