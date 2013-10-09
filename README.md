@@ -25,7 +25,7 @@ Eloquent\Asplode\Asplode::install();
 [ErrorException] exceptions instead of using the default PHP error handling
 behaviour. This means that all non-fatal runtime errors are presented to the
 developer in the form of an exception. It also means that any unhandled errors
-are delivered to a single point, the global exception handler.
+are delivered to a single point: the global exception handler.
 
 ## Why use *Asplode*?
 
@@ -34,9 +34,8 @@ occurs. Exceptions offer the only truly consistent way to report and recover
 from errors in PHP.
 
 This method of handling errors has proven to be extremely effective. Similar
-strategies are used in major PHP frameworks such as [Symfony].
-
-*Asplode* is a standalone implementation that can be used for any project.
+strategies are used in major PHP frameworks such as [Symfony]. *Asplode* is a
+standalone implementation that can be used for any project.
 
 ## Fatal error handling
 
@@ -61,12 +60,12 @@ set_exception_handler(
 Eloquent\Asplode\Asplode::install();
 ```
 
-To use *Asplode* without the fatal error handler, use `installErrorHandler()`
-instead of `Asplode::install()`. To use only the fatal error handler, use
-`installFatalHandler()`.
+To use *Asplode* without the fatal error handler, use
+`Asplode::installErrorHandler()` instead of `Asplode::install()`. To use only
+the fatal error handler, use `Asplode::installFatalHandler()`.
 
-Please note that because the PHP autoloader will not function during a fatal
-error, and as such custom exception handlers should explicitly load their
+Note that attempting to autoload files in the shutdown phase of PHP may be
+probelmatic; and as such, custom exception handlers should explicitly load their
 dependencies where possible.
 
 ## Asserting that the current error handler is compatible
@@ -134,10 +133,10 @@ try {
 ```
 
 It's important to note that PHP can be very inconsistent in the way it reports
-error conditions. In some cases functions will simply return a boolean false
-when an error occurs, others require the developer to call additional functions
-to check for errors, while others still maybe have entirely non-standard
-behaviour.
+error conditions. Some functions will return a boolean false to indicate an
+error has occurred; others may require the developer to call additional
+functions to check for errors; and others still may exhibit entirely
+non-standard behaviour.
 
 *Asplode* does not free the developer from the responsibility of reading the PHP
 documentation, or making sure that they account for all possible error
