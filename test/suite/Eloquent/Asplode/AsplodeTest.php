@@ -30,6 +30,15 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
         Asplode::install($this->isolator);
 
         Phake::verify($this->isolator)->set_error_handler($this->isInstanceOf(__NAMESPACE__ . '\ErrorHandler'));
+        Phake::verify($this->isolator)->register_shutdown_function($this->isInstanceOf(__NAMESPACE__ . '\FatalErrorHandler'));
+    }
+
+    public function testInstallErrorHandler()
+    {
+        Asplode::installErrorHandler($this->isolator);
+
+        Phake::verify($this->isolator)->set_error_handler($this->isInstanceOf(__NAMESPACE__ . '\ErrorHandler'));
+        Phake::verify($this->isolator, Phake::never())->register_shutdown_function(Phake::anyParameters());
     }
 
     public function testInstallFatalHandler()
@@ -37,6 +46,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
         Asplode::installFatalHandler($this->isolator);
 
         Phake::verify($this->isolator)->register_shutdown_function($this->isInstanceOf(__NAMESPACE__ . '\FatalErrorHandler'));
+        Phake::verify($this->isolator, Phake::never())->set_error_handler(Phake::anyParameters());
     }
 
     public function testAssertCompatibleHandler()

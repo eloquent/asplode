@@ -20,14 +20,30 @@ use Icecave\Isolator\Isolator;
 abstract class Asplode
 {
     /**
-     * Installs a new Asplode error handler.
+     * Installs a new error handler, and a new fatal error handler
+     * simultaneously.
+     *
+     * @param Isolator|null $isolator The isolator to use.
+     *
+     * @return tuple<ErrorHandlerInterface,FatalErrorHandlerInterface> A tuple containing the installed error handler and fatal error handler.
+     * @throws Exception\ErrorHandlingConfigurationException           If the error reporting level is incorrectly configured.
+     */
+    public static function install(Isolator $isolator = null)
+    {
+        $fatalHandler = static::installFatalHandler($isolator);
+
+        return array(static::installErrorHandler($isolator), $fatalHandler);
+    }
+
+    /**
+     * Installs a new error handler.
      *
      * @param Isolator|null $isolator The isolator to use.
      *
      * @return ErrorHandlerInterface                         The installed error handler.
      * @throws Exception\ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
      */
-    public static function install(Isolator $isolator = null)
+    public static function installErrorHandler(Isolator $isolator = null)
     {
         $handler = new ErrorHandler(null, $isolator);
         $handler->install();
@@ -36,7 +52,7 @@ abstract class Asplode
     }
 
     /**
-     * Installs a new Asplode fatal error handler.
+     * Installs a new fatal error handler.
      *
      * This handler will, on shutdown, detect any installed exception handler,
      * and pass an exception representing any fatal errors to said handler.

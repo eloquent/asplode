@@ -39,8 +39,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
     public function testOneLineInstallation()
     {
         Eloquent\Asplode\Asplode::install();
-        $actual = set_error_handler(function() {
-        });
+        $actual = set_error_handler(function() {});
         restore_error_handler();
         restore_error_handler();
 
