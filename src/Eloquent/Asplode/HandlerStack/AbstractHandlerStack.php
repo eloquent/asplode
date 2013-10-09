@@ -11,6 +11,7 @@
 
 namespace Eloquent\Asplode\HandlerStack;
 
+use Exception;
 use Icecave\Isolator\Isolator;
 
 /**
@@ -50,9 +51,19 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
      */
     public function handlerStack()
     {
-        $this->restore($handlers = $this->clear());
+        $this->pushAll($handlers = $this->clear());
 
         return $handlers;
+    }
+
+    /**
+     * Pushes multiple handlers on to the stack.
+     *
+     * @param array<callable> $handlers The handlers to push on to the stack.
+     */
+    public function pushAll(array $handlers)
+    {
+        array_map(array($this, 'push'), $handlers);
     }
 
     /**
@@ -77,7 +88,8 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
      */
     public function restore(array $handlers)
     {
-        array_map(array($this, 'push'), $handlers);
+        $this->clear();
+        $this->pushAll($handlers);
     }
 
     /**
@@ -90,7 +102,8 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
      * @param callable      $callable The callable to invoke.
      * @param callable|null $handler  The handler to use.
      *
-     * @return mixed The result of the callable's invocation.
+     * @return mixed     The result of the callable's invocation.
+     * @throws Exception If the callable throws an exception.
      */
     public function executeWith($callable, $handler = null)
     {
@@ -99,12 +112,18 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
             $this->push($handler);
         }
 
-        $result = $callable();
-
-        if (null !== $handler) {
-            $this->pop();
+        $error = null;
+        try {
+            $result = $callable();
+        } catch (Exception $error) {
+            // re-thrown after handlers are restored
         }
+
         $this->restore($handlers);
+
+        if (null !== $error) {
+            throw $error;
+        }
 
         return $result;
     }

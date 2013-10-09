@@ -11,6 +11,7 @@
 
 namespace Eloquent\Asplode\HandlerStack;
 
+use Exception;
 use Icecave\Isolator\Isolator;
 use Phake;
 use PHPUnit_Framework_TestCase;
@@ -93,6 +94,34 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testPush()
+    {
+        $this->stack->push('foo');
+
+        Phake::verify($this->isolator)->set_error_handler('foo');
+        Phake::verify($this->isolator, Phake::never())->restore_error_handler();
+    }
+
+    public function testPop()
+    {
+        Phake::when($this->isolator)
+            ->set_error_handler(Phake::anyParameters())
+            ->thenReturn('foo');
+
+        $this->assertSame('foo', $this->stack->pop());
+    }
+
+    public function testPushAll()
+    {
+        $this->stack->pushAll(array('foo', 'bar'));
+
+        Phake::inOrder(
+            Phake::verify($this->isolator)->set_error_handler('foo'),
+            Phake::verify($this->isolator)->set_error_handler('bar')
+        );
+        Phake::verify($this->isolator, Phake::never())->restore_error_handler();
+    }
+
     public function testClear()
     {
         Phake::when($this->isolator)
@@ -129,15 +158,25 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testRestoreErrorHandlers()
+    public function testRestore()
     {
-        $this->stack->restore(array('foo', 'bar'));
+        Phake::when($this->isolator)
+            ->set_error_handler(Phake::anyParameters())
+            ->thenReturn('foo')
+            ->thenReturn(null);
+        $this->stack->restore(array('bar', 'baz'));
 
+        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(2))->set_error_handler(function () {});
+        $restoreVerification = Phake::verify($this->isolator, Phake::times(3))->restore_error_handler();
         Phake::inOrder(
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($this->isolator)->set_error_handler('bar')
+            $setEmptyVerification,
+            $restoreVerification,
+            $restoreVerification,
+            $setEmptyVerification,
+            $restoreVerification,
+            Phake::verify($this->isolator)->set_error_handler('bar'),
+            Phake::verify($this->isolator)->set_error_handler('baz')
         );
-        Phake::verify($this->isolator, Phake::never())->restore_error_handler();
     }
 
     public function testExecuteWith()
@@ -219,8 +258,8 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             ->thenReturn(null);
 
         $this->assertSame('foobar', $this->stack->executeWith($callable));
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(3))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(5))->restore_error_handler();
+        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(4))->set_error_handler(function () {});
+        $restoreVerification = Phake::verify($this->isolator, Phake::times(6))->restore_error_handler();
         Phake::inOrder(
             $setEmptyVerification,
             $restoreVerification,
@@ -231,6 +270,47 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             $setEmptyVerification,
             $restoreVerification,
             Phake::verify($callable)->__invoke(),
+            $setEmptyVerification,
+            $restoreVerification,
+            Phake::verify($this->isolator)->set_error_handler('foo'),
+            Phake::verify($this->isolator)->set_error_handler('bar')
+        );
+    }
+
+    public function testExecuteWithException()
+    {
+        Phake::when($this->isolator)
+            ->set_error_handler(Phake::anyParameters())
+            ->thenReturn('foo')
+            ->thenReturn('bar')
+            ->thenReturn(null);
+        $error = new Exception;
+        $callable = Phake::partialMock(
+            'Eloquent\Asplode\Test\CallableWrapper',
+            function () use ($error) {
+                throw $error;
+            }
+        );
+        $caught = null;
+        try {
+            $this->stack->executeWith($callable);
+        } catch (Exception $caught) {}
+
+        $this->assertSame($error, $caught);
+        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(4))->set_error_handler(function () {});
+        $restoreVerification = Phake::verify($this->isolator, Phake::times(6))->restore_error_handler();
+        Phake::inOrder(
+            $setEmptyVerification,
+            $restoreVerification,
+            $restoreVerification,
+            $setEmptyVerification,
+            $restoreVerification,
+            $restoreVerification,
+            $setEmptyVerification,
+            $restoreVerification,
+            Phake::verify($callable)->__invoke(),
+            $setEmptyVerification,
+            $restoreVerification,
             Phake::verify($this->isolator)->set_error_handler('foo'),
             Phake::verify($this->isolator)->set_error_handler('bar')
         );

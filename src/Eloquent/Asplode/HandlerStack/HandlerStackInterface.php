@@ -38,6 +38,13 @@ interface HandlerStackInterface
     public function push($handler);
 
     /**
+     * Pushes multiple handlers on to the stack.
+     *
+     * @param array<callable> $handlers The handlers to push on to the stack.
+     */
+    public function pushAll(array $handlers);
+
+    /**
      * Pops a handler off the stack.
      *
      * @return callable|null The handler that was removed from the stack, or null if the stack is empty.
@@ -68,7 +75,8 @@ interface HandlerStackInterface
      * @param callable      $callable The callable to invoke.
      * @param callable|null $handler  The handler to use.
      *
-     * @return mixed The result of the callable's invocation.
+     * @return mixed     The result of the callable's invocation.
+     * @throws Exception If the callable throws an exception.
      */
     public function executeWith($callable, $handler = null);
 }
