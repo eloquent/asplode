@@ -185,9 +185,6 @@ $result = $stack->executeWith(
 
 <!-- References -->
 
-[API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
-[Composer]: http://getcomposer.org/
-[eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 [error handler]: http://php.net/set_error_handler
 [error_reporting]: http://php.net/error_reporting
 [ErrorException]: http://php.net/ErrorException
@@ -197,6 +194,7 @@ $result = $stack->executeWith(
 [stack]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)
 [Symfony]: http://symfony.com/
 
+[API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
 [Build status]: https://api.travis-ci.org/eloquent/asplode.png?branch=master
 [Composer]: http://getcomposer.org/
 [eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
