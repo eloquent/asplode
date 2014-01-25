@@ -2,7 +2,7 @@
 
 *Drop-in exception-based error handling for PHP.*
 
-[![The most recent stable version is 1.1.1]][Semantic versioning]
+[![The most recent stable version is 2.0.0]][Semantic versioning]
 [![Current build status image]][Current build status]
 [![Current coverage status image]][Current coverage status]
 
@@ -202,4 +202,4 @@ $result = $stack->executeWith(
 [Current coverage status]: https://coveralls.io/r/eloquent/asplode
 [eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 [Semantic versioning]: http://semver.org/
-[The most recent stable version is 1.1.1]: http://b.adge.me/:semver-1.1.1-brightgreen.svg "This project uses semantic versioning"
+[The most recent stable version is 2.0.0]: http://b.adge.me/:semver-2.0.0-brightgreen.svg "This project uses semantic versioning"

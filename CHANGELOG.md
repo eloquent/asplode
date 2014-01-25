@@ -1,6 +1,6 @@
 # Asplode changelog
 
-## 2.0.0 (unreleased)
+## 2.0.0 (2014-01-25)
 
 - **[BC BREAK]** Complete re-write
 - **[NEW]** Fatal error handling ([#10])
