@@ -12,15 +12,15 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.3",
         "icecave/isolator": "~2"
     },
     "require-dev": {
-        "icecave/archer": "1.0.0-alpha.2"
+        "icecave/archer": "~1"
     },
     "autoload": {
-        "psr-0": {
-            "Eloquent\\Asplode": "src"
+        "psr-4": {
+            "Eloquent\\Asplode\\": "src"
         }
     }
 }
