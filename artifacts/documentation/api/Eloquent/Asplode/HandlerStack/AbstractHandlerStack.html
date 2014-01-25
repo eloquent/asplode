@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Eloquent\Asplode\HandlerStack\AbstractHandlerStack | eloquent/asplode API</title>
+                    <link rel="stylesheet" type="text/css" href="../../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../../classes.html">Classes</a></li>
+                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">eloquent/asplode API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../../Eloquent/Asplode/HandlerStack.html">Eloquent\Asplode\HandlerStack</a>\AbstractHandlerStack</h1>
+    </div>
+        <div class="content">
+                <p>abstract class    <strong>AbstractHandlerStack</strong>        implements
+        <a href="../../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a></p>
+
+            <div class="description">
+            <p>An abstract base class for implementing handler stacks.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
+                    <p>Construct a new handler stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr>|null
+                </td>
+                <td class="last">
+                    <a href="#method_handler">handler</a>()
+                    <p>Gets the current handler without removing it from the stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Asplode\HandlerStack\array&lt;callable&gt;">array&lt;callable&gt;</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_handlerStack">handlerStack</a>()
+                    <p>Gets the current handler stack without changing the stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_pushAll">pushAll</a>(array $handlers)
+                    <p>Pushes multiple handlers on to the stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Asplode\HandlerStack\array&lt;callable&gt;">array&lt;callable&gt;</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_clear">clear</a>()
+                    <p>Removes all handlers from the stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_restore">restore</a>(array $handlers)
+                    <p>Restores a stack of handlers.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_executeWith">executeWith</a>(<abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr> $callable, <abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr>|null $handler = null)
+                    <p>Temporarily bypass the current handler stack and execute a callable with the supplied handler.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 27</div>
+        <code>            public            
+    <strong>__construct</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
+    </h3>
+    <div class="details">
+        <p>Construct a new handler stack.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
+                <td>$isolator</td>
+                <td>The isolator to use.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_handler">
+        <div class="location">at line 37</div>
+        <code>            public            <abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr>|null
+    <strong>handler</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Gets the current handler without removing it from the stack.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr>|null</td>
+            <td>The current handler.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_handlerStack">
+        <div class="location">at line 52</div>
+        <code>            public            <abbr title="Eloquent\Asplode\HandlerStack\array&lt;callable&gt;">array&lt;callable&gt;</abbr>
+    <strong>handlerStack</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Gets the current handler stack without changing the stack.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Asplode\HandlerStack\array&lt;callable&gt;">array&lt;callable&gt;</abbr></td>
+            <td>The current handler stack.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_pushAll">
+        <div class="location">at line 64</div>
+        <code>            public            
+    <strong>pushAll</strong>(array $handlers)</code>
+    </h3>
+    <div class="details">
+        <p>Pushes multiple handlers on to the stack.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$handlers</td>
+                <td>The handlers to push on to the stack.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_clear">
+        <div class="location">at line 74</div>
+        <code>            public            <abbr title="Eloquent\Asplode\HandlerStack\array&lt;callable&gt;">array&lt;callable&gt;</abbr>
+    <strong>clear</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Removes all handlers from the stack.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Asplode\HandlerStack\array&lt;callable&gt;">array&lt;callable&gt;</abbr></td>
+            <td>The removed handlers.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_restore">
+        <div class="location">at line 89</div>
+        <code>            public            
+    <strong>restore</strong>(array $handlers)</code>
+    </h3>
+    <div class="details">
+        <p>Restores a stack of handlers.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$handlers</td>
+                <td>The handlers to restore.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_executeWith">
+        <div class="location">at line 108</div>
+        <code>            public            mixed
+    <strong>executeWith</strong>(<abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr> $callable, <abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr>|null $handler = null)</code>
+    </h3>
+    <div class="details">
+        <p>Temporarily bypass the current handler stack and execute a callable with the supplied handler.</p>
+        <p>This method is useful for executing PHP code that relies upon handling
+techniques that are incompatible with Asplode</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr></td>
+                <td>$callable</td>
+                <td>The callable to invoke.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Eloquent\Asplode\HandlerStack\callable">callable</abbr>|null</td>
+                <td>$handler</td>
+                <td>The handler to use.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>The result of the callable's invocation.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/Exception"><abbr title="Exception">Exception</abbr></a></td>
+                <td>If the callable throws an exception.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

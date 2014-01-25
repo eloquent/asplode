@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Eloquent\Asplode\ErrorHandler | eloquent/asplode API</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">eloquent/asplode API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Eloquent/Asplode.html">Eloquent\Asplode</a>\ErrorHandler</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>ErrorHandler</strong>        implements
+        <a href="../../Eloquent/Asplode/ErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">ErrorHandlerInterface</abbr></a></p>
+
+            <div class="description">
+            <p>The standard Asplode error handler.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(<a href="../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a> $stack = null, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
+                    <p>Construct a new error handler.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_stack">stack</a>()
+                    <p>Get the error handler stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setFallbackHandler">setFallbackHandler</a>(<abbr title="Eloquent\Asplode\callable">callable</abbr>|null $fallbackHandler = null)
+                    <p>Set an error handler to use as a fallback for errors that are not handled by Asplode.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Eloquent\Asplode\callable">callable</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_fallbackHandler">fallbackHandler</a>()
+                    <p>Get the error handler used as a fallback for errors that are not handled by Asplode.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_install">install</a>()
+                    <p>Installs this error handler.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_uninstall">uninstall</a>()
+                    <p>Uninstalls this error handler.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isInstalled">isInstalled</a>()
+                    <p>Returns true if this error handler is the top-most handler on the stack.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_handle">handle</a>(integer $severity, string $message, string $filename, integer $lineno)
+                    <p>Handles a PHP error.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method___invoke">__invoke</a>(integer $severity, string $message, string $filename, integer $lineno)
+                    <p>Handles a PHP error.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 27</div>
+        <code>            public            
+    <strong>__construct</strong>(<a href="../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a> $stack = null, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
+    </h3>
+    <div class="details">
+        <p>Construct a new error handler.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a></td>
+                <td>$stack</td>
+                <td>The error handler stack to use.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
+                <td>$isolator</td>
+                <td>The isolator to use.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_stack">
+        <div class="location">at line 45</div>
+        <code>            public            <a href="../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a>
+    <strong>stack</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the error handler stack.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">HandlerStackInterface</abbr></a></td>
+            <td>The error handler stack.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFallbackHandler">
+        <div class="location">at line 59</div>
+        <code>            public            
+    <strong>setFallbackHandler</strong>(<abbr title="Eloquent\Asplode\callable">callable</abbr>|null $fallbackHandler = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set an error handler to use as a fallback for errors that are not handled by Asplode.</p>
+        <p>Errors not handled by Asplode include deprecation messages, and '@'
+suppressed errors.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Eloquent\Asplode\callable">callable</abbr>|null</td>
+                <td>$fallbackHandler</td>
+                <td>The fallback handler to use, or null to use the default PHP handler.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_fallbackHandler">
+        <div class="location">at line 76</div>
+        <code>            public            <abbr title="Eloquent\Asplode\callable">callable</abbr>
+    <strong>fallbackHandler</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the error handler used as a fallback for errors that are not handled by Asplode.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Asplode\callable">callable</abbr></td>
+            <td>The fallback error handler.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_install">
+        <div class="location">at line 87</div>
+        <code>            public            
+    <strong>install</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Installs this error handler.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\AlreadyInstalledException">AlreadyInstalledException</abbr></td>
+                <td>If this error handler is already the top-most handler on the stack.</td>
+            </tr>
+                    <tr>
+                <td><abbr title="Exception\ErrorHandlingConfigurationException">ErrorHandlingConfigurationException</abbr></td>
+                <td>If the error reporting level is incorrectly configured.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_uninstall">
+        <div class="location">at line 104</div>
+        <code>            public            
+    <strong>uninstall</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Uninstalls this error handler.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\NotInstalledException">NotInstalledException</abbr></td>
+                <td>If this error handler is not the top-most handler on the stack.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isInstalled">
+        <div class="location">at line 121</div>
+        <code>            public            boolean
+    <strong>isInstalled</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns true if this error handler is the top-most handler on the stack.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if this error handler is the top-most handler on the stack.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_handle">
+        <div class="location">at line 137</div>
+        <code>            public            boolean
+    <strong>handle</strong>(integer $severity, string $message, string $filename, integer $lineno)</code>
+    </h3>
+    <div class="details">
+        <p>Handles a PHP error.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$severity</td>
+                <td>The severity of the error.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td>The error message.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$filename</td>
+                <td>The filename in which the error was raised.</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$lineno</td>
+                <td>The line number in which the error was raised.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>False if the error is a deprecation message, or '@' suppression is in use.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Error\NonFatalErrorExceptionInterface">NonFatalErrorExceptionInterface</abbr></td>
+                <td>Representing the error, unless the error is a deprecation message, or '@' suppression is in use.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method___invoke">
+        <div class="location">at line 163</div>
+        <code>            public            boolean
+    <strong>__invoke</strong>(integer $severity, string $message, string $filename, integer $lineno)</code>
+    </h3>
+    <div class="details">
+        <p>Handles a PHP error.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$severity</td>
+                <td>The severity of the error.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td>The error message.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$filename</td>
+                <td>The filename in which the error was raised.</td>
+            </tr>
+                    <tr>
+                <td>integer</td>
+                <td>$lineno</td>
+                <td>The line number in which the error was raised.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>False if the error is a deprecation message, or '@' suppression is in use.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Error\NonFatalErrorExceptionInterface">NonFatalErrorExceptionInterface</abbr></td>
+                <td>Representing the error, unless the error is a deprecation message, or '@' suppression is in use.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

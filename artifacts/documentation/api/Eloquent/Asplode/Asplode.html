@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Eloquent\Asplode\Asplode | Asplode API</title>
+        <title>Eloquent\Asplode\Asplode | eloquent/asplode API</title>
                     <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
                             </head>
         <body id="class">
@@ -16,17 +16,18 @@
             
         </ul>
 
-        <div id="title">Asplode API</div>
+        <div id="title">eloquent/asplode API</div>
 
             <div class="type">Class</div>
     <h1><a href="../../Eloquent/Asplode.html">Eloquent\Asplode</a>\Asplode</h1>
     </div>
         <div class="content">
-                <p>class    <strong>Asplode</strong></p>
+                <p>abstract class    <strong>Asplode</strong></p>
 
             <div class="description">
-            <p>The main Asplode error handler.</p>
-            <p>Also provides utility methods for managing PHP&#039;s error handler stack.</p>
+            <p>Implements static convenience methods for use with Asplode.</p>
+            <p>
+</p>
         </div>
     
     
@@ -34,6 +35,36 @@
             <h2>Methods</h2>
 
             <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<abbr title="Eloquent\Asplode\tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;">tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_install">install</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
+                    <p>Installs a new error handler, and a new fatal error handler simultaneously.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<a href="../../Eloquent/Asplode/ErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">ErrorHandlerInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_installErrorHandler">installErrorHandler</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
+                    <p>Installs a new error handler.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<a href="../../Eloquent/Asplode/FatalErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">FatalErrorHandlerInterface</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_installFatalHandler">installFatalHandler</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
+                    <p>Installs a new fatal error handler.</p>
+                </td>
+                <td></td>
+            </tr>
                     <tr>
                 <td class="type">
                     static&nbsp;
@@ -44,149 +75,143 @@
                 </td>
                 <td></td>
             </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;
-                </td>
-                <td class="last">
-                    <a href="#method_currentErrorHandler">currentErrorHandler</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Gets the current error handler without removing it from the stack.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;
-                </td>
-                <td class="last">
-                    <a href="#method_currentErrorHandlerStack">currentErrorHandlerStack</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Gets the current error handler stack without changing the stack.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;
-                </td>
-                <td class="last">
-                    <a href="#method_pushErrorHandler">pushErrorHandler</a>(<abbr title="Eloquent\Asplode\callable">callable</abbr> $errorHandler, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Pushes an error handler on to the stack.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;<abbr title="Eloquent\Asplode\callable">callable</abbr>|null
-                </td>
-                <td class="last">
-                    <a href="#method_popErrorHandler">popErrorHandler</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Pops an error handler off the stack.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;<abbr title="Eloquent\Asplode\array&lt;callable&gt;">array&lt;callable&gt;</abbr>
-                </td>
-                <td class="last">
-                    <a href="#method_removeErrorHandlers">removeErrorHandlers</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Removes all error handlers from the stack.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;
-                </td>
-                <td class="last">
-                    <a href="#method_restoreErrorHandlers">restoreErrorHandlers</a>(array $errorHandlers, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Restores a stack of error handlers.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;mixed
-                </td>
-                <td class="last">
-                    <a href="#method_unsafe">unsafe</a>(<abbr title="Eloquent\Asplode\callable">callable</abbr> $callable, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Invokes a callable by bypassing any error handlers, and using PHP&#039;s native error handling.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    static&nbsp;<a href="../../Eloquent/Asplode/Asplode.html"><abbr title="Eloquent\Asplode\Asplode">Asplode</abbr></a>
-                </td>
-                <td class="last">
-                    <a href="#method_instance">instance</a>()
-                    <p>Creates a new instance of Asplode.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method___construct">__construct</a>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
-                    <p>Construct a new error handler.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_install">install</a>()
-                    <p>Installs this error handler.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_uninstall">uninstall</a>()
-                    <p>Uninstalls this error handler.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method_handleError">handleError</a>(integer $severity, string $message, string $filename, integer $lineno)
-                    <p>Handles a PHP error.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    
-                </td>
-                <td class="last">
-                    <a href="#method___invoke">__invoke</a>(integer $severity, string $message, string $filename, integer $lineno)
-                    <p>Handles a PHP error.</p>
-                </td>
-                <td></td>
-            </tr>
             </table>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_assertCompatibleHandler">
-        <div class="location">at line 33</div>
+                        <h3 id="method_install">
+        <div class="location">at line 31</div>
+        <code>        static    public            <abbr title="Eloquent\Asplode\tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;">tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;</abbr>
+    <strong>install</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
+    </h3>
+    <div class="details">
+        <p>Installs a new error handler, and a new fatal error handler simultaneously.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
+                <td>$isolator</td>
+                <td>The isolator to use.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Eloquent\Asplode\tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;">tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;</abbr></td>
+            <td>A tuple containing the installed error handler and fatal error handler.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\ErrorHandlingConfigurationException">ErrorHandlingConfigurationException</abbr></td>
+                <td>If the error reporting level is incorrectly configured.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_installErrorHandler">
+        <div class="location">at line 46</div>
+        <code>        static    public            <a href="../../Eloquent/Asplode/ErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">ErrorHandlerInterface</abbr></a>
+    <strong>installErrorHandler</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
+    </h3>
+    <div class="details">
+        <p>Installs a new error handler.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
+                <td>$isolator</td>
+                <td>The isolator to use.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Eloquent/Asplode/ErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">ErrorHandlerInterface</abbr></a></td>
+            <td>The installed error handler.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Exception\ErrorHandlingConfigurationException">ErrorHandlingConfigurationException</abbr></td>
+                <td>If the error reporting level is incorrectly configured.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_installFatalHandler">
+        <div class="location">at line 64</div>
+        <code>        static    public            <a href="../../Eloquent/Asplode/FatalErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">FatalErrorHandlerInterface</abbr></a>
+    <strong>installFatalHandler</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
+    </h3>
+    <div class="details">
+        <p>Installs a new fatal error handler.</p>
+        <p>This handler will, on shutdown, detect any installed exception handler,
+and pass an exception representing any fatal errors to said handler.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
+                <td>$isolator</td>
+                <td>The isolator to use.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Eloquent/Asplode/FatalErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">FatalErrorHandlerInterface</abbr></a></td>
+            <td>The installed fatal error handler.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_assertCompatibleHandler">
+        <div class="location">at line 80</div>
         <code>        static    public            
     <strong>assertCompatibleHandler</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
     </h3>
     <div class="details">
         <p>Asserts that an error handling is configured in a way that is compatible with code expecting error exceptions.</p>
-        <p></p>
+        <p>
+</p>
         <div class="tags">
                             <h4>Parameters</h4>
 
@@ -206,420 +231,6 @@
                     <tr>
                 <td><abbr title="Exception\ErrorHandlingConfigurationException">ErrorHandlingConfigurationException</abbr></td>
                 <td>If error handling is not configured correctly.</td>
-            </tr>
-            </table>
-
-            
-                    </div>
-    </div>
-
-                <h3 id="method_currentErrorHandler">
-        <div class="location">at line 57</div>
-        <code>        static    public            
-    <strong>currentErrorHandler</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Gets the current error handler without removing it from the stack.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_currentErrorHandlerStack">
-        <div class="location">at line 74</div>
-        <code>        static    public            
-    <strong>currentErrorHandlerStack</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Gets the current error handler stack without changing the stack.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_pushErrorHandler">
-        <div class="location">at line 91</div>
-        <code>        static    public            
-    <strong>pushErrorHandler</strong>(<abbr title="Eloquent\Asplode\callable">callable</abbr> $errorHandler, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Pushes an error handler on to the stack.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Eloquent\Asplode\callable">callable</abbr></td>
-                <td>$errorHandler</td>
-                <td>The error handler to push on to the stack.</td>
-            </tr>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_popErrorHandler">
-        <div class="location">at line 106</div>
-        <code>        static    public            <abbr title="Eloquent\Asplode\callable">callable</abbr>|null
-    <strong>popErrorHandler</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Pops an error handler off the stack.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td><abbr title="Eloquent\Asplode\callable">callable</abbr>|null</td>
-            <td>The error handler that was removed from the stack, or null if the stack is empty.</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_removeErrorHandlers">
-        <div class="location">at line 124</div>
-        <code>        static    public            <abbr title="Eloquent\Asplode\array&lt;callable&gt;">array&lt;callable&gt;</abbr>
-    <strong>removeErrorHandlers</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Removes all error handlers from the stack.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td><abbr title="Eloquent\Asplode\array&lt;callable&gt;">array&lt;callable&gt;</abbr></td>
-            <td>The removed error handlers.</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_restoreErrorHandlers">
-        <div class="location">at line 142</div>
-        <code>        static    public            
-    <strong>restoreErrorHandlers</strong>(array $errorHandlers, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Restores a stack of error handlers.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>array</td>
-                <td>$errorHandlers</td>
-                <td>The error handlers to restore.</td>
-            </tr>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_unsafe">
-        <div class="location">at line 166</div>
-        <code>        static    public            mixed
-    <strong>unsafe</strong>(<abbr title="Eloquent\Asplode\callable">callable</abbr> $callable, <abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Invokes a callable by bypassing any error handlers, and using PHP&#039;s native error handling.</p>
-        <p>This method is useful for executing legacy PHP code that relies upon &#039;@&#039;<br />
- suppression or other techniques that are incompatible with<br />
- exception-based error handling.</p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Eloquent\Asplode\callable">callable</abbr></td>
-                <td>$callable</td>
-                <td>The callable to invoke.</td>
-            </tr>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td>mixed</td>
-            <td>The result of the callable&#039;s invocation.</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_instance">
-        <div class="location">at line 184</div>
-        <code>        static    public            <a href="../../Eloquent/Asplode/Asplode.html"><abbr title="Eloquent\Asplode\Asplode">Asplode</abbr></a>
-    <strong>instance</strong>()</code>
-    </h3>
-    <div class="details">
-        <p>Creates a new instance of Asplode.</p>
-        <p>This method exists solely to allow one-line installation in PHP 5.3.</p>
-        <div class="tags">
-            
-                            <h4>Return Value</h4>
-
-                    <table>
-        <tr>
-            <td><a href="../../Eloquent/Asplode/Asplode.html"><abbr title="Eloquent\Asplode\Asplode">Asplode</abbr></a></td>
-            <td>A new Asplode instance.</td>
-        </tr>
-    </table>
-
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method___construct">
-        <div class="location">at line 194</div>
-        <code>            public            
-    <strong>__construct</strong>(<abbr title="Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
-    </h3>
-    <div class="details">
-        <p>Construct a new error handler.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Icecave\Isolator\Isolator">Isolator</abbr></td>
-                <td>$isolator</td>
-                <td>The isolator to use.</td>
-            </tr>
-            </table>
-
-            
-            
-            
-                    </div>
-    </div>
-
-                <h3 id="method_install">
-        <div class="location">at line 205</div>
-        <code>            public            
-    <strong>install</strong>()</code>
-    </h3>
-    <div class="details">
-        <p>Installs this error handler.</p>
-        <p></p>
-        <div class="tags">
-            
-            
-                            <h4>Exceptions</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Exception\AlreadyInstalledException">AlreadyInstalledException</abbr></td>
-                <td>If this error handler is already the top-most handler on the stack.</td>
-            </tr>
-            </table>
-
-            
-                    </div>
-    </div>
-
-                <h3 id="method_uninstall">
-        <div class="location">at line 220</div>
-        <code>            public            
-    <strong>uninstall</strong>()</code>
-    </h3>
-    <div class="details">
-        <p>Uninstalls this error handler.</p>
-        <p></p>
-        <div class="tags">
-            
-            
-                            <h4>Exceptions</h4>
-
-                    <table>
-                    <tr>
-                <td><abbr title="Exception\NotInstalledException">NotInstalledException</abbr></td>
-                <td>If this error handler is not the top-most handler on the stack.</td>
-            </tr>
-            </table>
-
-            
-                    </div>
-    </div>
-
-                <h3 id="method_handleError">
-        <div class="location">at line 240</div>
-        <code>            public            
-    <strong>handleError</strong>(integer $severity, string $message, string $filename, integer $lineno)</code>
-    </h3>
-    <div class="details">
-        <p>Handles a PHP error.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>integer</td>
-                <td>$severity</td>
-                <td>The severity of the error.</td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$message</td>
-                <td>The error message.</td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$filename</td>
-                <td>The filename in which the error was raised.</td>
-            </tr>
-                    <tr>
-                <td>integer</td>
-                <td>$lineno</td>
-                <td>The line number in which the error was raised.</td>
-            </tr>
-            </table>
-
-            
-            
-                            <h4>Exceptions</h4>
-
-                    <table>
-                    <tr>
-                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
-                <td>Representing the error.</td>
-            </tr>
-            </table>
-
-            
-                    </div>
-    </div>
-
-                <h3 id="method___invoke">
-        <div class="location">at line 255</div>
-        <code>            public            
-    <strong>__invoke</strong>(integer $severity, string $message, string $filename, integer $lineno)</code>
-    </h3>
-    <div class="details">
-        <p>Handles a PHP error.</p>
-        <p></p>
-        <div class="tags">
-                            <h4>Parameters</h4>
-
-                    <table>
-                    <tr>
-                <td>integer</td>
-                <td>$severity</td>
-                <td>The severity of the error.</td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$message</td>
-                <td>The error message.</td>
-            </tr>
-                    <tr>
-                <td>string</td>
-                <td>$filename</td>
-                <td>The filename in which the error was raised.</td>
-            </tr>
-                    <tr>
-                <td>integer</td>
-                <td>$lineno</td>
-                <td>The line number in which the error was raised.</td>
-            </tr>
-            </table>
-
-            
-            
-                            <h4>Exceptions</h4>
-
-                    <table>
-                    <tr>
-                <td><a href="http://php.net/ErrorException"><abbr title="ErrorException">ErrorException</abbr></a></td>
-                <td>Representing the error.</td>
             </tr>
             </table>
 

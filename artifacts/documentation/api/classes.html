@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Classes | Asplode API</title>
+        <title>Classes | eloquent/asplode API</title>
                     <link rel="stylesheet" type="text/css" href="stylesheet.css">
                             </head>
         <body id="overview">
@@ -16,7 +16,7 @@
             
         </ul>
 
-        <div id="title">Asplode API</div>
+        <div id="title">eloquent/asplode API</div>
 
             <h1>Classes</h1>
     </div>
@@ -27,7 +27,71 @@
                                         <a href="Eloquent/Asplode/Asplode.html" target="main"><abbr title="Eloquent\Asplode\Asplode">Eloquent\Asplode\Asplode</abbr></a>
                                     </td>
                 <td>
-                    The main Asplode error handler.
+                    Implements static convenience methods for use with Asplode.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/ErrorHandler.html" target="main"><abbr title="Eloquent\Asplode\ErrorHandler">Eloquent\Asplode\ErrorHandler</abbr></a>
+                                    </td>
+                <td>
+                    The standard Asplode error handler.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="Eloquent/Asplode/ErrorHandlerInterface.html" target="main"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">Eloquent\Asplode\ErrorHandlerInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    The interface implemented by Asplode error handlers.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/Error/AbstractErrorException.html" target="main"><abbr title="Eloquent\Asplode\Error\AbstractErrorException">Eloquent\Asplode\Error\AbstractErrorException</abbr></a>
+                                    </td>
+                <td>
+                    An abstract base class for implementing extensions to the built-in error exception.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/Error/ErrorException.html" target="main"><abbr title="Eloquent\Asplode\Error\ErrorException">Eloquent\Asplode\Error\ErrorException</abbr></a>
+                                    </td>
+                <td>
+                    Represents a non-fatal error by extending the native error exception to mark it with appropriate interfaces.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="Eloquent/Asplode/Error/ErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\ErrorExceptionInterface">Eloquent\Asplode\Error\ErrorExceptionInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    Interface used to identify all error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/Error/FatalErrorException.html" target="main"><abbr title="Eloquent\Asplode\Error\FatalErrorException">Eloquent\Asplode\Error\FatalErrorException</abbr></a>
+                                    </td>
+                <td>
+                    Represents a fatal error by extending the native error exception to mark it with appropriate interfaces.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="Eloquent/Asplode/Error/FatalErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\FatalErrorExceptionInterface">Eloquent\Asplode\Error\FatalErrorExceptionInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    Interface used to identify fatal error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="Eloquent/Asplode/Error/NonFatalErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\NonFatalErrorExceptionInterface">Eloquent\Asplode\Error\NonFatalErrorExceptionInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    Interface used to identify non-fatal error exceptions.
                 </td>
             </tr>
                     <tr>
@@ -40,26 +104,18 @@
             </tr>
                     <tr>
                 <td>
+                    <em>                    <a href="Eloquent/Asplode/Exception/AsplodeExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Exception\AsplodeExceptionInterface">Eloquent\Asplode\Exception\AsplodeExceptionInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    Interface use to identify all Asplode-related exceptions, excluding actual error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td>
                                         <a href="Eloquent/Asplode/Exception/ErrorHandlingConfigurationException.html" target="main"><abbr title="Eloquent\Asplode\Exception\ErrorHandlingConfigurationException">Eloquent\Asplode\Exception\ErrorHandlingConfigurationException</abbr></a>
                                     </td>
                 <td>
-                    PHP&#039;s error handling is incorrectly configured.
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                    <em>                    <a href="Eloquent/Asplode/Exception/Exception.html" target="main"><abbr title="Eloquent\Asplode\Exception\Exception">Eloquent\Asplode\Exception\Exception</abbr></a>
-                    </em>                </td>
-                <td>
-                    Interface implemented by all Asplode-related exceptions.
-                </td>
-            </tr>
-                    <tr>
-                <td>
-                                        <a href="Eloquent/Asplode/Exception/LogicException.html" target="main"><abbr title="Eloquent\Asplode\Exception\LogicException">Eloquent\Asplode\Exception\LogicException</abbr></a>
-                                    </td>
-                <td>
-                    Abstract base class for exceptions that arise from logic errors in code.
+                    PHP's error handling is incorrectly configured.
                 </td>
             </tr>
                     <tr>
@@ -68,6 +124,54 @@
                                     </td>
                 <td>
                     This Asplode instance has not been installed.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/FatalErrorHandler.html" target="main"><abbr title="Eloquent\Asplode\FatalErrorHandler">Eloquent\Asplode\FatalErrorHandler</abbr></a>
+                                    </td>
+                <td>
+                    The standard Asplode fatal error handler.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="Eloquent/Asplode/FatalErrorHandlerInterface.html" target="main"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">Eloquent\Asplode\FatalErrorHandlerInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    The interface implemented by fatal error handlers.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/HandlerStack/AbstractHandlerStack.html" target="main"><abbr title="Eloquent\Asplode\HandlerStack\AbstractHandlerStack">Eloquent\Asplode\HandlerStack\AbstractHandlerStack</abbr></a>
+                                    </td>
+                <td>
+                    An abstract base class for implementing handler stacks.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/HandlerStack/ErrorHandlerStack.html" target="main"><abbr title="Eloquent\Asplode\HandlerStack\ErrorHandlerStack">Eloquent\Asplode\HandlerStack\ErrorHandlerStack</abbr></a>
+                                    </td>
+                <td>
+                    Manages the PHP error handler stack.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                                        <a href="Eloquent/Asplode/HandlerStack/ExceptionHandlerStack.html" target="main"><abbr title="Eloquent\Asplode\HandlerStack\ExceptionHandlerStack">Eloquent\Asplode\HandlerStack\ExceptionHandlerStack</abbr></a>
+                                    </td>
+                <td>
+                    Manages the PHP exception handler stack.
+                </td>
+            </tr>
+                    <tr>
+                <td>
+                    <em>                    <a href="Eloquent/Asplode/HandlerStack/HandlerStackInterface.html" target="main"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">Eloquent\Asplode\HandlerStack\HandlerStackInterface</abbr></a>
+                    </em>                </td>
+                <td>
+                    The interface implemented by handler stacks.
                 </td>
             </tr>
             </table>

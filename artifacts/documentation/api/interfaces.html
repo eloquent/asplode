@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="robots" content="index, follow, all" />
-        <title>Interfaces | Asplode API</title>
+        <title>Interfaces | eloquent/asplode API</title>
                     <link rel="stylesheet" type="text/css" href="stylesheet.css">
                             </head>
         <body id="overview">
@@ -16,16 +16,52 @@
             
         </ul>
 
-        <div id="title">Asplode API</div>
+        <div id="title">eloquent/asplode API</div>
 
             <h1>Interfaces</h1>
     </div>
         <div class="content">
                 <table>
                     <tr>
-                <td><a href="Eloquent/Asplode/Exception/Exception.html" target="main"><abbr title="Eloquent\Asplode\Exception\Exception">Eloquent\Asplode\Exception\Exception</abbr></a></td>
+                <td><a href="Eloquent/Asplode/ErrorHandlerInterface.html" target="main"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">Eloquent\Asplode\ErrorHandlerInterface</abbr></a></td>
                 <td class="last">
-                    Interface implemented by all Asplode-related exceptions.
+                    The interface implemented by Asplode error handlers.
+                </td>
+            </tr>
+                    <tr>
+                <td><a href="Eloquent/Asplode/Error/ErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\ErrorExceptionInterface">Eloquent\Asplode\Error\ErrorExceptionInterface</abbr></a></td>
+                <td class="last">
+                    Interface used to identify all error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td><a href="Eloquent/Asplode/Error/FatalErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\FatalErrorExceptionInterface">Eloquent\Asplode\Error\FatalErrorExceptionInterface</abbr></a></td>
+                <td class="last">
+                    Interface used to identify fatal error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td><a href="Eloquent/Asplode/Error/NonFatalErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\NonFatalErrorExceptionInterface">Eloquent\Asplode\Error\NonFatalErrorExceptionInterface</abbr></a></td>
+                <td class="last">
+                    Interface used to identify non-fatal error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td><a href="Eloquent/Asplode/Exception/AsplodeExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Exception\AsplodeExceptionInterface">Eloquent\Asplode\Exception\AsplodeExceptionInterface</abbr></a></td>
+                <td class="last">
+                    Interface use to identify all Asplode-related exceptions, excluding actual error exceptions.
+                </td>
+            </tr>
+                    <tr>
+                <td><a href="Eloquent/Asplode/FatalErrorHandlerInterface.html" target="main"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">Eloquent\Asplode\FatalErrorHandlerInterface</abbr></a></td>
+                <td class="last">
+                    The interface implemented by fatal error handlers.
+                </td>
+            </tr>
+                    <tr>
+                <td><a href="Eloquent/Asplode/HandlerStack/HandlerStackInterface.html" target="main"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">Eloquent\Asplode\HandlerStack\HandlerStackInterface</abbr></a></td>
+                <td class="last">
+                    The interface implemented by handler stacks.
                 </td>
             </tr>
             </table>
