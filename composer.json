@@ -19,8 +19,8 @@
         "icecave/archer": "~1"
     },
     "autoload": {
-        "psr-0": {
-            "Eloquent\\Asplode": "src"
+        "psr-4": {
+            "Eloquent\\Asplode\\": "src"
         }
     }
 }
