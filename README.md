@@ -202,4 +202,4 @@ $result = $stack->executeWith(
 [Current coverage status]: https://coveralls.io/r/eloquent/asplode
 [eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 [Semantic versioning]: http://semver.org/
-[The most recent stable version is 1.1.1]: http://b.adge.me/:semver-1.1.1-green.svg "This project uses semantic versioning"
+[The most recent stable version is 1.1.1]: http://b.adge.me/:semver-1.1.1-brightgreen.svg "This project uses semantic versioning"
