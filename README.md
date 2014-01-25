@@ -2,9 +2,9 @@
 
 *Drop-in exception-based error handling for PHP.*
 
-[![Build status]][Latest build]
-[![Test coverage]][Test coverage report]
-[![Uses semantic versioning]][SemVer]
+[![The most recent stable version is 1.1.1]][Semantic versioning]
+[![Current build status image]][Current build status]
+[![Current coverage status image]][Current coverage status]
 
 ## Installation and documentation
 
@@ -195,11 +195,11 @@ $result = $stack->executeWith(
 [Symfony]: http://symfony.com/
 
 [API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
-[Build status]: https://api.travis-ci.org/eloquent/asplode.png?branch=master
 [Composer]: http://getcomposer.org/
+[Current build status image]: http://b.adge.me/travis/eloquent/asplode/develop.svg "Current build status for the develop branch"
+[Current build status]: https://travis-ci.org/eloquent/asplode
+[Current coverage status image]: http://b.adge.me/coveralls/eloquent/asplode/develop.svg "Current test coverage for the develop branch"
+[Current coverage status]: https://coveralls.io/r/eloquent/asplode
 [eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
-[Latest build]: https://travis-ci.org/eloquent/asplode
-[SemVer]: http://semver.org/
-[Test coverage report]: https://coveralls.io/r/eloquent/asplode
-[Test coverage]: https://coveralls.io/repos/eloquent/asplode/badge.png?branch=master
-[Uses semantic versioning]: http://b.repl.ca/v1/semver-yes-brightgreen.png
+[Semantic versioning]: http://semver.org/
+[The most recent stable version is 1.1.1]: http://b.adge.me/:semver-1.1.1-green.svg "This project uses semantic versioning"
