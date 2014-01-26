@@ -196,10 +196,10 @@ $result = $stack->executeWith(
 
 [API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
 [Composer]: http://getcomposer.org/
-[Current build status image]: https://b.adge.me/travis/eloquent/asplode/develop.svg "Current build status for the develop branch"
+[Current build status image]: https://img.shields.io/travis/eloquent/asplode/develop.svg "Current build status for the develop branch"
 [Current build status]: https://travis-ci.org/eloquent/asplode
-[Current coverage status image]: https://b.adge.me/coveralls/eloquent/asplode/develop.svg "Current test coverage for the develop branch"
+[Current coverage status image]: https://img.shields.io/coveralls/eloquent/asplode/develop.svg "Current test coverage for the develop branch"
 [Current coverage status]: https://coveralls.io/r/eloquent/asplode
 [eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 [Semantic versioning]: http://semver.org/
-[The most recent stable version is 2.0.0]: https://b.adge.me/:semver-2.0.0-brightgreen.svg "This project uses semantic versioning"
+[The most recent stable version is 2.0.0]: https://img.shields.io/:semver-2.0.0-brightgreen.svg "This project uses semantic versioning"
