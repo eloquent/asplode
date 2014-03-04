@@ -143,6 +143,24 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
         $this->fail('No exception was thrown.');
     }
 
+    public function testHandleOptionalArguments()
+    {
+        $handler = $this->handler;
+
+        try {
+            $handler(E_USER_ERROR, 'foo');
+        } catch (Error\ErrorException $error) {
+            $this->assertSame('foo', $error->getMessage());
+            $this->assertSame(E_USER_ERROR, $error->getSeverity());
+            $this->assertSame('', $error->getFile());
+            $this->assertSame(0, $error->getLine());
+
+            return;
+        }
+
+        $this->fail('No exception was thrown.');
+    }
+
     public function testHandleFallbackDefault()
     {
         $this->handler->handle(E_DEPRECATED, 'foo', 'bar', 111);
@@ -176,14 +194,9 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
 
     public function testHandleAtSuppression()
     {
-        $arguments = null;
-        $fallbackHandler = function () use (&$arguments) {
-            $arguments = func_get_args();
-        };
-        $this->handler->setFallbackHandler($fallbackHandler);
         Phake::when($this->isolator)->error_reporting()->thenReturn(0);
         $this->handler->handle(E_USER_ERROR, 'foo', 'bar', 111);
 
-        $this->assertSame(array(E_USER_ERROR, 'foo', 'bar', 111), $arguments);
+        $this->assertTrue($this->handler->handle(E_USER_ERROR, 'foo', 'bar', 111));
     }
 }

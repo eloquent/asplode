@@ -134,16 +134,16 @@ class ErrorHandler implements ErrorHandlerInterface
      * @return boolean                               False if the error is a deprecation message, or '@' suppression is in use.
      * @throws Error\NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
      */
-    public function handle($severity, $message, $filename, $lineno)
+    public function handle($severity, $message, $filename = '', $lineno = 0)
     {
-        if (
-            E_DEPRECATED === $severity ||
-            E_USER_DEPRECATED === $severity ||
-            0 === $this->isolator()->error_reporting()
-        ) {
+        if (E_DEPRECATED === $severity || E_USER_DEPRECATED === $severity) {
             $fallbackHandler = $this->fallbackHandler();
 
             return $fallbackHandler($severity, $message, $filename, $lineno);
+        }
+
+        if (0 === $this->isolator()->error_reporting()) {
+            return true;
         }
 
         throw new Error\ErrorException($message, $severity, $filename, $lineno);
@@ -160,7 +160,7 @@ class ErrorHandler implements ErrorHandlerInterface
      * @return boolean                               False if the error is a deprecation message, or '@' suppression is in use.
      * @throws Error\NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
      */
-    public function __invoke($severity, $message, $filename, $lineno)
+    public function __invoke($severity, $message, $filename = '', $lineno = 0)
     {
         return $this->handle($severity, $message, $filename, $lineno);
     }

@@ -68,5 +68,5 @@ interface ErrorHandlerInterface
      * @return boolean                               False if the error is a deprecation message, or '@' suppression is in use.
      * @throws Error\NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
      */
-    public function handle($severity, $message, $filename, $lineno);
+    public function handle($severity, $message, $filename = '', $lineno = 0);
 }
