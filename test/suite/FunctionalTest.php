@@ -130,7 +130,7 @@ require %s;
 
 set_exception_handler(
     function (Exception $e) {
-        $memory = str_repeat(' ', 102400);
+        $memory = str_repeat(' ', 10240);
         printf('Caught %%s' . PHP_EOL, var_export($e->getMessage(), true));
     }
 );

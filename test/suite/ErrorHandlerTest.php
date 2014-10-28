@@ -22,7 +22,7 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->stack = Phake::mock(__NAMESPACE__ . '\HandlerStack\HandlerStackInterface');
-        $this->isolator = Phake::mock(Isolator::className());
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
         $this->handler = new ErrorHandler($this->stack, $this->isolator);
 
         Phake::when($this->isolator)->error_reporting()->thenReturn(E_ALL);

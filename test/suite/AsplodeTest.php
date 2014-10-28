@@ -22,7 +22,7 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->isolator = Phake::mock(Isolator::className());
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
     }
 
     public function testInstall()
@@ -53,8 +53,8 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
     {
         Phake::when($this->isolator)
             ->trigger_error(Phake::anyParameters())
-            ->thenGetReturnByLambda(function ($name, array $arguments) {
-                throw new ErrorException($arguments[0], 0, $arguments[1], '/path/to/file', 111);
+            ->thenGetReturnByLambda(function ($message, $errorType) {
+                throw new ErrorException($message, 0, $errorType, '/path/to/file', 111);
             });
         Asplode::assertCompatibleHandler($this->isolator);
 
