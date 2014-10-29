@@ -2,14 +2,25 @@
 
 *Drop-in exception-based error handling for PHP.*
 
-[![The most recent stable version is 2.0.0]][Semantic versioning]
-[![Current build status image]][Current build status]
-[![Current coverage status image]][Current coverage status]
+[![The most recent stable version is 2.0.1][version-image]][Semantic versioning]
+[![Current build status image][build-image]][Current build status]
+[![Current coverage status image][coverage-image]][Current coverage status]
+
+[build-image]: http://img.shields.io/travis/eloquent/asplode/develop.svg?style=flat-square "Current build status for the develop branch"
+[Current build status]: https://travis-ci.org/eloquent/asplode
+[coverage-image]: http://img.shields.io/coveralls/eloquent/asplode/develop.svg?style=flat-square "Current test coverage for the develop branch"
+[Current coverage status]: https://coveralls.io/r/eloquent/asplode
+[Semantic versioning]: http://semver.org/
+[version-image]: http://img.shields.io/:semver-2.0.1-brightgreen.svg?style=flat-square "This project uses semantic versioning"
 
 ## Installation and documentation
 
-* Available as [Composer] package [eloquent/asplode].
-* [API documentation] available.
+- Available as [Composer] package [eloquent/asplode].
+- [API documentation] available.
+
+[API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
+[Composer]: http://getcomposer.org/
+[eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
 
 ## Usage
 
@@ -27,6 +38,9 @@ behaviour. This means that all non-fatal runtime errors are presented to the
 developer in the form of an exception. It also means that any unhandled errors
 are delivered to a single point: the global exception handler.
 
+[error handler]: http://php.net/set_error_handler
+[ErrorException]: http://php.net/ErrorException
+
 ## Why use *Asplode*?
 
 Developers need the ability to decide how their code behaves when an error
@@ -34,8 +48,10 @@ occurs. Exceptions offer the only truly consistent way to report and recover
 from errors in PHP.
 
 This method of handling errors has proven to be extremely effective. Similar
-strategies are used in major PHP frameworks such as [Symfony]. *Asplode* is a
+strategies are used in major PHP frameworks such as [Laravel]. *Asplode* is a
 standalone implementation that can be used for any project.
+
+[Laravel]: http://laravel.com/
 
 ## Fatal error handling
 
@@ -104,6 +120,11 @@ poorly implemented.
 stacks. These classes do not require the use of the *Asplode* handler; they can
 be used in a standalone manner to manage the handler stacks.
 
+[ErrorHandlerStack]: http://lqnt.co/asplode/artifacts/documentation/api/Eloquent/Asplode/HandlerStack/ErrorHandlerStack.html
+[ExceptionHandlerStack]: http://lqnt.co/asplode/artifacts/documentation/api/Eloquent/Asplode/HandlerStack/ExceptionHandlerStack.html
+[HandlerStackInterface]: http://lqnt.co/asplode/artifacts/documentation/api/Eloquent/Asplode/HandlerStack/HandlerStackInterface.html
+[stack]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)
+
 ## Migrating existing code to work with Asplode
 
 When the *Asplode* error handler is installed, the [error_reporting] setting
@@ -141,6 +162,8 @@ non-standard behaviour.
 *Asplode* does not free the developer from the responsibility of reading the PHP
 documentation, or making sure that they account for all possible error
 conditions.
+
+[error_reporting]: http://php.net/error_reporting
 
 ## Executing legacy code
 
@@ -182,24 +205,3 @@ $result = $stack->executeWith(
     }
 );
 ```
-
-<!-- References -->
-
-[error handler]: http://php.net/set_error_handler
-[error_reporting]: http://php.net/error_reporting
-[ErrorException]: http://php.net/ErrorException
-[ErrorHandlerStack]: http://lqnt.co/asplode/artifacts/documentation/api/Eloquent/Asplode/HandlerStack/ErrorHandlerStack.html
-[ExceptionHandlerStack]: http://lqnt.co/asplode/artifacts/documentation/api/Eloquent/Asplode/HandlerStack/ExceptionHandlerStack.html
-[HandlerStackInterface]: http://lqnt.co/asplode/artifacts/documentation/api/Eloquent/Asplode/HandlerStack/HandlerStackInterface.html
-[stack]: http://en.wikipedia.org/wiki/Stack_(abstract_data_type)
-[Symfony]: http://symfony.com/
-
-[API documentation]: http://lqnt.co/asplode/artifacts/documentation/api/
-[Composer]: http://getcomposer.org/
-[Current build status image]: http://b.adge.me/travis/eloquent/asplode/develop.svg "Current build status for the develop branch"
-[Current build status]: https://travis-ci.org/eloquent/asplode
-[Current coverage status image]: http://b.adge.me/coveralls/eloquent/asplode/develop.svg "Current test coverage for the develop branch"
-[Current coverage status]: https://coveralls.io/r/eloquent/asplode
-[eloquent/asplode]: https://packagist.org/packages/eloquent/asplode
-[Semantic versioning]: http://semver.org/
-[The most recent stable version is 2.0.0]: http://b.adge.me/:semver-2.0.0-brightgreen.svg "This project uses semantic versioning"

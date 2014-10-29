@@ -26,7 +26,7 @@ class ExceptionHandlerStackTest extends PHPUnit_Framework_TestCase
     {
         parent::setUp();
 
-        $this->isolator = Phake::mock(Isolator::className());
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
         $this->stack = new ExceptionHandlerStack($this->isolator);
     }
 
