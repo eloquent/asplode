@@ -1,5 +1,9 @@
 # Asplode changelog
 
+## 2.0.1 (2014-10-29)
+
+- **[IMPROVED]** Support for icecave/isolator 3.
+
 ## 2.0.0 (2014-01-25)
 
 - **[BC BREAK]** Complete re-write
