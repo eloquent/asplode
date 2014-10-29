@@ -22,7 +22,7 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         parent::setUp();
 
         $this->stack = Phake::mock(__NAMESPACE__ . '\HandlerStack\HandlerStackInterface');
-        $this->isolator = Phake::mock(Isolator::className());
+        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
         $this->handler = Phake::partialMock(__NAMESPACE__ . '\FatalErrorHandler', $this->stack, $this->isolator);
 
         $this->exceptionHandler = Phake::partialMock(
