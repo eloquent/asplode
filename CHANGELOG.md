@@ -2,7 +2,9 @@
 
 ## 2.0.1 (2014-10-29)
 
-- **[IMPROVED]** Support for icecave/isolator 3.
+- **[IMPROVED]** Support for [Isolator] 3.
+
+[Isolator]: https://github.com/IcecaveStudios/isolator
 
 ## 2.0.0 (2014-01-25)
 
