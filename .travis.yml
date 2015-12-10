@@ -9,7 +9,7 @@ matrix:
 
 env:
   global:
-    - ARCHER_PUBLISH_VERSION=5.6
+    - ARCHER_PUBLISH_VERSION=7.0
     - secure: "hmTQpMf/2jergNmu7nSpEe5LFK39G9CHom7z8e3gbdan9SACB86KsR0c8PqlB6F/3iLE1fBxxKL5mdAbgNUQw7RwValepgdnV8uAtrswaR6cJVCKSBeq60IpoxWi2kPfQ/35QvpLUKn2kXjR8blnBw6HFpKPFXUwceQCaXg0ML4="
 
 install:
