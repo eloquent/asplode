@@ -11,6 +11,12 @@
 
 namespace Eloquent\Asplode;
 
+use Eloquent\Asplode\Error\FatalErrorException;
+use Eloquent\Asplode\Error\FatalErrorExceptionInterface;
+use Eloquent\Asplode\Exception\AlreadyInstalledException;
+use Eloquent\Asplode\Exception\NotInstalledException;
+use Eloquent\Asplode\HandlerStack\ExceptionHandlerStack;
+use Eloquent\Asplode\HandlerStack\HandlerStackInterface;
 use Icecave\Isolator\Isolator;
 
 /**
@@ -21,18 +27,16 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Construct a new fatal error handler.
      *
-     * @param HandlerStack\HandlerStackInterface|null $stack    The exception handler stack to use.
-     * @param Isolator|null                           $isolator The isolator to use.
+     * @param HandlerStackInterface|null $stack    The exception handler stack to use.
+     * @param Isolator|null              $isolator The isolator to use.
      */
     public function __construct(
-        HandlerStack\HandlerStackInterface $stack = null,
+        HandlerStackInterface $stack = null,
         Isolator $isolator = null
     ) {
         $this->isolator = Isolator::get($isolator);
         if (null === $stack) {
-            $stack = new HandlerStack\ExceptionHandlerStack(
-                $isolator
-            );
+            $stack = new ExceptionHandlerStack($isolator);
         }
 
         $this->stack = $stack;
@@ -42,7 +46,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Get the exception handler stack.
      *
-     * @return HandlerStack\HandlerStackInterface The exception handler stack.
+     * @return HandlerStackInterface The exception handler stack.
      */
     public function stack()
     {
@@ -52,12 +56,12 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Installs this fatal error handler.
      *
-     * @throws Exception\AlreadyInstalledException If this fatal error handler is already installed.
+     * @throws AlreadyInstalledException If this fatal error handler is already installed.
      */
     public function install()
     {
         if ($this->isInstalled()) {
-            throw new Exception\AlreadyInstalledException();
+            throw new AlreadyInstalledException();
         }
 
         if (!$this->isRegistered()) {
@@ -72,12 +76,12 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Uninstalls this fatal error handler.
      *
-     * @throws Exception\NotInstalledException If this fatal error handler is not installed.
+     * @throws NotInstalledException If this fatal error handler is not installed.
      */
     public function uninstall()
     {
         if (!$this->isInstalled()) {
-            throw new Exception\NotInstalledException();
+            throw new NotInstalledException();
         }
 
         $this->isEnabled = false;
@@ -114,7 +118,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
 
         $this->freeMemory();
         $this->handleFatalError(
-            new Error\FatalErrorException(
+            new FatalErrorException(
                 $error['message'],
                 $error['type'],
                 $error['file'],
@@ -181,9 +185,8 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      */
     protected function loadClasses()
     {
-        $this->isolator()->class_exists(
-            __NAMESPACE__ . '\Error\FatalErrorException'
-        );
+        $this->isolator()
+            ->class_exists('Eloquent\Asplode\Error\FatalErrorException');
     }
 
     /**
@@ -212,12 +215,12 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Handles PHP fatal errors.
      *
-     * @param Error\FatalErrorExceptionInterface $error The fatal error to handle.
+     * @param FatalErrorExceptionInterface $error The fatal error to handle.
      */
-    protected function handleFatalError(
-        Error\FatalErrorExceptionInterface $error
-    ) {
+    protected function handleFatalError(FatalErrorExceptionInterface $error)
+    {
         $handler = $this->stack()->handler();
+
         if (null === $handler) {
             return;
         }

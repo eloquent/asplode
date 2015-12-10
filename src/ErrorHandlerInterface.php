@@ -11,6 +11,11 @@
 
 namespace Eloquent\Asplode;
 
+use Eloquent\Asplode\Error\NonFatalErrorExceptionInterface;
+use Eloquent\Asplode\Exception\AlreadyInstalledException;
+use Eloquent\Asplode\Exception\ErrorHandlingConfigurationException;
+use Eloquent\Asplode\Exception\NotInstalledException;
+
 /**
  * The interface implemented by Asplode error handlers.
  */
@@ -38,15 +43,15 @@ interface ErrorHandlerInterface
     /**
      * Installs this error handler.
      *
-     * @throws Exception\AlreadyInstalledException           If this error handler is already the top-most handler on the stack.
-     * @throws Exception\ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
+     * @throws AlreadyInstalledException           If this error handler is already the top-most handler on the stack.
+     * @throws ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
      */
     public function install();
 
     /**
      * Uninstalls this error handler.
      *
-     * @throws Exception\NotInstalledException If this error handler is not the top-most handler on the stack.
+     * @throws NotInstalledException If this error handler is not the top-most handler on the stack.
      */
     public function uninstall();
 
@@ -65,8 +70,8 @@ interface ErrorHandlerInterface
      * @param string  $filename The filename in which the error was raised.
      * @param integer $lineno   The line number in which the error was raised.
      *
-     * @return boolean                               False if the error is a deprecation message, or '@' suppression is in use.
-     * @throws Error\NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
+     * @return boolean                         False if the error is a deprecation message, or '@' suppression is in use.
+     * @throws NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
      */
     public function handle($severity, $message, $filename, $lineno);
 }

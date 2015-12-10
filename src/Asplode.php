@@ -11,6 +11,7 @@
 
 namespace Eloquent\Asplode;
 
+use Eloquent\Asplode\Exception\ErrorHandlingConfigurationException;
 use ErrorException;
 use Icecave\Isolator\Isolator;
 
@@ -26,7 +27,7 @@ abstract class Asplode
      * @param Isolator|null $isolator The isolator to use.
      *
      * @return tuple<ErrorHandlerInterface,FatalErrorHandlerInterface> A tuple containing the installed error handler and fatal error handler.
-     * @throws Exception\ErrorHandlingConfigurationException           If the error reporting level is incorrectly configured.
+     * @throws ErrorHandlingConfigurationException                     If the error reporting level is incorrectly configured.
      */
     public static function install(Isolator $isolator = null)
     {
@@ -40,8 +41,8 @@ abstract class Asplode
      *
      * @param Isolator|null $isolator The isolator to use.
      *
-     * @return ErrorHandlerInterface                         The installed error handler.
-     * @throws Exception\ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
+     * @return ErrorHandlerInterface               The installed error handler.
+     * @throws ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
      */
     public static function installErrorHandler(Isolator $isolator = null)
     {
@@ -75,7 +76,7 @@ abstract class Asplode
      *
      * @param Isolator|null $isolator The isolator to use.
      *
-     * @throws Exception\ErrorHandlingConfigurationException If error handling is not configured correctly.
+     * @throws ErrorHandlingConfigurationException If error handling is not configured correctly.
      */
     public static function assertCompatibleHandler(Isolator $isolator = null)
     {
@@ -93,6 +94,6 @@ abstract class Asplode
             }
         }
 
-        throw new Exception\ErrorHandlingConfigurationException();
+        throw new ErrorHandlingConfigurationException();
     }
 }

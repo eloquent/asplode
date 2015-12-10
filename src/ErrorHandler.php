@@ -11,6 +11,13 @@
 
 namespace Eloquent\Asplode;
 
+use Eloquent\Asplode\Error\ErrorException;
+use Eloquent\Asplode\Error\NonFatalErrorExceptionInterface;
+use Eloquent\Asplode\Exception\AlreadyInstalledException;
+use Eloquent\Asplode\Exception\ErrorHandlingConfigurationException;
+use Eloquent\Asplode\Exception\NotInstalledException;
+use Eloquent\Asplode\HandlerStack\ErrorHandlerStack;
+use Eloquent\Asplode\HandlerStack\HandlerStackInterface;
 use Icecave\Isolator\Isolator;
 
 /**
@@ -21,16 +28,16 @@ class ErrorHandler implements ErrorHandlerInterface
     /**
      * Construct a new error handler.
      *
-     * @param HandlerStack\HandlerStackInterface|null $stack    The error handler stack to use.
-     * @param Isolator|null                           $isolator The isolator to use.
+     * @param HandlerStackInterface|null $stack    The error handler stack to use.
+     * @param Isolator|null              $isolator The isolator to use.
      */
     public function __construct(
-        HandlerStack\HandlerStackInterface $stack = null,
+        HandlerStackInterface $stack = null,
         Isolator $isolator = null
     ) {
         $this->isolator = Isolator::get($isolator);
         if (null === $stack) {
-            $stack = new HandlerStack\ErrorHandlerStack($isolator);
+            $stack = new ErrorHandlerStack($isolator);
         }
 
         $this->setFallbackHandler();
@@ -81,16 +88,16 @@ class ErrorHandler implements ErrorHandlerInterface
     /**
      * Installs this error handler.
      *
-     * @throws Exception\AlreadyInstalledException           If this error handler is already the top-most handler on the stack.
-     * @throws Exception\ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
+     * @throws AlreadyInstalledException           If this error handler is already the top-most handler on the stack.
+     * @throws ErrorHandlingConfigurationException If the error reporting level is incorrectly configured.
      */
     public function install()
     {
         if (0 === $this->isolator()->error_reporting()) {
-            throw new Exception\ErrorHandlingConfigurationException();
+            throw new ErrorHandlingConfigurationException();
         }
         if ($this->isInstalled()) {
-            throw new Exception\AlreadyInstalledException();
+            throw new AlreadyInstalledException();
         }
 
         $this->stack()->push($this);
@@ -99,7 +106,7 @@ class ErrorHandler implements ErrorHandlerInterface
     /**
      * Uninstalls this error handler.
      *
-     * @throws Exception\NotInstalledException If this error handler is not the top-most handler on the stack.
+     * @throws NotInstalledException If this error handler is not the top-most handler on the stack.
      */
     public function uninstall()
     {
@@ -109,7 +116,7 @@ class ErrorHandler implements ErrorHandlerInterface
                 $this->stack()->push($handler);
             }
 
-            throw new Exception\NotInstalledException();
+            throw new NotInstalledException();
         }
     }
 
@@ -131,8 +138,8 @@ class ErrorHandler implements ErrorHandlerInterface
      * @param string  $filename The filename in which the error was raised.
      * @param integer $lineno   The line number in which the error was raised.
      *
-     * @return boolean                               False if the error is a deprecation message, or '@' suppression is in use.
-     * @throws Error\NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
+     * @return boolean                         False if the error is a deprecation message, or '@' suppression is in use.
+     * @throws NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
      */
     public function handle($severity, $message, $filename, $lineno)
     {
@@ -146,7 +153,7 @@ class ErrorHandler implements ErrorHandlerInterface
             return $fallbackHandler($severity, $message, $filename, $lineno);
         }
 
-        throw new Error\ErrorException($message, $severity, $filename, $lineno);
+        throw new ErrorException($message, $severity, $filename, $lineno);
     }
 
     /**
@@ -157,8 +164,8 @@ class ErrorHandler implements ErrorHandlerInterface
      * @param string  $filename The filename in which the error was raised.
      * @param integer $lineno   The line number in which the error was raised.
      *
-     * @return boolean                               False if the error is a deprecation message, or '@' suppression is in use.
-     * @throws Error\NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
+     * @return boolean                         False if the error is a deprecation message, or '@' suppression is in use.
+     * @throws NonFatalErrorExceptionInterface Representing the error, unless the error is a deprecation message, or '@' suppression is in use.
      */
     public function __invoke($severity, $message, $filename, $lineno)
     {
