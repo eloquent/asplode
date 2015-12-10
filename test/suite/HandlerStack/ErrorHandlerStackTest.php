@@ -3,7 +3,7 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,8 +13,8 @@ namespace Eloquent\Asplode\HandlerStack;
 
 use Exception;
 use Icecave\Isolator\Isolator;
-use Phake;
 use PHPUnit_Framework_TestCase;
+use Phunky;
 
 /**
  * @covers \Eloquent\Asplode\HandlerStack\ErrorHandlerStack
@@ -24,50 +24,48 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        parent::setUp();
-
-        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->isolator = Phunky::mock('Icecave\Isolator\Isolator');
         $this->stack = new ErrorHandlerStack($this->isolator);
     }
 
     public function testHandler()
     {
-        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn('foo');
+        Phunky::when($this->isolator)->set_error_handler(Phunky::anyParameters())->thenReturn('foo');
 
         $this->assertSame('foo', $this->stack->handler());
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
-        Phake::inOrder(
-            Phake::verify($this->isolator)->set_error_handler(function () {}),
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(2))->restore_error_handler();
+        Phunky::inOrder(
+            Phunky::verify($this->isolator)->set_error_handler(function () {}),
             $restoreVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('foo')
+            Phunky::verify($this->isolator)->set_error_handler('foo')
         );
     }
 
     public function testHandlerEmptyStack()
     {
-        Phake::when($this->isolator)->set_error_handler(Phake::anyParameters())->thenReturn(null);
+        Phunky::when($this->isolator)->set_error_handler(Phunky::anyParameters())->thenReturn(null);
 
         $this->assertNull($this->stack->handler());
-        Phake::inOrder(
-            Phake::verify($this->isolator)->set_error_handler(function () {}),
-            Phake::verify($this->isolator)->restore_error_handler()
+        Phunky::inOrder(
+            Phunky::verify($this->isolator)->set_error_handler(function () {}),
+            Phunky::verify($this->isolator)->restore_error_handler()
         );
-        Phake::verify($this->isolator, Phake::never())->set_error_handler(null);
+        Phunky::verify($this->isolator, Phunky::never())->set_error_handler(null);
     }
 
     public function testHandlerStack()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo')
             ->thenReturn('bar')
             ->thenReturn(null);
 
         $this->assertSame(array('foo', 'bar'), $this->stack->handlerStack());
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(3))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(5))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(3))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(5))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
             $restoreVerification,
@@ -76,21 +74,21 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             $restoreVerification,
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($this->isolator)->set_error_handler('bar')
+            Phunky::verify($this->isolator)->set_error_handler('foo'),
+            Phunky::verify($this->isolator)->set_error_handler('bar')
         );
     }
 
     public function testHandlerStackEmptyStack()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn(null);
 
         $this->assertSame(array(), $this->stack->handlerStack());
-        Phake::inOrder(
-            Phake::verify($this->isolator)->set_error_handler(function () {}),
-            Phake::verify($this->isolator)->restore_error_handler()
+        Phunky::inOrder(
+            Phunky::verify($this->isolator)->set_error_handler(function () {}),
+            Phunky::verify($this->isolator)->restore_error_handler()
         );
     }
 
@@ -98,14 +96,14 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
     {
         $this->stack->push('foo');
 
-        Phake::verify($this->isolator)->set_error_handler('foo');
-        Phake::verify($this->isolator, Phake::never())->restore_error_handler();
+        Phunky::verify($this->isolator)->set_error_handler('foo');
+        Phunky::verify($this->isolator, Phunky::never())->restore_error_handler();
     }
 
     public function testPop()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo');
 
         $this->assertSame('foo', $this->stack->pop());
@@ -115,25 +113,25 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
     {
         $this->stack->pushAll(array('foo', 'bar'));
 
-        Phake::inOrder(
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($this->isolator)->set_error_handler('bar')
+        Phunky::inOrder(
+            Phunky::verify($this->isolator)->set_error_handler('foo'),
+            Phunky::verify($this->isolator)->set_error_handler('bar')
         );
-        Phake::verify($this->isolator, Phake::never())->restore_error_handler();
+        Phunky::verify($this->isolator, Phunky::never())->restore_error_handler();
     }
 
     public function testClear()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo')
             ->thenReturn('bar')
             ->thenReturn(null);
 
         $this->assertSame(array('foo', 'bar'), $this->stack->clear());
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(3))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(5))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(3))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(5))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
             $restoreVerification,
@@ -147,48 +145,48 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
 
     public function testClearEmptyStack()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn(null);
 
         $this->assertSame(array(), $this->stack->clear());
-        Phake::inOrder(
-            Phake::verify($this->isolator)->set_error_handler(function () {}),
-            Phake::verify($this->isolator)->restore_error_handler()
+        Phunky::inOrder(
+            Phunky::verify($this->isolator)->set_error_handler(function () {}),
+            Phunky::verify($this->isolator)->restore_error_handler()
         );
     }
 
     public function testRestore()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo')
             ->thenReturn(null);
         $this->stack->restore(array('bar', 'baz'));
 
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(2))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(3))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(2))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(3))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
             $restoreVerification,
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('bar'),
-            Phake::verify($this->isolator)->set_error_handler('baz')
+            Phunky::verify($this->isolator)->set_error_handler('bar'),
+            Phunky::verify($this->isolator)->set_error_handler('baz')
         );
     }
 
     public function testExecuteWith()
     {
-        $callable = Phake::partialMock(
+        $callable = Phunky::partialMock(
             'Eloquent\Asplode\Test\CallableWrapper',
             function () {
                 return 'foobar';
             }
         );
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo')
             ->thenReturn('bar')
             ->thenReturn(null)
@@ -196,9 +194,9 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             ->thenReturn(null);
 
         $this->assertSame('foobar', $this->stack->executeWith($callable, 'baz'));
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(4))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(6))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(4))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(6))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
             $restoreVerification,
@@ -207,37 +205,37 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             $restoreVerification,
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('baz'),
-            Phake::verify($callable)->__invoke(),
+            Phunky::verify($this->isolator)->set_error_handler('baz'),
+            Phunky::verify($callable)->__invoke(),
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($this->isolator)->set_error_handler('bar')
+            Phunky::verify($this->isolator)->set_error_handler('foo'),
+            Phunky::verify($this->isolator)->set_error_handler('bar')
         );
     }
 
     public function testExecuteWithEmptyStack()
     {
-        $callable = Phake::partialMock(
+        $callable = Phunky::partialMock(
             'Eloquent\Asplode\Test\CallableWrapper',
             function () {
                 return 'foobar';
             }
         );
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn(null)
             ->thenReturn('foo')
             ->thenReturn(null);
 
         $this->assertSame('foobar', $this->stack->executeWith($callable, 'foo'));
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(2))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(2))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(2))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(2))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($callable)->__invoke(),
+            Phunky::verify($this->isolator)->set_error_handler('foo'),
+            Phunky::verify($callable)->__invoke(),
             $setEmptyVerification,
             $restoreVerification
         );
@@ -245,22 +243,22 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
 
     public function testExecuteWithNoHandler()
     {
-        $callable = Phake::partialMock(
+        $callable = Phunky::partialMock(
             'Eloquent\Asplode\Test\CallableWrapper',
             function () {
                 return 'foobar';
             }
         );
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo')
             ->thenReturn('bar')
             ->thenReturn(null);
 
         $this->assertSame('foobar', $this->stack->executeWith($callable));
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(4))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(6))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(4))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(6))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
             $restoreVerification,
@@ -269,23 +267,23 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             $restoreVerification,
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($callable)->__invoke(),
+            Phunky::verify($callable)->__invoke(),
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($this->isolator)->set_error_handler('bar')
+            Phunky::verify($this->isolator)->set_error_handler('foo'),
+            Phunky::verify($this->isolator)->set_error_handler('bar')
         );
     }
 
     public function testExecuteWithException()
     {
-        Phake::when($this->isolator)
-            ->set_error_handler(Phake::anyParameters())
+        Phunky::when($this->isolator)
+            ->set_error_handler(Phunky::anyParameters())
             ->thenReturn('foo')
             ->thenReturn('bar')
             ->thenReturn(null);
-        $error = new Exception;
-        $callable = Phake::partialMock(
+        $error = new Exception();
+        $callable = Phunky::partialMock(
             'Eloquent\Asplode\Test\CallableWrapper',
             function () use ($error) {
                 throw $error;
@@ -294,12 +292,13 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
         $caught = null;
         try {
             $this->stack->executeWith($callable);
-        } catch (Exception $caught) {}
+        } catch (Exception $caught) {
+        }
 
         $this->assertSame($error, $caught);
-        $setEmptyVerification = Phake::verify($this->isolator, Phake::times(4))->set_error_handler(function () {});
-        $restoreVerification = Phake::verify($this->isolator, Phake::times(6))->restore_error_handler();
-        Phake::inOrder(
+        $setEmptyVerification = Phunky::verify($this->isolator, Phunky::times(4))->set_error_handler(function () {});
+        $restoreVerification = Phunky::verify($this->isolator, Phunky::times(6))->restore_error_handler();
+        Phunky::inOrder(
             $setEmptyVerification,
             $restoreVerification,
             $restoreVerification,
@@ -308,11 +307,11 @@ class ErrorHandlerStackTest extends PHPUnit_Framework_TestCase
             $restoreVerification,
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($callable)->__invoke(),
+            Phunky::verify($callable)->__invoke(),
             $setEmptyVerification,
             $restoreVerification,
-            Phake::verify($this->isolator)->set_error_handler('foo'),
-            Phake::verify($this->isolator)->set_error_handler('bar')
+            Phunky::verify($this->isolator)->set_error_handler('foo'),
+            Phunky::verify($this->isolator)->set_error_handler('bar')
         );
     }
 }

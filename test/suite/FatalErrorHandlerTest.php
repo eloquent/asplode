@@ -3,7 +3,7 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,27 +13,25 @@ namespace Eloquent\Asplode;
 
 use Icecave\Isolator\Isolator;
 use PHPUnit_Framework_TestCase;
-use Phake;
+use Phunky;
 
 class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        parent::setUp();
+        $this->stack = Phunky::mock(__NAMESPACE__ . '\HandlerStack\HandlerStackInterface');
+        $this->isolator = Phunky::mock('Icecave\Isolator\Isolator');
+        $this->handler = Phunky::partialMock(__NAMESPACE__ . '\FatalErrorHandler', $this->stack, $this->isolator);
 
-        $this->stack = Phake::mock(__NAMESPACE__ . '\HandlerStack\HandlerStackInterface');
-        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
-        $this->handler = Phake::partialMock(__NAMESPACE__ . '\FatalErrorHandler', $this->stack, $this->isolator);
-
-        $this->exceptionHandler = Phake::partialMock(
+        $this->exceptionHandler = Phunky::partialMock(
             'Eloquent\Asplode\Test\CallableWrapper',
             function () {
                 return 'foobar';
             }
         );
-        Phake::when($this->stack)->handler()->thenReturn($this->exceptionHandler);
+        Phunky::when($this->stack)->handler()->thenReturn($this->exceptionHandler);
 
-        Phake::when($this->isolator)->error_reporting()->thenReturn(E_ALL);
+        Phunky::when($this->isolator)->error_reporting()->thenReturn(E_ALL);
     }
 
     public function testConstructor()
@@ -47,7 +45,7 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
 
     public function testConstructorDefaults()
     {
-        $this->handler = new FatalErrorHandler;
+        $this->handler = new FatalErrorHandler();
 
         $this->assertInstanceOf(__NAMESPACE__ . '\HandlerStack\ExceptionHandlerStack', $this->handler->stack());
     }
@@ -57,13 +55,13 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $this->handler->install();
 
         $this->assertTrue($this->handler->isInstalled());
-        Phake::inOrder(
-            Phake::verify($this->handler)->beforeRegister(),
-            Phake::verify($this->handler)->loadClasses(),
-            Phake::verify($this->isolator)->class_exists(__NAMESPACE__ . '\Error\FatalErrorException'),
-            Phake::verify($this->handler)->reserveMemory(),
-            Phake::verify($this->isolator)->str_repeat(' ', 10240),
-            Phake::verify($this->isolator)->register_shutdown_function($this->handler)
+        Phunky::inOrder(
+            Phunky::verify($this->handler)->beforeRegister(),
+            Phunky::verify($this->handler)->loadClasses(),
+            Phunky::verify($this->isolator)->class_exists(__NAMESPACE__ . '\Error\FatalErrorException'),
+            Phunky::verify($this->handler)->reserveMemory(),
+            Phunky::verify($this->isolator)->str_repeat(' ', 10240),
+            Phunky::verify($this->isolator)->register_shutdown_function($this->handler)
         );
     }
 
@@ -96,7 +94,7 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->uninstall();
         $handler();
 
-        Phake::verify($this->handler, Phake::never())->handleFatalError(Phake::anyParameters());
+        Phunky::verify($this->handler, Phunky::never())->handleFatalError(Phunky::anyParameters());
     }
 
     public function testHandleNoError()
@@ -105,12 +103,12 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->install();
         $handler();
 
-        Phake::verify($this->handler, Phake::never())->handleFatalError(Phake::anyParameters());
+        Phunky::verify($this->handler, Phunky::never())->handleFatalError(Phunky::anyParameters());
     }
 
     public function testHandleFatal()
     {
-        Phake::when($this->isolator)->error_get_last()->thenReturn(
+        Phunky::when($this->isolator)->error_get_last()->thenReturn(
             array(
                 'message' => 'message',
                 'type' => E_ERROR,
@@ -122,23 +120,23 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->install();
         $handler();
 
-        $freeMemoryVerification = Phake::verify($this->handler)->freeMemory();
-        $handleVerification = Phake::verify($this->handler)->handleFatalError(Phake::capture($error));
+        $freeMemoryVerification = Phunky::verify($this->handler)->freeMemory();
+        $handleVerification = Phunky::verify($this->handler)->handleFatalError(Phunky::capture($error));
         $this->assertInstanceOf(__NAMESPACE__ . '\Error\FatalErrorException', $error);
         $this->assertSame('message', $error->getMessage());
         $this->assertSame(E_ERROR, $error->getSeverity());
         $this->assertSame('/path/to/file', $error->getFile());
         $this->assertSame(111, $error->getLine());
-        Phake::inOrder(
+        Phunky::inOrder(
             $freeMemoryVerification,
             $handleVerification,
-            Phake::verify($this->exceptionHandler)->__invoke($error)
+            Phunky::verify($this->exceptionHandler)->__invoke($error)
         );
     }
 
     public function testHandleFatalNoHandler()
     {
-        Phake::when($this->isolator)->error_get_last()->thenReturn(
+        Phunky::when($this->isolator)->error_get_last()->thenReturn(
             array(
                 'message' => 'message',
                 'type' => E_ERROR,
@@ -146,20 +144,20 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
                 'line' => 111,
             )
         );
-        Phake::when($this->stack)->handler()->thenReturn(null);
+        Phunky::when($this->stack)->handler()->thenReturn(null);
         $handler = $this->handler;
         $handler->install();
         $handler();
 
-        Phake::inOrder(
-            Phake::verify($this->handler)->freeMemory(),
-            Phake::verify($this->handler)->handleFatalError(Phake::capture($error))
+        Phunky::inOrder(
+            Phunky::verify($this->handler)->freeMemory(),
+            Phunky::verify($this->handler)->handleFatalError(Phunky::capture($error))
         );
         $this->assertInstanceOf(__NAMESPACE__ . '\Error\FatalErrorException', $error);
         $this->assertSame('message', $error->getMessage());
         $this->assertSame(E_ERROR, $error->getSeverity());
         $this->assertSame('/path/to/file', $error->getFile());
         $this->assertSame(111, $error->getLine());
-        Phake::verify($this->exceptionHandler, Phake::never())->__invoke(Phake::anyParameters());
+        Phunky::verify($this->exceptionHandler, Phunky::never())->__invoke(Phunky::anyParameters());
     }
 }

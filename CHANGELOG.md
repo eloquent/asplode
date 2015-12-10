@@ -4,7 +4,7 @@
 
 - **[IMPROVED]** Support for [Isolator] 3.
 
-[Isolator]: https://github.com/IcecaveStudios/isolator
+[isolator]: https://github.com/IcecaveStudios/isolator
 
 ## 2.0.0 (2014-01-25)
 
@@ -44,4 +44,4 @@
 - **[NEW]** [Archer] integration
 - **[NEW]** Implemented changelog
 
-[Archer]: https://github.com/IcecaveStudios/archer
+[archer]: https://github.com/IcecaveStudios/archer

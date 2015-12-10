@@ -3,7 +3,7 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -87,10 +87,10 @@ class ErrorHandler implements ErrorHandlerInterface
     public function install()
     {
         if (0 === $this->isolator()->error_reporting()) {
-            throw new Exception\ErrorHandlingConfigurationException;
+            throw new Exception\ErrorHandlingConfigurationException();
         }
         if ($this->isInstalled()) {
-            throw new Exception\AlreadyInstalledException;
+            throw new Exception\AlreadyInstalledException();
         }
 
         $this->stack()->push($this);
@@ -109,7 +109,7 @@ class ErrorHandler implements ErrorHandlerInterface
                 $this->stack()->push($handler);
             }
 
-            throw new Exception\NotInstalledException;
+            throw new Exception\NotInstalledException();
         }
     }
 

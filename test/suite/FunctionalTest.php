@@ -3,7 +3,7 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,10 +16,8 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        parent::setUp();
-
-        $this->errorHandlerStack = new ErrorHandlerStack;
-        $this->exceptionHandlerStack = new ExceptionHandlerStack;
+        $this->errorHandlerStack = new ErrorHandlerStack();
+        $this->exceptionHandlerStack = new ExceptionHandlerStack();
 
         $this->errorHandlers = $this->errorHandlerStack->clear();
         $this->exceptionHandlers = $this->exceptionHandlerStack->clear();
@@ -71,7 +69,7 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
         Eloquent\Asplode\Asplode::install();
         $caught = false;
         try {
-            $callback(new stdClass);
+            $callback(new stdClass());
         } catch (ErrorException $e) {
             $caught = true;
         }
