@@ -151,4 +151,21 @@ EOD;
             $output
         );
     }
+
+    public function testStackTrimming()
+    {
+        Eloquent\Asplode\Asplode::install();
+        $caught = false;
+        try {
+            ($line = __LINE__) && ($fp = fopen(uniqid(), 'r'));
+        } catch (ErrorException $e) {
+            $caught = true;
+        }
+        $file = __FILE__;
+
+        $this->assertTrue($caught);
+        $this->assertSame($file, $e->getFile());
+        $this->assertSame($line, $e->getLine());
+        $this->assertFalse(strpos($e->getTraceAsString(), 'Asplode'));
+    }
 }

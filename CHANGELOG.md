@@ -1,5 +1,12 @@
 # Asplode changelog
 
+## Next release
+
+- **[IMPROVED]** Error exceptions use file and line from the original error, and
+  trim *Asplode* internals from the stack trace (#15).
+
+[#15]: https://github.com/eloquent/asplode/issues/15
+
 ## 2.0.1 (2014-10-29)
 
 - **[IMPROVED]** Support for [Isolator] 3.
