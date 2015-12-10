@@ -1,120 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Eloquent\Asplode\ErrorHandlerInterface | eloquent/asplode API</title>
-                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
-                            </head>
-        <body id="class">
-            <div class="header">
-        <ul>
-            <li><a href="../../classes.html">Classes</a></li>
-                            <li><a href="../../namespaces.html">Namespaces</a></li>
-                        <li><a href="../../interfaces.html">Interfaces</a></li>
-            <li><a href="../../doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Eloquent\Asplode\ErrorHandlerInterface | Asplode API</title>
 
-        <div id="title">eloquent/asplode API</div>
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <div class="type">Interface</div>
-    <h1><a href="../../Eloquent/Asplode.html">Eloquent\Asplode</a>\ErrorHandlerInterface</h1>
+    <body id="class" data-name="class:Eloquent_Asplode_ErrorHandlerInterface" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <p>interface    <strong>ErrorHandlerInterface</strong></p>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Asplode API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">interface</span></li>
+                                                            <li><a href="../../Eloquent.html">Eloquent</a></li>
+                                        <li><a href="../../Eloquent/Asplode.html">Asplode</a></li>
+    
+                <li>ErrorHandlerInterface</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>ErrorHandlerInterface</h1>
+    </div>
+
+    <p>    interface
+    <strong>ErrorHandlerInterface</strong>
+</p>
 
             <div class="description">
-            <p>The interface implemented by Asplode error handlers.</p>
-            <p>
-</p>
-        </div>
+            <p>The interface implemented by Asplode error handlers.</p>                    </div>
+    
     
     
     
             <h2>Methods</h2>
 
-            <table>
-                    <tr>
-                <td class="type">
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
-                    <a href="#method_setFallbackHandler">setFallbackHandler</a>(<abbr title="Eloquent\Asplode\callable">callable</abbr>|null $fallbackHandler = null)
-                    <p>Set an error handler to use as a fallback for errors that are not handled by Asplode.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    <abbr title="Eloquent\Asplode\callable">callable</abbr>
-                </td>
-                <td class="last">
+    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setFallbackHandler">setFallbackHandler</a>(
+    callable|null $fallbackHandler = null)
+                                            <p>Set an error handler to use as a fallback for errors that are not handled
+by Asplode.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    callable
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_fallbackHandler">fallbackHandler</a>()
-                    <p>Get the error handler used as a fallback for errors that are not handled by Asplode.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Get the error handler used as a fallback for errors that are not handled
+by Asplode.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+    
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_install">install</a>()
-                    <p>Installs this error handler.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
+                                            <p>Installs this error handler.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
                     
-                </td>
-                <td class="last">
+    
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_uninstall">uninstall</a>()
-                    <p>Uninstalls this error handler.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    boolean
-                </td>
-                <td class="last">
+                                            <p>Uninstalls this error handler.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
                     <a href="#method_isInstalled">isInstalled</a>()
-                    <p>Returns true if this error handler is the top-most handler on the stack.</p>
-                </td>
-                <td></td>
-            </tr>
-                    <tr>
-                <td class="type">
-                    boolean
-                </td>
-                <td class="last">
-                    <a href="#method_handle">handle</a>(integer $severity, string $message, string $filename, integer $lineno)
-                    <p>Handles a PHP error.</p>
-                </td>
-                <td></td>
-            </tr>
-            </table>
+                                            <p>Returns true if this error handler is the top-most handler on the stack.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_handle">handle</a>(
+    integer $severity, 
+    string $message, 
+    string $filename, 
+    integer $lineno)
+                                            <p>Handles a PHP error.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
 
 
         <h2>Details</h2>
 
-                        <h3 id="method_setFallbackHandler">
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_setFallbackHandler">
         <div class="location">at line 28</div>
-        <code>            public            
-    <strong>setFallbackHandler</strong>(<abbr title="Eloquent\Asplode\callable">callable</abbr>|null $fallbackHandler = null)</code>
+        <code>                    
+    
+    <strong>setFallbackHandler</strong>(
+    callable|null $fallbackHandler = null)</code>
     </h3>
     <div class="details">
-        <p>Set an error handler to use as a fallback for errors that are not handled by Asplode.</p>
-        <p>Errors not handled by Asplode include deprecation messages, and '@'
-suppressed errors.</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Set an error handler to use as a fallback for errors that are not handled
+by Asplode.</p>                    <p>Errors not handled by Asplode include deprecation messages, and '@'
+suppressed errors.</p>            </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Eloquent\Asplode\callable">callable</abbr>|null</td>
+                <td>
+    callable|null</td>
                 <td>$fallbackHandler</td>
                 <td>The fallback handler to use, or null to use the default PHP handler.</td>
             </tr>
@@ -126,22 +192,26 @@ suppressed errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_fallbackHandler">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fallbackHandler">
         <div class="location">at line 36</div>
-        <code>            public            <abbr title="Eloquent\Asplode\callable">callable</abbr>
+        <code>                    
+    callable
     <strong>fallbackHandler</strong>()</code>
     </h3>
     <div class="details">
-        <p>Get the error handler used as a fallback for errors that are not handled by Asplode.</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Get the error handler used as a fallback for errors that are not handled
+by Asplode.</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td><abbr title="Eloquent\Asplode\callable">callable</abbr></td>
+            <td>
+    callable</td>
             <td>The fallback error handler.</td>
         </tr>
     </table>
@@ -151,27 +221,29 @@ suppressed errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_install">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_install">
         <div class="location">at line 44</div>
-        <code>            public            
+        <code>                    
+    
     <strong>install</strong>()</code>
     </h3>
     <div class="details">
-        <p>Installs this error handler.</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Installs this error handler.</p>                                </div>
+                <div class="tags">
             
             
                             <h4>Exceptions</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Exception\AlreadyInstalledException">AlreadyInstalledException</abbr></td>
+                <td><a href="../../Eloquent/Asplode/Exception/AlreadyInstalledException.html"><abbr title="Eloquent\Asplode\Exception\AlreadyInstalledException">AlreadyInstalledException</abbr></a></td>
                 <td>If this error handler is already the top-most handler on the stack.</td>
             </tr>
                     <tr>
-                <td><abbr title="Exception\ErrorHandlingConfigurationException">ErrorHandlingConfigurationException</abbr></td>
+                <td><a href="../../Eloquent/Asplode/Exception/ErrorHandlingConfigurationException.html"><abbr title="Eloquent\Asplode\Exception\ErrorHandlingConfigurationException">ErrorHandlingConfigurationException</abbr></a></td>
                 <td>If the error reporting level is incorrectly configured.</td>
             </tr>
             </table>
@@ -180,23 +252,25 @@ suppressed errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_uninstall">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_uninstall">
         <div class="location">at line 51</div>
-        <code>            public            
+        <code>                    
+    
     <strong>uninstall</strong>()</code>
     </h3>
     <div class="details">
-        <p>Uninstalls this error handler.</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Uninstalls this error handler.</p>                                </div>
+                <div class="tags">
             
             
                             <h4>Exceptions</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Exception\NotInstalledException">NotInstalledException</abbr></td>
+                <td><a href="../../Eloquent/Asplode/Exception/NotInstalledException.html"><abbr title="Eloquent\Asplode\Exception\NotInstalledException">NotInstalledException</abbr></a></td>
                 <td>If this error handler is not the top-most handler on the stack.</td>
             </tr>
             </table>
@@ -205,22 +279,25 @@ suppressed errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_isInstalled">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_isInstalled">
         <div class="location">at line 58</div>
-        <code>            public            boolean
+        <code>                    
+    boolean
     <strong>isInstalled</strong>()</code>
     </h3>
     <div class="details">
-        <p>Returns true if this error handler is the top-most handler on the stack.</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Returns true if this error handler is the top-most handler on the stack.</p>                                </div>
+                <div class="tags">
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>
+    boolean</td>
             <td>True if this error handler is the top-most handler on the stack.</td>
         </tr>
     </table>
@@ -230,36 +307,46 @@ suppressed errors.</p>
                     </div>
     </div>
 
-                <h3 id="method_handle">
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_handle">
         <div class="location">at line 71</div>
-        <code>            public            boolean
-    <strong>handle</strong>(integer $severity, string $message, string $filename, integer $lineno)</code>
+        <code>                    
+    boolean
+    <strong>handle</strong>(
+    integer $severity, 
+    string $message, 
+    string $filename, 
+    integer $lineno)</code>
     </h3>
     <div class="details">
-        <p>Handles a PHP error.</p>
-        <p>
-</p>
-        <div class="tags">
+                    <div class="method-description">
+                                    <p>Handles a PHP error.</p>                                </div>
+                <div class="tags">
                             <h4>Parameters</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td>integer</td>
+                <td>
+    integer</td>
                 <td>$severity</td>
                 <td>The severity of the error.</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$message</td>
                 <td>The error message.</td>
             </tr>
                     <tr>
-                <td>string</td>
+                <td>
+    string</td>
                 <td>$filename</td>
                 <td>The filename in which the error was raised.</td>
             </tr>
                     <tr>
-                <td>integer</td>
+                <td>
+    integer</td>
                 <td>$lineno</td>
                 <td>The line number in which the error was raised.</td>
             </tr>
@@ -268,9 +355,10 @@ suppressed errors.</p>
             
                             <h4>Return Value</h4>
 
-                    <table>
+                    <table class="table table-condensed">
         <tr>
-            <td>boolean</td>
+            <td>
+    boolean</td>
             <td>False if the error is a deprecation message, or '@' suppression is in use.</td>
         </tr>
     </table>
@@ -278,9 +366,9 @@ suppressed errors.</p>
             
                             <h4>Exceptions</h4>
 
-                    <table>
+                    <table class="table table-condensed">
                     <tr>
-                <td><abbr title="Error\NonFatalErrorExceptionInterface">NonFatalErrorExceptionInterface</abbr></td>
+                <td><a href="../../Eloquent/Asplode/Error/NonFatalErrorExceptionInterface.html"><abbr title="Eloquent\Asplode\Error\NonFatalErrorExceptionInterface">NonFatalErrorExceptionInterface</abbr></a></td>
                 <td>Representing the error, unless the error is a deprecation message, or '@' suppression is in use.</td>
             </tr>
             </table>
@@ -289,10 +377,17 @@ suppressed errors.</p>
                     </div>
     </div>
 
+            </div>
+            </div>
+
     
             </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>

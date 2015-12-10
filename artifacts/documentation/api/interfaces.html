@@ -1,73 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="robots" content="index, follow, all" />
-        <title>Interfaces | eloquent/asplode API</title>
-                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
-                            </head>
-        <body id="overview">
-            <div class="header">
-        <ul>
-            <li><a href="classes.html">Classes</a></li>
-                            <li><a href="namespaces.html">Namespaces</a></li>
-                        <li><a href="interfaces.html">Interfaces</a></li>
-            <li><a href="doc-index.html">Index</a></li>
-            
-        </ul>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Interfaces | Asplode API</title>
 
-        <div id="title">eloquent/asplode API</div>
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/sami.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/typeahead.min.js"></script>
+        <script src="sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
 
-            <h1>Interfaces</h1>
+    <body id="interfaces" data-name="" data-root-path="">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
     </div>
-        <div class="content">
-                <table>
-                    <tr>
-                <td><a href="Eloquent/Asplode/ErrorHandlerInterface.html" target="main"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">Eloquent\Asplode\ErrorHandlerInterface</abbr></a></td>
-                <td class="last">
-                    The interface implemented by Asplode error handlers.
-                </td>
-            </tr>
-                    <tr>
-                <td><a href="Eloquent/Asplode/Error/ErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\ErrorExceptionInterface">Eloquent\Asplode\Error\ErrorExceptionInterface</abbr></a></td>
-                <td class="last">
-                    Interface used to identify all error exceptions.
-                </td>
-            </tr>
-                    <tr>
-                <td><a href="Eloquent/Asplode/Error/FatalErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\FatalErrorExceptionInterface">Eloquent\Asplode\Error\FatalErrorExceptionInterface</abbr></a></td>
-                <td class="last">
-                    Interface used to identify fatal error exceptions.
-                </td>
-            </tr>
-                    <tr>
-                <td><a href="Eloquent/Asplode/Error/NonFatalErrorExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Error\NonFatalErrorExceptionInterface">Eloquent\Asplode\Error\NonFatalErrorExceptionInterface</abbr></a></td>
-                <td class="last">
-                    Interface used to identify non-fatal error exceptions.
-                </td>
-            </tr>
-                    <tr>
-                <td><a href="Eloquent/Asplode/Exception/AsplodeExceptionInterface.html" target="main"><abbr title="Eloquent\Asplode\Exception\AsplodeExceptionInterface">Eloquent\Asplode\Exception\AsplodeExceptionInterface</abbr></a></td>
-                <td class="last">
-                    Interface use to identify all Asplode-related exceptions, excluding actual error exceptions.
-                </td>
-            </tr>
-                    <tr>
-                <td><a href="Eloquent/Asplode/FatalErrorHandlerInterface.html" target="main"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">Eloquent\Asplode\FatalErrorHandlerInterface</abbr></a></td>
-                <td class="last">
-                    The interface implemented by fatal error handlers.
-                </td>
-            </tr>
-                    <tr>
-                <td><a href="Eloquent/Asplode/HandlerStack/HandlerStackInterface.html" target="main"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">Eloquent\Asplode\HandlerStack\HandlerStackInterface</abbr></a></td>
-                <td class="last">
-                    The interface implemented by handler stacks.
-                </td>
-            </tr>
-            </table>
+
+                <div id="api-tree"></div>
+
         </div>
-            <div id="footer">
-        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Asplode API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="classes.html">Classes</a></li>
+                                            <li><a href="namespaces.html">Namespaces</a></li>
+                                        <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="traits.html">Traits</a></li>
+                    <li><a href="doc-index.html">Index</a></li>
+                    <li><a href="search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div id="page-content">
+                    <div class="page-header">
+        <h1>Interfaces</h1>
+    </div>
+
+    
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/ErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">Eloquent\Asplode\ErrorHandlerInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    The interface implemented by Asplode error handlers.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/Error/ErrorExceptionInterface.html"><abbr title="Eloquent\Asplode\Error\ErrorExceptionInterface">Eloquent\Asplode\Error\ErrorExceptionInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    Interface used to identify all error exceptions.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/Error/FatalErrorExceptionInterface.html"><abbr title="Eloquent\Asplode\Error\FatalErrorExceptionInterface">Eloquent\Asplode\Error\FatalErrorExceptionInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    Interface used to identify fatal error exceptions.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/Error/NonFatalErrorExceptionInterface.html"><abbr title="Eloquent\Asplode\Error\NonFatalErrorExceptionInterface">Eloquent\Asplode\Error\NonFatalErrorExceptionInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    Interface used to identify non-fatal error exceptions.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/Exception/AsplodeExceptionInterface.html"><abbr title="Eloquent\Asplode\Exception\AsplodeExceptionInterface">Eloquent\Asplode\Exception\AsplodeExceptionInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    Interface use to identify all Asplode-related exceptions, excluding actual
+error exceptions.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/FatalErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">Eloquent\Asplode\FatalErrorHandlerInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    The interface implemented by fatal error handlers.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <em><a href="Eloquent/Asplode/HandlerStack/HandlerStackInterface.html"><abbr title="Eloquent\Asplode\HandlerStack\HandlerStackInterface">Eloquent\Asplode\HandlerStack\HandlerStackInterface</abbr></a></em>
+                                    </div>
+                <div class="col-md-6">
+                    The interface implemented by handler stacks.
+                </div>
+            </div>
+            </div>
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
     </div>
     </body>
+
 </html>
