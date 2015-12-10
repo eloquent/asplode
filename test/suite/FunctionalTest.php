@@ -72,6 +72,8 @@ class FunctionalTest extends PHPUnit_Framework_TestCase
             $callback(new stdClass());
         } catch (ErrorException $e) {
             $caught = true;
+        } catch (Error $e) {
+            $caught = true;
         }
 
         $this->assertTrue($caught);
@@ -115,7 +117,7 @@ EOD;
         $output = implode(PHP_EOL, $output);
 
         $this->assertNotEquals(0, $exitCode);
-        $this->assertContains("Caught 'Call to undefined function foo()'", $output);
+        $this->assertContains('undefined function foo()', $output);
     }
 
     /**
