@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1449791837">
-  <project timestamp="1449791837">
+<coverage generated="1449793241">
+  <project timestamp="1449793241">
     <package name="Eloquent\Asplode">
       <file name="/home/travis/build/eloquent/asplode/src/Asplode.php">
         <class name="Asplode" namespace="Eloquent\Asplode">
           <metrics methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="17" coveredstatements="17" elements="21" coveredelements="21"/>
         </class>
-        <line num="32" type="method" name="install" crap="1" count="5"/>
-        <line num="34" type="stmt" count="5"/>
-        <line num="36" type="stmt" count="5"/>
-        <line num="47" type="method" name="installErrorHandler" crap="1" count="6"/>
-        <line num="49" type="stmt" count="6"/>
-        <line num="50" type="stmt" count="6"/>
-        <line num="52" type="stmt" count="6"/>
-        <line num="65" type="method" name="installFatalHandler" crap="1" count="6"/>
-        <line num="67" type="stmt" count="6"/>
-        <line num="68" type="stmt" count="6"/>
-        <line num="70" type="stmt" count="6"/>
+        <line num="32" type="method" name="install" crap="1" count="6"/>
+        <line num="34" type="stmt" count="6"/>
+        <line num="36" type="stmt" count="6"/>
+        <line num="47" type="method" name="installErrorHandler" crap="1" count="7"/>
+        <line num="49" type="stmt" count="7"/>
+        <line num="50" type="stmt" count="7"/>
+        <line num="52" type="stmt" count="7"/>
+        <line num="65" type="method" name="installFatalHandler" crap="1" count="7"/>
+        <line num="67" type="stmt" count="7"/>
+        <line num="68" type="stmt" count="7"/>
+        <line num="70" type="stmt" count="7"/>
         <line num="81" type="method" name="assertCompatibleHandler" crap="4" count="2"/>
         <line num="83" type="stmt" count="2"/>
         <line num="84" type="stmt" count="2"/>
@@ -33,31 +33,31 @@
         <class name="ErrorHandler" namespace="Eloquent\Asplode">
           <metrics methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="33" coveredstatements="33" elements="44" coveredelements="44"/>
         </class>
-        <line num="34" type="method" name="__construct" crap="2" count="21"/>
-        <line num="38" type="stmt" count="21"/>
-        <line num="39" type="stmt" count="21"/>
-        <line num="40" type="stmt" count="7"/>
-        <line num="43" type="stmt" count="21"/>
-        <line num="44" type="stmt" count="21"/>
-        <line num="45" type="stmt" count="21"/>
-        <line num="52" type="method" name="stack" crap="1" count="14"/>
-        <line num="54" type="stmt" count="14"/>
-        <line num="66" type="method" name="setFallbackHandler" crap="2" count="21"/>
-        <line num="68" type="stmt" count="21"/>
-        <line num="69" type="method" name="anonymous function" crap="1" count="21"/>
+        <line num="34" type="method" name="__construct" crap="2" count="22"/>
+        <line num="38" type="stmt" count="22"/>
+        <line num="39" type="stmt" count="22"/>
+        <line num="40" type="stmt" count="8"/>
+        <line num="43" type="stmt" count="22"/>
+        <line num="44" type="stmt" count="22"/>
+        <line num="45" type="stmt" count="22"/>
+        <line num="52" type="method" name="stack" crap="1" count="15"/>
+        <line num="54" type="stmt" count="15"/>
+        <line num="66" type="method" name="setFallbackHandler" crap="2" count="22"/>
+        <line num="68" type="stmt" count="22"/>
+        <line num="69" type="method" name="anonymous function" crap="1" count="22"/>
         <line num="70" type="stmt" count="2"/>
-        <line num="71" type="stmt" count="21"/>
-        <line num="74" type="stmt" count="21"/>
-        <line num="75" type="stmt" count="21"/>
+        <line num="71" type="stmt" count="22"/>
+        <line num="74" type="stmt" count="22"/>
+        <line num="75" type="stmt" count="22"/>
         <line num="83" type="method" name="fallbackHandler" crap="1" count="7"/>
         <line num="85" type="stmt" count="7"/>
-        <line num="94" type="method" name="install" crap="3" count="9"/>
-        <line num="96" type="stmt" count="9"/>
+        <line num="94" type="method" name="install" crap="3" count="10"/>
+        <line num="96" type="stmt" count="10"/>
         <line num="97" type="stmt" count="1"/>
-        <line num="99" type="stmt" count="8"/>
+        <line num="99" type="stmt" count="9"/>
         <line num="100" type="stmt" count="1"/>
-        <line num="103" type="stmt" count="7"/>
-        <line num="104" type="stmt" count="7"/>
+        <line num="103" type="stmt" count="8"/>
+        <line num="104" type="stmt" count="8"/>
         <line num="111" type="method" name="uninstall" crap="3" count="3"/>
         <line num="113" type="stmt" count="3"/>
         <line num="114" type="stmt" count="3"/>
@@ -65,51 +65,51 @@
         <line num="116" type="stmt" count="1"/>
         <line num="119" type="stmt" count="2"/>
         <line num="121" type="stmt" count="1"/>
-        <line num="128" type="method" name="isInstalled" crap="1" count="9"/>
-        <line num="130" type="stmt" count="9"/>
-        <line num="144" type="method" name="handle" crap="4" count="8"/>
-        <line num="147" type="stmt" count="8"/>
-        <line num="148" type="stmt" count="6"/>
-        <line num="149" type="stmt" count="5"/>
-        <line num="150" type="stmt" count="5"/>
+        <line num="128" type="method" name="isInstalled" crap="1" count="10"/>
+        <line num="130" type="stmt" count="10"/>
+        <line num="144" type="method" name="handle" crap="4" count="9"/>
+        <line num="147" type="stmt" count="9"/>
+        <line num="148" type="stmt" count="7"/>
+        <line num="149" type="stmt" count="6"/>
+        <line num="150" type="stmt" count="6"/>
         <line num="151" type="stmt" count="5"/>
         <line num="153" type="stmt" count="5"/>
-        <line num="156" type="stmt" count="3"/>
-        <line num="170" type="method" name="__invoke" crap="1" count="4"/>
-        <line num="172" type="stmt" count="4"/>
-        <line num="180" type="method" name="isolator" crap="1" count="11"/>
-        <line num="182" type="stmt" count="11"/>
+        <line num="156" type="stmt" count="4"/>
+        <line num="170" type="method" name="__invoke" crap="1" count="5"/>
+        <line num="172" type="stmt" count="5"/>
+        <line num="180" type="method" name="isolator" crap="1" count="12"/>
+        <line num="182" type="stmt" count="12"/>
         <metrics loc="188" ncloc="108" classes="1" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="35" elements="46" coveredelements="46"/>
       </file>
       <file name="/home/travis/build/eloquent/asplode/src/FatalErrorHandler.php">
         <class name="FatalErrorHandler" namespace="Eloquent\Asplode">
           <metrics methods="15" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="56" coveredstatements="56" elements="71" coveredelements="71"/>
         </class>
-        <line num="33" type="method" name="__construct" crap="2" count="16"/>
-        <line num="37" type="stmt" count="16"/>
-        <line num="38" type="stmt" count="16"/>
-        <line num="39" type="stmt" count="7"/>
-        <line num="42" type="stmt" count="16"/>
-        <line num="43" type="stmt" count="16"/>
-        <line num="44" type="stmt" count="16"/>
+        <line num="33" type="method" name="__construct" crap="2" count="17"/>
+        <line num="37" type="stmt" count="17"/>
+        <line num="38" type="stmt" count="17"/>
+        <line num="39" type="stmt" count="8"/>
+        <line num="42" type="stmt" count="17"/>
+        <line num="43" type="stmt" count="17"/>
+        <line num="44" type="stmt" count="17"/>
         <line num="51" type="method" name="stack" crap="1" count="4"/>
         <line num="53" type="stmt" count="4"/>
-        <line num="61" type="method" name="install" crap="3" count="13"/>
-        <line num="63" type="stmt" count="13"/>
+        <line num="61" type="method" name="install" crap="3" count="14"/>
+        <line num="63" type="stmt" count="14"/>
         <line num="64" type="stmt" count="1"/>
-        <line num="67" type="stmt" count="13"/>
-        <line num="68" type="stmt" count="13"/>
-        <line num="69" type="stmt" count="13"/>
-        <line num="70" type="stmt" count="13"/>
-        <line num="73" type="stmt" count="13"/>
-        <line num="74" type="stmt" count="13"/>
+        <line num="67" type="stmt" count="14"/>
+        <line num="68" type="stmt" count="14"/>
+        <line num="69" type="stmt" count="14"/>
+        <line num="70" type="stmt" count="14"/>
+        <line num="73" type="stmt" count="14"/>
+        <line num="74" type="stmt" count="14"/>
         <line num="81" type="method" name="uninstall" crap="2" count="3"/>
         <line num="83" type="stmt" count="3"/>
         <line num="84" type="stmt" count="1"/>
         <line num="87" type="stmt" count="2"/>
         <line num="88" type="stmt" count="2"/>
-        <line num="95" type="method" name="isInstalled" crap="2" count="14"/>
-        <line num="97" type="stmt" count="14"/>
+        <line num="95" type="method" name="isInstalled" crap="2" count="15"/>
+        <line num="97" type="stmt" count="15"/>
         <line num="108" type="method" name="handle" crap="3" count="4"/>
         <line num="110" type="stmt" count="4"/>
         <line num="111" type="stmt" count="1"/>
@@ -128,25 +128,25 @@
         <line num="128" type="stmt" count="2"/>
         <line num="138" type="method" name="__invoke" crap="1" count="4"/>
         <line num="140" type="stmt" count="4"/>
-        <line num="148" type="method" name="isRegistered" crap="1" count="14"/>
-        <line num="150" type="stmt" count="14"/>
+        <line num="148" type="method" name="isRegistered" crap="1" count="15"/>
+        <line num="150" type="stmt" count="15"/>
         <line num="158" type="method" name="isEnabled" crap="1" count="7"/>
         <line num="160" type="stmt" count="7"/>
-        <line num="168" type="method" name="isolator" crap="1" count="13"/>
-        <line num="170" type="stmt" count="13"/>
-        <line num="176" type="method" name="beforeRegister" crap="1" count="13"/>
-        <line num="178" type="stmt" count="13"/>
-        <line num="179" type="stmt" count="13"/>
-        <line num="180" type="stmt" count="13"/>
-        <line num="186" type="method" name="loadClasses" crap="1" count="13"/>
-        <line num="188" type="stmt" count="13"/>
-        <line num="189" type="stmt" count="13"/>
-        <line num="190" type="stmt" count="13"/>
-        <line num="198" type="method" name="reserveMemory" crap="2" count="13"/>
-        <line num="200" type="stmt" count="13"/>
-        <line num="201" type="stmt" count="13"/>
-        <line num="204" type="stmt" count="13"/>
-        <line num="205" type="stmt" count="13"/>
+        <line num="168" type="method" name="isolator" crap="1" count="14"/>
+        <line num="170" type="stmt" count="14"/>
+        <line num="176" type="method" name="beforeRegister" crap="1" count="14"/>
+        <line num="178" type="stmt" count="14"/>
+        <line num="179" type="stmt" count="14"/>
+        <line num="180" type="stmt" count="14"/>
+        <line num="186" type="method" name="loadClasses" crap="1" count="14"/>
+        <line num="188" type="stmt" count="14"/>
+        <line num="189" type="stmt" count="14"/>
+        <line num="190" type="stmt" count="14"/>
+        <line num="198" type="method" name="reserveMemory" crap="2" count="14"/>
+        <line num="200" type="stmt" count="14"/>
+        <line num="201" type="stmt" count="14"/>
+        <line num="204" type="stmt" count="14"/>
+        <line num="205" type="stmt" count="14"/>
         <line num="210" type="method" name="freeMemory" crap="1" count="2"/>
         <line num="212" type="stmt" count="2"/>
         <line num="213" type="stmt" count="2"/>
@@ -162,18 +162,35 @@
     <package name="Eloquent\Asplode\Error">
       <file name="/home/travis/build/eloquent/asplode/src/Error/AbstractErrorException.php">
         <class name="AbstractErrorException" namespace="Eloquent\Asplode\Error">
-          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="9" coveredelements="9"/>
+          <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="26" coveredelements="26"/>
         </class>
-        <line num="32" type="method" name="__construct" crap="1" count="7"/>
-        <line num="39" type="stmt" count="7"/>
-        <line num="40" type="stmt" count="7"/>
-        <line num="41" type="stmt" count="7"/>
-        <line num="42" type="stmt" count="7"/>
-        <line num="43" type="stmt" count="7"/>
-        <line num="44" type="stmt" count="7"/>
-        <line num="46" type="stmt" count="7"/>
-        <line num="47" type="stmt" count="7"/>
-        <metrics loc="48" ncloc="27" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="8" coveredstatements="8" elements="9" coveredelements="9"/>
+        <line num="33" type="method" name="__construct" crap="4" count="8"/>
+        <line num="40" type="stmt" count="8"/>
+        <line num="41" type="stmt" count="8"/>
+        <line num="42" type="stmt" count="8"/>
+        <line num="43" type="stmt" count="8"/>
+        <line num="44" type="stmt" count="8"/>
+        <line num="45" type="stmt" count="8"/>
+        <line num="47" type="stmt" count="8"/>
+        <line num="49" type="stmt" count="8"/>
+        <line num="51" type="stmt" count="8"/>
+        <line num="52" type="stmt" count="8"/>
+        <line num="53" type="stmt" count="8"/>
+        <line num="54" type="stmt" count="8"/>
+        <line num="55" type="stmt" count="8"/>
+        <line num="56" type="stmt" count="8"/>
+        <line num="58" type="stmt" count="8"/>
+        <line num="59" type="stmt" count="8"/>
+        <line num="61" type="stmt" count="8"/>
+        <line num="63" type="stmt" count="8"/>
+        <line num="65" type="stmt" count="8"/>
+        <line num="66" type="stmt" count="8"/>
+        <line num="67" type="stmt" count="8"/>
+        <line num="68" type="stmt" count="8"/>
+        <line num="70" type="stmt" count="8"/>
+        <line num="72" type="stmt" count="8"/>
+        <line num="73" type="stmt" count="8"/>
+        <metrics loc="74" ncloc="53" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="25" coveredstatements="25" elements="26" coveredelements="26"/>
       </file>
       <file name="/home/travis/build/eloquent/asplode/src/Error/ErrorException.php">
         <class name="ErrorException" namespace="Eloquent\Asplode\Error">
@@ -231,30 +248,30 @@
         <class name="AbstractHandlerStack" namespace="Eloquent\Asplode\HandlerStack">
           <metrics methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="37" coveredelements="37"/>
         </class>
-        <line num="27" type="method" name="__construct" crap="1" count="39"/>
-        <line num="29" type="stmt" count="39"/>
-        <line num="30" type="stmt" count="39"/>
-        <line num="37" type="method" name="handler" crap="2" count="10"/>
-        <line num="39" type="stmt" count="10"/>
-        <line num="40" type="stmt" count="10"/>
+        <line num="27" type="method" name="__construct" crap="1" count="40"/>
+        <line num="29" type="stmt" count="40"/>
+        <line num="30" type="stmt" count="40"/>
+        <line num="37" type="method" name="handler" crap="2" count="11"/>
+        <line num="39" type="stmt" count="11"/>
+        <line num="40" type="stmt" count="11"/>
         <line num="41" type="stmt" count="2"/>
-        <line num="44" type="stmt" count="10"/>
+        <line num="44" type="stmt" count="11"/>
         <line num="52" type="method" name="handlerStack" crap="1" count="4"/>
         <line num="54" type="stmt" count="4"/>
         <line num="56" type="stmt" count="4"/>
-        <line num="64" type="method" name="pushAll" crap="1" count="22"/>
-        <line num="66" type="stmt" count="22"/>
-        <line num="67" type="stmt" count="22"/>
-        <line num="74" type="method" name="clear" crap="2" count="24"/>
-        <line num="76" type="stmt" count="24"/>
-        <line num="77" type="stmt" count="24"/>
-        <line num="78" type="stmt" count="18"/>
-        <line num="79" type="stmt" count="18"/>
-        <line num="81" type="stmt" count="24"/>
-        <line num="89" type="method" name="restore" crap="1" count="16"/>
-        <line num="91" type="stmt" count="16"/>
-        <line num="92" type="stmt" count="16"/>
-        <line num="93" type="stmt" count="16"/>
+        <line num="64" type="method" name="pushAll" crap="1" count="23"/>
+        <line num="66" type="stmt" count="23"/>
+        <line num="67" type="stmt" count="23"/>
+        <line num="74" type="method" name="clear" crap="2" count="25"/>
+        <line num="76" type="stmt" count="25"/>
+        <line num="77" type="stmt" count="25"/>
+        <line num="78" type="stmt" count="19"/>
+        <line num="79" type="stmt" count="19"/>
+        <line num="81" type="stmt" count="25"/>
+        <line num="89" type="method" name="restore" crap="1" count="17"/>
+        <line num="91" type="stmt" count="17"/>
+        <line num="92" type="stmt" count="17"/>
+        <line num="93" type="stmt" count="17"/>
         <line num="108" type="method" name="executeWith" crap="4" count="8"/>
         <line num="110" type="stmt" count="8"/>
         <line num="111" type="stmt" count="8"/>
@@ -266,21 +283,21 @@
         <line num="124" type="stmt" count="8"/>
         <line num="125" type="stmt" count="2"/>
         <line num="128" type="stmt" count="6"/>
-        <line num="136" type="method" name="isolator" crap="1" count="36"/>
-        <line num="138" type="stmt" count="36"/>
+        <line num="136" type="method" name="isolator" crap="1" count="37"/>
+        <line num="138" type="stmt" count="37"/>
         <metrics loc="142" ncloc="81" classes="1" methods="8" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="37" coveredelements="37"/>
       </file>
       <file name="/home/travis/build/eloquent/asplode/src/HandlerStack/ErrorHandlerStack.php">
         <class name="ErrorHandlerStack" namespace="Eloquent\Asplode\HandlerStack">
           <metrics methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
         </class>
-        <line num="26" type="method" name="push" crap="1" count="17"/>
-        <line num="28" type="stmt" count="17"/>
-        <line num="29" type="stmt" count="17"/>
-        <line num="39" type="stmt" count="20"/>
-        <line num="40" type="stmt" count="14"/>
-        <line num="43" type="stmt" count="20"/>
-        <line num="45" type="stmt" count="20"/>
+        <line num="26" type="method" name="push" crap="1" count="18"/>
+        <line num="28" type="stmt" count="18"/>
+        <line num="29" type="stmt" count="18"/>
+        <line num="39" type="stmt" count="21"/>
+        <line num="40" type="stmt" count="15"/>
+        <line num="43" type="stmt" count="21"/>
+        <line num="45" type="stmt" count="21"/>
         <metrics loc="47" ncloc="26" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
       </file>
       <file name="/home/travis/build/eloquent/asplode/src/HandlerStack/ExceptionHandlerStack.php">
@@ -290,13 +307,13 @@
         <line num="26" type="method" name="push" crap="1" count="9"/>
         <line num="28" type="stmt" count="9"/>
         <line num="29" type="stmt" count="9"/>
-        <line num="39" type="stmt" count="18"/>
+        <line num="39" type="stmt" count="19"/>
         <line num="40" type="stmt" count="8"/>
-        <line num="43" type="stmt" count="18"/>
-        <line num="45" type="stmt" count="18"/>
+        <line num="43" type="stmt" count="19"/>
+        <line num="45" type="stmt" count="19"/>
         <metrics loc="47" ncloc="26" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
       </file>
     </package>
-    <metrics files="12" loc="954" ncloc="543" classes="12" methods="44" coveredmethods="44" conditionals="0" coveredconditionals="0" statements="172" coveredstatements="172" elements="216" coveredelements="216"/>
+    <metrics files="12" loc="980" ncloc="569" classes="12" methods="44" coveredmethods="44" conditionals="0" coveredconditionals="0" statements="189" coveredstatements="189" elements="233" coveredelements="233"/>
   </project>
 </coverage>
