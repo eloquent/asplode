@@ -1,6 +1,6 @@
 # Asplode changelog
 
-## Next release
+## 2.1.0 (2015-12-11)
 
 - **[IMPROVED]** Error exceptions use file and line from the original error, and
   trim *Asplode* internals from the stack trace (#15).
