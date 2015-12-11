@@ -3,7 +3,7 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,19 +13,17 @@ namespace Eloquent\Asplode;
 
 use Icecave\Isolator\Isolator;
 use PHPUnit_Framework_TestCase;
-use Phake;
+use Phunky;
 
 class ErrorHandlerTest extends PHPUnit_Framework_TestCase
 {
     protected function setUp()
     {
-        parent::setUp();
-
-        $this->stack = Phake::mock(__NAMESPACE__ . '\HandlerStack\HandlerStackInterface');
-        $this->isolator = Phake::mock('Icecave\Isolator\Isolator');
+        $this->stack = Phunky::mock(__NAMESPACE__ . '\HandlerStack\HandlerStackInterface');
+        $this->isolator = Phunky::mock('Icecave\Isolator\Isolator');
         $this->handler = new ErrorHandler($this->stack, $this->isolator);
 
-        Phake::when($this->isolator)->error_reporting()->thenReturn(E_ALL);
+        Phunky::when($this->isolator)->error_reporting()->thenReturn(E_ALL);
     }
 
     public function testConstructor()
@@ -40,7 +38,7 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
 
     public function testConstructorDefaults()
     {
-        $this->handler = new ErrorHandler;
+        $this->handler = new ErrorHandler();
 
         $this->assertInstanceOf(__NAMESPACE__ . '\HandlerStack\ErrorHandlerStack', $this->handler->stack());
     }
@@ -58,12 +56,12 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
     {
         $this->handler->install();
 
-        Phake::verify($this->stack)->push($this->handler);
+        Phunky::verify($this->stack)->push($this->handler);
     }
 
     public function testInstallFailureConfiguration()
     {
-        Phake::when($this->isolator)->error_reporting()->thenReturn(0);
+        Phunky::when($this->isolator)->error_reporting()->thenReturn(0);
 
         $this->setExpectedException(__NAMESPACE__ . '\Exception\ErrorHandlingConfigurationException');
         $this->handler->install();
@@ -71,7 +69,7 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
 
     public function testInstallFailureAlreadyInstalled()
     {
-        Phake::when($this->stack)->handler()->thenReturn($this->handler);
+        Phunky::when($this->stack)->handler()->thenReturn($this->handler);
 
         $this->setExpectedException(__NAMESPACE__ . '\Exception\AlreadyInstalledException');
         $this->handler->install();
@@ -79,15 +77,15 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
 
     public function testUninstall()
     {
-        Phake::when($this->stack)->pop()->thenReturn($this->handler);
+        Phunky::when($this->stack)->pop()->thenReturn($this->handler);
         $this->handler->uninstall();
 
-        Phake::verify($this->stack)->pop();
+        Phunky::verify($this->stack)->pop();
     }
 
     public function testUninstallFailure()
     {
-        Phake::when($this->stack)->pop()->thenReturn('foo');
+        Phunky::when($this->stack)->pop()->thenReturn('foo');
         $caught = false;
         try {
             $this->handler->uninstall();
@@ -96,12 +94,12 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertSame(true, $caught);
-        Phake::verify($this->stack)->push('foo');
+        Phunky::verify($this->stack)->push('foo');
     }
 
     public function testUninstallFailureEmptyStack()
     {
-        Phake::when($this->stack)->pop()->thenReturn(null);
+        Phunky::when($this->stack)->pop()->thenReturn(null);
         $caught = false;
         try {
             $this->handler->uninstall();
@@ -110,12 +108,12 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
         }
 
         $this->assertSame(true, $caught);
-        Phake::verify($this->stack, Phake::never())->push(Phake::anyParameters());
+        Phunky::verify($this->stack, Phunky::never())->push(Phunky::anyParameters());
     }
 
     public function testIsInstalled()
     {
-        Phake::when($this->stack)->handler()
+        Phunky::when($this->stack)->handler()
             ->thenReturn(null)
             ->thenReturn('foo')
             ->thenReturn($this->handler);
@@ -181,7 +179,7 @@ class ErrorHandlerTest extends PHPUnit_Framework_TestCase
             $arguments = func_get_args();
         };
         $this->handler->setFallbackHandler($fallbackHandler);
-        Phake::when($this->isolator)->error_reporting()->thenReturn(0);
+        Phunky::when($this->isolator)->error_reporting()->thenReturn(0);
         $this->handler->handle(E_USER_ERROR, 'foo', 'bar', 111);
 
         $this->assertSame(array(E_USER_ERROR, 'foo', 'bar', 111), $arguments);

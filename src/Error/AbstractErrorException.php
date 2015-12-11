@@ -3,7 +3,7 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,6 +13,7 @@ namespace Eloquent\Asplode\Error;
 
 use ErrorException;
 use Exception;
+use ReflectionClass;
 
 /**
  * An abstract base class for implementing extensions to the built-in error
@@ -44,5 +45,30 @@ abstract class AbstractErrorException extends ErrorException
             $lineNumber,
             $previous
         );
+
+        $reflector = new ReflectionClass('Exception');
+
+        $fileProperty = $reflector->getProperty('file');
+        $fileProperty->setAccessible(true);
+        $lineProperty = $reflector->getProperty('line');
+        $lineProperty->setAccessible(true);
+        $traceProperty = $reflector->getProperty('trace');
+        $traceProperty->setAccessible(true);
+
+        $fileProperty->setValue($this, $path);
+        $lineProperty->setValue($this, $lineNumber);
+
+        $trace = $this->getTrace();
+
+        foreach ($trace as $index => $call) {
+            if (
+                isset($call['class']) &&
+                0 === strpos($call['class'], 'Eloquent\Asplode\\')
+            ) {
+                unset($trace[$index]);
+            }
+        }
+
+        $traceProperty->setValue($this, $trace);
     }
 }

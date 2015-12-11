@@ -3,13 +3,16 @@
 /*
  * This file is part of the Asplode package.
  *
- * Copyright © 2014 Erin Millard
+ * Copyright © 2016 Erin Millard
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 namespace Eloquent\Asplode;
+
+use Eloquent\Asplode\Exception\AlreadyInstalledException;
+use Eloquent\Asplode\Exception\NotInstalledException;
 
 /**
  * The interface implemented by fatal error handlers.
@@ -19,14 +22,14 @@ interface FatalErrorHandlerInterface
     /**
      * Installs this fatal error handler.
      *
-     * @throws Exception\AlreadyInstalledException If this fatal error handler is already installed.
+     * @throws AlreadyInstalledException If this fatal error handler is already installed.
      */
     public function install();
 
     /**
      * Uninstalls this fatal error handler.
      *
-     * @throws Exception\NotInstalledException If this fatal error handler is not installed.
+     * @throws NotInstalledException If this fatal error handler is not installed.
      */
     public function uninstall();
 

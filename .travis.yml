@@ -1,18 +1,19 @@
+sudo: false
 language: php
 
-php: ["5.3", "5.4", "5.5", "5.6", "hhvm", "hhvm-nightly"]
+php: ["5.3", "5.4", "5.5", "5.6", "7.0", "hhvm"]
 
 matrix:
-    allow_failures: [{"php": "hhvm"}, {"php": "hhvm-nightly"}]
+    allow_failures: [{"php": "hhvm"}]
     fast_finish: true
 
 env:
   global:
     - ARCHER_PUBLISH_VERSION=5.6
-    - secure: "UgCpKaVVcYNBjX1DSaTUoHV1toQRInDwbTAIMGh1lsiHN2XDk4RGk3EXgCAla/Ul2ouO4EAyKCeyaWBJC7bD7PXv54r1uSFzaEOOoekx7CLePOAYAd329EFfvmD/BKYdMIaMximVr4dXl4w6PmmzQBUtKzdtTnCGwIb7KvhuRX4="
+    - secure: "hmTQpMf/2jergNmu7nSpEe5LFK39G9CHom7z8e3gbdan9SACB86KsR0c8PqlB6F/3iLE1fBxxKL5mdAbgNUQw7RwValepgdnV8uAtrswaR6cJVCKSBeq60IpoxWi2kPfQ/35QvpLUKn2kXjR8blnBw6HFpKPFXUwceQCaXg0ML4="
 
 install:
-  - ./.travis.install
+  - ./.archer/travis.install
 
 script:
-  - ./vendor/bin/archer travis:build
+  - ./vendor/bin/archer travis:build --ansi

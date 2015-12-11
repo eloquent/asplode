@@ -1,8 +1,17 @@
 # Asplode changelog
 
+## 2.1.0 (2015-12-11)
+
+- **[IMPROVED]** Error exceptions use file and line from the original error, and
+  trim *Asplode* internals from the stack trace (#15).
+
+[#15]: https://github.com/eloquent/asplode/issues/15
+
 ## 2.0.1 (2014-10-29)
 
-- **[IMPROVED]** Support for icecave/isolator 3.
+- **[IMPROVED]** Support for [Isolator] 3.
+
+[isolator]: https://github.com/IcecaveStudios/isolator
 
 ## 2.0.0 (2014-01-25)
 
@@ -42,4 +51,4 @@
 - **[NEW]** [Archer] integration
 - **[NEW]** Implemented changelog
 
-[Archer]: https://github.com/IcecaveStudios/archer
+[archer]: https://github.com/IcecaveStudios/archer

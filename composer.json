@@ -16,7 +16,10 @@
         "icecave/isolator": "~2|~3"
     },
     "require-dev": {
-        "icecave/archer": "~1"
+        "eloquent/phony": "dev-develop",
+        "icecave/archer": "dev-develop",
+        "phpunit/phpunit": "^4",
+        "sami/sami": "^3"
     },
     "autoload": {
         "psr-4": {
