@@ -198,7 +198,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     protected function reserveMemory($size = null)
     {
         if (null === $size) {
-            $size = 10240;
+            $size = 1048576;
         }
 
         $this->reservedMemory = $this->isolator()->str_repeat(' ', $size);

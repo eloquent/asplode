@@ -60,7 +60,7 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
             Phunky::verify($this->handler)->loadClasses(),
             Phunky::verify($this->isolator)->class_exists(__NAMESPACE__ . '\Error\FatalErrorException'),
             Phunky::verify($this->handler)->reserveMemory(),
-            Phunky::verify($this->isolator)->str_repeat(' ', 10240),
+            Phunky::verify($this->isolator)->str_repeat(' ', 1048576),
             Phunky::verify($this->isolator)->register_shutdown_function($this->handler)
         );
     }

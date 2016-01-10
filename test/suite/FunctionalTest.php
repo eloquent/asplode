@@ -122,6 +122,8 @@ EOD;
 
     /**
      * Test out of memory fatal error handling.
+     *
+     * @large
      */
     public function testFatalHandlingOutOfMemory()
     {
@@ -130,7 +132,7 @@ require %s;
 
 set_exception_handler(
     function (Exception $e) {
-        $memory = str_repeat(' ', 10240); // Verify that the memory freed by the fatal handler can be re-used.
+        $memory = str_repeat(' ', 1048576); // Verify that the memory freed by the fatal handler can be re-used.
         printf('Caught %%s' . PHP_EOL, var_export($e->getMessage(), true));
     }
 );
@@ -142,7 +144,7 @@ while (true) {
 }
 EOD;
         $source = sprintf($source, var_export(__DIR__ . '/../../vendor/autoload.php', true));
-        exec(sprintf('php -dmemory_limit=15000000 -r %s 2>&1', escapeshellarg($source)), $output, $exitCode);
+        exec(sprintf('php -dmemory_limit=15M -r %s 2>&1', escapeshellarg($source)), $output, $exitCode);
         $output = implode(PHP_EOL, $output);
 
         $this->assertNotEquals(0, $exitCode);
