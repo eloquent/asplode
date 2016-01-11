@@ -1,19 +1,19 @@
 
 
 Code Coverage Report:       
-  2016-01-10 22:11:11       
+  2016-01-11 00:49:34       
                             
  Summary:                   
   Classes: 100.00% (12/12)  
-  Methods: 100.00% (44/44)  
-  Lines:   100.00% (189/189)
+  Methods: 100.00% (34/34)  
+  Lines:   100.00% (174/174)
 
 \Eloquent\Asplode::Asplode
   Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 17/ 17)
 \Eloquent\Asplode::ErrorHandler
-  Methods: 100.00% (11/11)   Lines: 100.00% ( 33/ 33)
+  Methods: 100.00% (10/10)   Lines: 100.00% ( 32/ 32)
 \Eloquent\Asplode::FatalErrorHandler
-  Methods: 100.00% (15/15)   Lines: 100.00% ( 56/ 56)
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 43/ 43)
 \Eloquent\Asplode\Error::AbstractErrorException
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% ( 25/ 25)
 \Eloquent\Asplode\Exception::AlreadyInstalledException
@@ -23,7 +23,7 @@ Code Coverage Report:
 \Eloquent\Asplode\Exception::NotInstalledException
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  5/  5)
 \Eloquent\Asplode\HandlerStack::AbstractHandlerStack
-  Methods: 100.00% ( 8/ 8)   Lines: 100.00% ( 29/ 29)
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 28/ 28)
 \Eloquent\Asplode\HandlerStack::ErrorHandlerStack
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% (  2/  2)
 \Eloquent\Asplode\HandlerStack::ExceptionHandlerStack
