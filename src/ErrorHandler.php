@@ -36,6 +36,7 @@ class ErrorHandler implements ErrorHandlerInterface
         Isolator $isolator = null
     ) {
         $this->isolator = Isolator::get($isolator);
+
         if (null === $stack) {
             $stack = new ErrorHandlerStack($isolator);
         }
@@ -93,14 +94,15 @@ class ErrorHandler implements ErrorHandlerInterface
      */
     public function install()
     {
-        if (0 === $this->isolator()->error_reporting()) {
+        if (0 === $this->isolator->error_reporting()) {
             throw new ErrorHandlingConfigurationException();
         }
+
         if ($this->isInstalled()) {
             throw new AlreadyInstalledException();
         }
 
-        $this->stack()->push($this);
+        $this->stack->push($this);
     }
 
     /**
@@ -110,10 +112,11 @@ class ErrorHandler implements ErrorHandlerInterface
      */
     public function uninstall()
     {
-        $handler = $this->stack()->pop();
+        $handler = $this->stack->pop();
+
         if ($handler !== $this) {
             if (null !== $handler) {
-                $this->stack()->push($handler);
+                $this->stack->push($handler);
             }
 
             throw new NotInstalledException();
@@ -127,7 +130,7 @@ class ErrorHandler implements ErrorHandlerInterface
      */
     public function isInstalled()
     {
-        return $this->stack()->handler() === $this;
+        return $this->stack->handler() === $this;
     }
 
     /**
@@ -146,7 +149,7 @@ class ErrorHandler implements ErrorHandlerInterface
         if (
             E_DEPRECATED === $severity ||
             E_USER_DEPRECATED === $severity ||
-            0 === $this->isolator()->error_reporting()
+            0 === $this->isolator->error_reporting()
         ) {
             $fallbackHandler = $this->fallbackHandler();
 
@@ -170,16 +173,6 @@ class ErrorHandler implements ErrorHandlerInterface
     public function __invoke($severity, $message, $filename, $lineno)
     {
         return $this->handle($severity, $message, $filename, $lineno);
-    }
-
-    /**
-     * Get the isolator.
-     *
-     * @return Isolator The isolator.
-     */
-    protected function isolator()
-    {
-        return $this->isolator;
     }
 
     private $stack;

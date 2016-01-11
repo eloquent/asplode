@@ -37,6 +37,7 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
     public function handler()
     {
         $handler = $this->pop();
+
         if (null !== $handler) {
             $this->push($handler);
         }
@@ -74,6 +75,7 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
     public function clear()
     {
         $handlers = array();
+
         while (null !== ($handler = $this->pop())) {
             $handlers[] = $handler;
         }
@@ -108,11 +110,13 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
     public function executeWith($callable, $handler = null)
     {
         $handlers = $this->clear();
+
         if (null !== $handler) {
             $this->push($handler);
         }
 
         $error = null;
+
         try {
             $result = $callable();
         } catch (Exception $error) {
@@ -128,15 +132,5 @@ abstract class AbstractHandlerStack implements HandlerStackInterface
         return $result;
     }
 
-    /**
-     * Get the isolator.
-     *
-     * @return Isolator The isolator.
-     */
-    protected function isolator()
-    {
-        return $this->isolator;
-    }
-
-    private $isolator;
+    protected $isolator;
 }

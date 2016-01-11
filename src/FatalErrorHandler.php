@@ -12,7 +12,6 @@
 namespace Eloquent\Asplode;
 
 use Eloquent\Asplode\Error\FatalErrorException;
-use Eloquent\Asplode\Error\FatalErrorExceptionInterface;
 use Eloquent\Asplode\Exception\AlreadyInstalledException;
 use Eloquent\Asplode\Exception\NotInstalledException;
 use Eloquent\Asplode\HandlerStack\ExceptionHandlerStack;
@@ -35,12 +34,14 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
         Isolator $isolator = null
     ) {
         $this->isolator = Isolator::get($isolator);
+
         if (null === $stack) {
             $stack = new ExceptionHandlerStack($isolator);
         }
 
         $this->stack = $stack;
-        $this->isEnabled = $this->isRegistered = false;
+        $this->isRegistered = false;
+        $this->isEnabled = false;
     }
 
     /**
@@ -60,13 +61,15 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      */
     public function install()
     {
-        if ($this->isInstalled()) {
+        if ($this->isEnabled) {
             throw new AlreadyInstalledException();
         }
 
-        if (!$this->isRegistered()) {
-            $this->beforeRegister();
-            $this->isolator()->register_shutdown_function($this);
+        if (!$this->isRegistered) {
+            $this->reservedMemory = $this->isolator->str_repeat(' ', 1048576);
+            $this->isolator
+                ->class_exists('Eloquent\Asplode\Error\FatalErrorException');
+            $this->isolator->register_shutdown_function($this);
             $this->isRegistered = true;
         }
 
@@ -80,7 +83,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      */
     public function uninstall()
     {
-        if (!$this->isInstalled()) {
+        if (!$this->isEnabled) {
             throw new NotInstalledException();
         }
 
@@ -94,7 +97,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      */
     public function isInstalled()
     {
-        return $this->isRegistered() && $this->isEnabled();
+        return $this->isRegistered && $this->isEnabled;
     }
 
     /**
@@ -107,17 +110,24 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      */
     public function handle()
     {
-        if (!$this->isEnabled()) {
+        if (!$this->isEnabled) {
             return;
         }
 
-        $error = $this->isolator()->error_get_last();
+        $this->reservedMemory = '';
+        $error = $this->isolator->error_get_last();
+
         if (null === $error) {
             return;
         }
 
-        $this->freeMemory();
-        $this->handleFatalError(
+        $handler = $this->stack->handler();
+
+        if (null === $handler) {
+            return;
+        }
+
+        $handler(
             new FatalErrorException(
                 $error['message'],
                 $error['type'],
@@ -137,95 +147,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
      */
     public function __invoke()
     {
-        return $this->handle();
-    }
-
-    /**
-     * Returns true if this handler is registered.
-     *
-     * @return boolean True if this handler is registered.
-     */
-    protected function isRegistered()
-    {
-        return $this->isRegistered;
-    }
-
-    /**
-     * Returns true if this handler is enabled.
-     *
-     * @return boolean True if this handler is enabled.
-     */
-    protected function isEnabled()
-    {
-        return $this->isEnabled;
-    }
-
-    /**
-     * Get the isolator.
-     *
-     * @return Isolator The isolator.
-     */
-    protected function isolator()
-    {
-        return $this->isolator;
-    }
-
-    /**
-     * This method is called just before the shutdown function is registered.
-     */
-    protected function beforeRegister()
-    {
-        $this->loadClasses();
-        $this->reserveMemory();
-    }
-
-    /**
-     * Pre-loads any classes or interfaces  required in the event of a fatal
-     * error.
-     */
-    protected function loadClasses()
-    {
-        $this->isolator()
-            ->class_exists('Eloquent\Asplode\Error\FatalErrorException');
-    }
-
-    /**
-     * Reserves an amount of memory for use in the case of an out-of-memory
-     * fatal error.
-     *
-     * @param integer|null $size The amount of memory to reserve.
-     */
-    protected function reserveMemory($size = null)
-    {
-        if (null === $size) {
-            $size = 1048576;
-        }
-
-        $this->reservedMemory = $this->isolator()->str_repeat(' ', $size);
-    }
-
-    /**
-     * Frees the previously reseverd memory.
-     */
-    protected function freeMemory()
-    {
-        $this->reservedMemory = '';
-    }
-
-    /**
-     * Handles PHP fatal errors.
-     *
-     * @param FatalErrorExceptionInterface $error The fatal error to handle.
-     */
-    protected function handleFatalError(FatalErrorExceptionInterface $error)
-    {
-        $handler = $this->stack()->handler();
-
-        if (null === $handler) {
-            return;
-        }
-
-        $handler($error);
+        $this->handle();
     }
 
     private $stack;
