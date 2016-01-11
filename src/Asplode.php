@@ -24,14 +24,17 @@ abstract class Asplode
      * Installs a new error handler, and a new fatal error handler
      * simultaneously.
      *
-     * @param Isolator|null $isolator The isolator to use.
+     * @param integer       $reservedMemory The amount of memory to reserve for fatal error handling.
+     * @param Isolator|null $isolator       The isolator to use.
      *
      * @return tuple<ErrorHandlerInterface,FatalErrorHandlerInterface> A tuple containing the installed error handler and fatal error handler.
      * @throws ErrorHandlingConfigurationException                     If the error reporting level is incorrectly configured.
      */
-    public static function install(Isolator $isolator = null)
-    {
-        $fatalHandler = static::installFatalHandler($isolator);
+    public static function install(
+        $reservedMemory = 1048576,
+        Isolator $isolator = null
+    ) {
+        $fatalHandler = static::installFatalHandler($reservedMemory, $isolator);
 
         return array(static::installErrorHandler($isolator), $fatalHandler);
     }
@@ -58,14 +61,17 @@ abstract class Asplode
      * This handler will, on shutdown, detect any installed exception handler,
      * and pass an exception representing any fatal errors to said handler.
      *
-     * @param Isolator|null $isolator The isolator to use.
+     * @param integer       $reservedMemory The amount of memory to reserve for fatal error handling.
+     * @param Isolator|null $isolator       The isolator to use.
      *
      * @return FatalErrorHandlerInterface The installed fatal error handler.
      */
-    public static function installFatalHandler(Isolator $isolator = null)
-    {
+    public static function installFatalHandler(
+        $reservedMemory = 1048576,
+        Isolator $isolator = null
+    ) {
         $handler = new FatalErrorHandler(null, $isolator);
-        $handler->install();
+        $handler->install($reservedMemory);
 
         return $handler;
     }

@@ -25,9 +25,10 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
 
     public function testInstall()
     {
-        Asplode::install($this->isolator);
+        Asplode::install(111, $this->isolator);
 
         Phunky::verify($this->isolator)->set_error_handler($this->isInstanceOf(__NAMESPACE__ . '\ErrorHandler'));
+        Phunky::verify($this->isolator)->str_repeat(' ', 111);
         Phunky::verify($this->isolator)->register_shutdown_function($this->isInstanceOf(__NAMESPACE__ . '\FatalErrorHandler'));
     }
 
@@ -41,8 +42,9 @@ class AsplodeTest extends PHPUnit_Framework_TestCase
 
     public function testInstallFatalHandler()
     {
-        Asplode::installFatalHandler($this->isolator);
+        Asplode::installFatalHandler(111, $this->isolator);
 
+        Phunky::verify($this->isolator)->str_repeat(' ', 111);
         Phunky::verify($this->isolator)->register_shutdown_function($this->isInstanceOf(__NAMESPACE__ . '\FatalErrorHandler'));
         Phunky::verify($this->isolator, Phunky::never())->set_error_handler(Phunky::anyParameters());
     }

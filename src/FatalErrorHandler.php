@@ -57,16 +57,19 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
     /**
      * Installs this fatal error handler.
      *
+     * @param integer $reservedMemory The amount of memory to reserve for fatal error handling.
+     *
      * @throws AlreadyInstalledException If this fatal error handler is already installed.
      */
-    public function install()
+    public function install($reservedMemory = 1048576)
     {
         if ($this->isEnabled) {
             throw new AlreadyInstalledException();
         }
 
         if (!$this->isRegistered) {
-            $this->reservedMemory = $this->isolator->str_repeat(' ', 1048576);
+            $this->reservedMemory =
+                $this->isolator->str_repeat(' ', $reservedMemory);
             $this->isolator
                 ->class_exists('Eloquent\Asplode\Error\FatalErrorException');
             $this->isolator->register_shutdown_function($this);
