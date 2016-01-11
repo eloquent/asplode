@@ -95,6 +95,7 @@
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_install">install</a>(
+    integer $reservedMemory = 1048576, 
     <abbr title="Eloquent\Asplode\Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
                                             <p>Installs a new error handler, and a new fatal error handler
 simultaneously.</p>                </div>
@@ -118,6 +119,7 @@ simultaneously.</p>                </div>
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_installFatalHandler">installFatalHandler</a>(
+    integer $reservedMemory = 1048576, 
     <abbr title="Eloquent\Asplode\Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)
                                             <p>Installs a new fatal error handler.</p>                </div>
                 <div class="col-md-2"></div>
@@ -142,10 +144,11 @@ with code expecting error exceptions.</p>                </div>
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_install">
-        <div class="location">at line 32</div>
+        <div class="location">at line 33</div>
         <code>        static            
     <abbr title="Eloquent\Asplode\tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;">tuple&lt;ErrorHandlerInterface,FatalErrorHandlerInterface&gt;</abbr>
     <strong>install</strong>(
+    integer $reservedMemory = 1048576, 
     <abbr title="Eloquent\Asplode\Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
     </h3>
     <div class="details">
@@ -156,6 +159,12 @@ simultaneously.</p>                                </div>
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+    integer</td>
+                <td>$reservedMemory</td>
+                <td>The amount of memory to reserve for fatal error handling.</td>
+            </tr>
                     <tr>
                 <td>
     <abbr title="Eloquent\Asplode\Icecave\Isolator\Isolator">Isolator</abbr></td>
@@ -192,7 +201,7 @@ simultaneously.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_installErrorHandler">
-        <div class="location">at line 47</div>
+        <div class="location">at line 50</div>
         <code>        static            
     <a href="../../Eloquent/Asplode/ErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\ErrorHandlerInterface">ErrorHandlerInterface</abbr></a>
     <strong>installErrorHandler</strong>(
@@ -241,10 +250,11 @@ simultaneously.</p>                                </div>
             </div>
                     <div class="method-item">
                     <h3 id="method_installFatalHandler">
-        <div class="location">at line 65</div>
+        <div class="location">at line 69</div>
         <code>        static            
     <a href="../../Eloquent/Asplode/FatalErrorHandlerInterface.html"><abbr title="Eloquent\Asplode\FatalErrorHandlerInterface">FatalErrorHandlerInterface</abbr></a>
     <strong>installFatalHandler</strong>(
+    integer $reservedMemory = 1048576, 
     <abbr title="Eloquent\Asplode\Icecave\Isolator\Isolator">Isolator</abbr> $isolator = null)</code>
     </h3>
     <div class="details">
@@ -255,6 +265,12 @@ and pass an exception representing any fatal errors to said handler.</p>        
                             <h4>Parameters</h4>
 
                     <table class="table table-condensed">
+                    <tr>
+                <td>
+    integer</td>
+                <td>$reservedMemory</td>
+                <td>The amount of memory to reserve for fatal error handling.</td>
+            </tr>
                     <tr>
                 <td>
     <abbr title="Eloquent\Asplode\Icecave\Isolator\Isolator">Isolator</abbr></td>
@@ -282,7 +298,7 @@ and pass an exception representing any fatal errors to said handler.</p>        
             </div>
                     <div class="method-item">
                     <h3 id="method_assertCompatibleHandler">
-        <div class="location">at line 81</div>
+        <div class="location">at line 87</div>
         <code>        static            
     
     <strong>assertCompatibleHandler</strong>(

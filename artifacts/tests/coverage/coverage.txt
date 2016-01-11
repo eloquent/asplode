@@ -1,19 +1,19 @@
 
 
 Code Coverage Report:       
-  2016-01-11 00:49:34       
+  2016-01-11 00:56:05       
                             
  Summary:                   
   Classes: 100.00% (12/12)  
   Methods: 100.00% (34/34)  
-  Lines:   100.00% (174/174)
+  Lines:   100.00% (175/175)
 
 \Eloquent\Asplode::Asplode
   Methods: 100.00% ( 4/ 4)   Lines: 100.00% ( 17/ 17)
 \Eloquent\Asplode::ErrorHandler
   Methods: 100.00% (10/10)   Lines: 100.00% ( 32/ 32)
 \Eloquent\Asplode::FatalErrorHandler
-  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 43/ 43)
+  Methods: 100.00% ( 7/ 7)   Lines: 100.00% ( 44/ 44)
 \Eloquent\Asplode\Error::AbstractErrorException
   Methods: 100.00% ( 1/ 1)   Lines: 100.00% ( 25/ 25)
 \Eloquent\Asplode\Exception::AlreadyInstalledException
