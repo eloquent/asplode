@@ -72,7 +72,7 @@ class FatalErrorHandler implements FatalErrorHandlerInterface
                 $this->isolator->str_repeat(' ', $reservedMemory);
             $this->isolator
                 ->class_exists('Eloquent\Asplode\Error\FatalErrorException');
-            $this->isolator->register_shutdown_function($this);
+            $this->isolator->register_shutdown_function($this, '');
             $this->isRegistered = true;
         }
 
