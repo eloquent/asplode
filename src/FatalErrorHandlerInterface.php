@@ -22,9 +22,11 @@ interface FatalErrorHandlerInterface
     /**
      * Installs this fatal error handler.
      *
+     * @param integer $reservedMemory The amount of memory to reserve for fatal error handling.
+     *
      * @throws AlreadyInstalledException If this fatal error handler is already installed.
      */
-    public function install();
+    public function install($reservedMemory = 1048576);
 
     /**
      * Uninstalls this fatal error handler.

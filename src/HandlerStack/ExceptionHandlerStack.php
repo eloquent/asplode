@@ -25,7 +25,7 @@ class ExceptionHandlerStack extends AbstractHandlerStack
      */
     public function push($handler)
     {
-        $this->isolator()->set_exception_handler($handler);
+        $this->isolator->set_exception_handler($handler);
     }
 
     /**
@@ -35,12 +35,12 @@ class ExceptionHandlerStack extends AbstractHandlerStack
      */
     public function pop()
     {
-        $handler = $this->isolator()->set_exception_handler(function () {});
+        $handler = $this->isolator->set_exception_handler(function () {});
         if (null !== $handler) {
-            $this->isolator()->restore_exception_handler();
+            $this->isolator->restore_exception_handler();
         }
 
-        $this->isolator()->restore_exception_handler();
+        $this->isolator->restore_exception_handler();
 
         return $handler;
     }

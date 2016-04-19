@@ -1,5 +1,10 @@
 # Asplode changelog
 
+## 2.2.0 (2016-04-19)
+
+- **[IMPROVED]** Increased the amount of memory reserved by the fatal error
+  handler, to improve the chances of catching memory exhausted fatals.
+
 ## 2.1.0 (2015-12-11)
 
 - **[IMPROVED]** Error exceptions use file and line from the original error, and

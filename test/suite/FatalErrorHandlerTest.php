@@ -56,11 +56,8 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue($this->handler->isInstalled());
         Phunky::inOrder(
-            Phunky::verify($this->handler)->beforeRegister(),
-            Phunky::verify($this->handler)->loadClasses(),
+            Phunky::verify($this->isolator)->str_repeat(' ', 1048576),
             Phunky::verify($this->isolator)->class_exists(__NAMESPACE__ . '\Error\FatalErrorException'),
-            Phunky::verify($this->handler)->reserveMemory(),
-            Phunky::verify($this->isolator)->str_repeat(' ', 10240),
             Phunky::verify($this->isolator)->register_shutdown_function($this->handler)
         );
     }
@@ -94,7 +91,7 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->uninstall();
         $handler();
 
-        Phunky::verify($this->handler, Phunky::never())->handleFatalError(Phunky::anyParameters());
+        Phunky::verify($this->exceptionHandler, Phunky::never())->__invoke(Phunky::anyParameters());
     }
 
     public function testHandleNoError()
@@ -103,7 +100,7 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->install();
         $handler();
 
-        Phunky::verify($this->handler, Phunky::never())->handleFatalError(Phunky::anyParameters());
+        Phunky::verify($this->exceptionHandler, Phunky::never())->__invoke(Phunky::anyParameters());
     }
 
     public function testHandleFatal()
@@ -120,18 +117,12 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->install();
         $handler();
 
-        $freeMemoryVerification = Phunky::verify($this->handler)->freeMemory();
-        $handleVerification = Phunky::verify($this->handler)->handleFatalError(Phunky::capture($error));
+        Phunky::verify($this->exceptionHandler)->__invoke(Phunky::capture($error));
         $this->assertInstanceOf(__NAMESPACE__ . '\Error\FatalErrorException', $error);
         $this->assertSame('message', $error->getMessage());
         $this->assertSame(E_ERROR, $error->getSeverity());
         $this->assertSame('/path/to/file', $error->getFile());
         $this->assertSame(111, $error->getLine());
-        Phunky::inOrder(
-            $freeMemoryVerification,
-            $handleVerification,
-            Phunky::verify($this->exceptionHandler)->__invoke($error)
-        );
     }
 
     public function testHandleFatalNoHandler()
@@ -149,15 +140,6 @@ class FatalErrorHandlerTest extends PHPUnit_Framework_TestCase
         $handler->install();
         $handler();
 
-        Phunky::inOrder(
-            Phunky::verify($this->handler)->freeMemory(),
-            Phunky::verify($this->handler)->handleFatalError(Phunky::capture($error))
-        );
-        $this->assertInstanceOf(__NAMESPACE__ . '\Error\FatalErrorException', $error);
-        $this->assertSame('message', $error->getMessage());
-        $this->assertSame(E_ERROR, $error->getSeverity());
-        $this->assertSame('/path/to/file', $error->getFile());
-        $this->assertSame(111, $error->getLine());
         Phunky::verify($this->exceptionHandler, Phunky::never())->__invoke(Phunky::anyParameters());
     }
 }
